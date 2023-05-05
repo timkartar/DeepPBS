@@ -1,0 +1,20 @@
+{
+    "SOLVENT_COMPONENTS": "^HOH$|^WAT$|^NA$|^CA$|^ZN$|^CD$|^GD$",
+	"PROTEIN": {
+		"MAIN_CHAIN": "^N$|^O$|^C$|^OXT$|^H$|^H1$|^H2$|^H3$|^HXT$",
+		"SIDE_CHAIN": "(?!^N$|^O$|^C$|^OXT$|^H$|^H1$|^H2$|^H3$|^HXT$)",
+		"STANDARD_RESIDUES": "^ALA$|^ARG$|^ASN$|^ASP$|^CYS$|^GLN$|^GLU$|^GLY$|^HIS$|^ILE$|^LEU$|^LYS$|^MET$|^PHE$|^PRO$|^SER$|^THR$|^TRP$|^TYR$|^VAL$|^SEC$|^PYL$"
+	},
+	"DNA": {
+		"STANDARD_NUCLEOTIDES": "^DG$|^DA$|^DT$|^DC$|^DI$|^DU$",
+		"PYRIMIDINES": "^DT$|^DC$|^DU$",
+		"PURINES": "^DG$|^DA$|^DI$",
+		"BACKBONE": "^P$|^C[1-5]['\\*]$|^OP1$|^OP2$|^O1P$|^O2P$|^O[3-5]['\\*]$|^HO*[1-5]['\\*]+$"
+	},
+    "RNA": {
+		"STANDARD_NUCLEOTIDES": "^G$|^A$|^U$|^C$|^I$",
+		"PYRIMIDINES": "^C$|^U$",
+		"PURINES": "^G$|^A$|^I$",
+		"BACKBONE": "^P$|^C[1-5]['\\*]$|^OP1$|^OP2$|^O1P$|^O2P$|^O[3-5]['\\*]$|^HO*[1-5]['\\*]+$"
+	}
+}

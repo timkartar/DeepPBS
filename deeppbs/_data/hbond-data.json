@@ -1,0 +1,706 @@
+{
+  "ALA": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "ARG": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "NE": {
+        "donor_atom": "NE",
+        "hydrogen_atoms": [
+          "HE"
+        ]
+      },
+      "NH1": {
+        "donor_atom": "NH1",
+        "hydrogen_atoms": [
+          "HH11",
+          "HH12"
+        ]
+      },
+      "NH2": {
+        "donor_atom": "NH2",
+        "hydrogen_atoms": [
+          "HH21",
+          "HH22"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "ASN": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "ND2": {
+        "donor_atom": "ND2",
+        "hydrogen_atoms": [
+          "HD21",
+          "HD22"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OD1": {
+        "acceptor_atom": "OD1",
+        "base_atoms": [
+          "CG"
+        ]
+      }
+    }
+  },
+  "ASP": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OD1": {
+        "acceptor_atom": "OD1",
+        "base_atoms": [
+          "CG"
+        ]
+      },
+      "OD2": {
+        "acceptor_atom": "OD2",
+        "base_atoms": [
+          "CG",
+          "HD2"
+        ]
+      }
+    }
+  },
+  "CYS": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "SG": {
+        "donor_atom": "SG",
+        "hydrogen_atoms": [
+          "HG"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "SG": {
+        "acceptor_atom": "SG",
+        "base_atoms": [
+          "HG",
+          "CB"
+        ]
+      }
+    }
+  },
+  "GLU": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OE1": {
+        "acceptor_atom": "OE1",
+        "base_atoms": [
+          "CD"
+        ]
+      },
+      "OE2": {
+        "acceptor_atom": "OE2",
+        "base_atoms": [
+          "CD",
+          "HE2"
+        ]
+      }
+    }
+  },
+  "GLN": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "NE2": {
+        "donor_atom": "NE2",
+        "hydrogen_atoms": [
+          "HE21",
+          "HE22"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OE1": {
+        "acceptor_atom": "OE1",
+        "base_atoms": [
+          "CD"
+        ]
+      }
+    }
+  },
+  "GLY": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "HIS": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "NE2": {
+        "donor_atom": "NE2",
+        "hydrogen_atoms": [
+          "HE2"
+        ]
+      },
+      "ND1": {
+        "donor_atom": "ND1",
+        "hydrogen_atoms": [
+          "HD1"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "NE2": {
+        "acceptor_atom": "NE2",
+        "base_atoms": [
+          "CE1",
+          "CD2"
+        ]
+      },
+      "ND1": {
+        "acceptor_atom": "ND1",
+        "base_atoms": [
+          "CE1",
+          "CG"
+        ]
+      }
+    }
+  },
+  "ILE": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "LEU": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "LYS": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "NZ": {
+        "donor_atom": "NZ",
+        "hydrogen_atoms": [
+          "HZ1",
+          "HZ2",
+          "HZ3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "MET": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "PHE": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "PRO": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "SER": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "OG": {
+        "donor_atom": "OG",
+        "hydrogen_atoms": [
+          "HG"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OG": {
+        "acceptor_atom": "OG",
+        "base_atoms": [
+          "HG",
+          "CB"
+        ]
+      }
+    }
+  },
+  "THR": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "OG1": {
+        "donor_atom": "OG1",
+        "hydrogen_atoms": [
+          "HG1"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OG1": {
+        "acceptor_atom": "OG1",
+        "base_atoms": [
+          "HG1",
+          "CB"
+        ]
+      }
+    }
+  },
+  "TRP": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "NE1": {
+        "donor_atom": "NE1",
+        "hydrogen_atoms": [
+          "HE1"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  },
+  "TYR": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      },
+      "OH": {
+        "donor_atom": "OH",
+        "hydrogen_atoms": [
+          "HH"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OH": {
+        "acceptor_atom": "OH",
+        "base_atoms": [
+          "HH",
+          "CZ"
+        ]
+      }
+    }
+  },
+  "VAL": {
+    "donors": {
+      "N": {
+        "donor_atom": "N",
+        "hydrogen_atoms": [
+          "H",
+          "H1",
+          "H2",
+          "H3"
+        ]
+      }
+    },
+    "acceptors": {
+      "O": {
+        "acceptor_atom": "O",
+        "base_atoms": [
+          "C"
+        ]
+      },
+      "OXT": {
+        "acceptor_atom": "OXT",
+        "base_atoms": [
+          "C"
+        ]
+      }
+    }
+  }
+}

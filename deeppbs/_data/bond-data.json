@@ -1,0 +1,5122 @@
+{
+ "ALA": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "HB1",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB1": {
+   "id": "HB1",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "ARG": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD",
+    "HG2",
+    "HG3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD": {
+   "id": "CD",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "NE",
+    "HD2",
+    "HD3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "NE": {
+   "id": "NE",
+   "element": "N",
+   "bonded_atoms": [
+    "CD",
+    "CZ",
+    "HE"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CZ": {
+   "id": "CZ",
+   "element": "C",
+   "bonded_atoms": [
+    "NE",
+    "NH1",
+    "NH2"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "DOUB"
+   ]
+  },
+  "NH1": {
+   "id": "NH1",
+   "element": "N",
+   "bonded_atoms": [
+    "CZ",
+    "HH11",
+    "HH12"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "NH2": {
+   "id": "NH2",
+   "element": "N",
+   "bonded_atoms": [
+    "CZ",
+    "HH21",
+    "HH22"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG2": {
+   "id": "HG2",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG3": {
+   "id": "HG3",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD2": {
+   "id": "HD2",
+   "element": "H",
+   "bonded_atoms": [
+    "CD"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD3": {
+   "id": "HD3",
+   "element": "H",
+   "bonded_atoms": [
+    "CD"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE": {
+   "id": "HE",
+   "element": "H",
+   "bonded_atoms": [
+    "NE"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HH11": {
+   "id": "HH11",
+   "element": "H",
+   "bonded_atoms": [
+    "NH1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HH12": {
+   "id": "HH12",
+   "element": "H",
+   "bonded_atoms": [
+    "NH1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HH21": {
+   "id": "HH21",
+   "element": "H",
+   "bonded_atoms": [
+    "NH2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HH22": {
+   "id": "HH22",
+   "element": "H",
+   "bonded_atoms": [
+    "NH2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "ASN": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "OD1",
+    "ND2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "OD1": {
+   "id": "OD1",
+   "element": "O",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "ND2": {
+   "id": "ND2",
+   "element": "N",
+   "bonded_atoms": [
+    "CG",
+    "HD21",
+    "HD22"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD21": {
+   "id": "HD21",
+   "element": "H",
+   "bonded_atoms": [
+    "ND2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD22": {
+   "id": "HD22",
+   "element": "H",
+   "bonded_atoms": [
+    "ND2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "ASP": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "OD1",
+    "OD2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "OD1": {
+   "id": "OD1",
+   "element": "O",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "OD2": {
+   "id": "OD2",
+   "element": "O",
+   "bonded_atoms": [
+    "CG",
+    "HD2"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD2": {
+   "id": "HD2",
+   "element": "H",
+   "bonded_atoms": [
+    "OD2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "CYS": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "SG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "SG": {
+   "id": "SG",
+   "element": "S",
+   "bonded_atoms": [
+    "CB",
+    "HG"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG": {
+   "id": "HG",
+   "element": "H",
+   "bonded_atoms": [
+    "SG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "GLU": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD",
+    "HG2",
+    "HG3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD": {
+   "id": "CD",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "OE1",
+    "OE2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "OE1": {
+   "id": "OE1",
+   "element": "O",
+   "bonded_atoms": [
+    "CD"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "OE2": {
+   "id": "OE2",
+   "element": "O",
+   "bonded_atoms": [
+    "CD",
+    "HE2"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG2": {
+   "id": "HG2",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG3": {
+   "id": "HG3",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE2": {
+   "id": "HE2",
+   "element": "H",
+   "bonded_atoms": [
+    "OE2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "GLN": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD",
+    "HG2",
+    "HG3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD": {
+   "id": "CD",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "OE1",
+    "NE2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "OE1": {
+   "id": "OE1",
+   "element": "O",
+   "bonded_atoms": [
+    "CD"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "NE2": {
+   "id": "NE2",
+   "element": "N",
+   "bonded_atoms": [
+    "CD",
+    "HE21",
+    "HE22"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG2": {
+   "id": "HG2",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG3": {
+   "id": "HG3",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE21": {
+   "id": "HE21",
+   "element": "H",
+   "bonded_atoms": [
+    "NE2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE22": {
+   "id": "HE22",
+   "element": "H",
+   "bonded_atoms": [
+    "NE2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "GLY": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "HA2",
+    "HA3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA2": {
+   "id": "HA2",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA3": {
+   "id": "HA3",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "HIS": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "ND1",
+    "CD2"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "DOUB"
+   ]
+  },
+  "ND1": {
+   "id": "ND1",
+   "element": "N",
+   "bonded_atoms": [
+    "CG",
+    "CE1",
+    "HD1"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CD2": {
+   "id": "CD2",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "NE2",
+    "HD2"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "CE1": {
+   "id": "CE1",
+   "element": "C",
+   "bonded_atoms": [
+    "ND1",
+    "NE2",
+    "HE1"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "NE2": {
+   "id": "NE2",
+   "element": "N",
+   "bonded_atoms": [
+    "CD2",
+    "CE1",
+    "HE2"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD1": {
+   "id": "HD1",
+   "element": "H",
+   "bonded_atoms": [
+    "ND1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD2": {
+   "id": "HD2",
+   "element": "H",
+   "bonded_atoms": [
+    "CD2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE1": {
+   "id": "HE1",
+   "element": "H",
+   "bonded_atoms": [
+    "CE1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE2": {
+   "id": "HE2",
+   "element": "H",
+   "bonded_atoms": [
+    "NE2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "ILE": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG1",
+    "CG2",
+    "HB"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG1": {
+   "id": "CG1",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD1",
+    "HG12",
+    "HG13"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG2": {
+   "id": "CG2",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "HG21",
+    "HG22",
+    "HG23"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD1": {
+   "id": "CD1",
+   "element": "C",
+   "bonded_atoms": [
+    "CG1",
+    "HD11",
+    "HD12",
+    "HD13"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB": {
+   "id": "HB",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG12": {
+   "id": "HG12",
+   "element": "H",
+   "bonded_atoms": [
+    "CG1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG13": {
+   "id": "HG13",
+   "element": "H",
+   "bonded_atoms": [
+    "CG1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG21": {
+   "id": "HG21",
+   "element": "H",
+   "bonded_atoms": [
+    "CG2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG22": {
+   "id": "HG22",
+   "element": "H",
+   "bonded_atoms": [
+    "CG2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG23": {
+   "id": "HG23",
+   "element": "H",
+   "bonded_atoms": [
+    "CG2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD11": {
+   "id": "HD11",
+   "element": "H",
+   "bonded_atoms": [
+    "CD1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD12": {
+   "id": "HD12",
+   "element": "H",
+   "bonded_atoms": [
+    "CD1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD13": {
+   "id": "HD13",
+   "element": "H",
+   "bonded_atoms": [
+    "CD1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "LEU": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD1",
+    "CD2",
+    "HG"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD1": {
+   "id": "CD1",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "HD11",
+    "HD12",
+    "HD13"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD2": {
+   "id": "CD2",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "HD21",
+    "HD22",
+    "HD23"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG": {
+   "id": "HG",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD11": {
+   "id": "HD11",
+   "element": "H",
+   "bonded_atoms": [
+    "CD1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD12": {
+   "id": "HD12",
+   "element": "H",
+   "bonded_atoms": [
+    "CD1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD13": {
+   "id": "HD13",
+   "element": "H",
+   "bonded_atoms": [
+    "CD1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD21": {
+   "id": "HD21",
+   "element": "H",
+   "bonded_atoms": [
+    "CD2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD22": {
+   "id": "HD22",
+   "element": "H",
+   "bonded_atoms": [
+    "CD2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD23": {
+   "id": "HD23",
+   "element": "H",
+   "bonded_atoms": [
+    "CD2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "LYS": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD",
+    "HG2",
+    "HG3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD": {
+   "id": "CD",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "CE",
+    "HD2",
+    "HD3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CE": {
+   "id": "CE",
+   "element": "C",
+   "bonded_atoms": [
+    "CD",
+    "NZ",
+    "HE2",
+    "HE3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "NZ": {
+   "id": "NZ",
+   "element": "N",
+   "bonded_atoms": [
+    "CE",
+    "HZ1",
+    "HZ2",
+    "HZ3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG2": {
+   "id": "HG2",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG3": {
+   "id": "HG3",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD2": {
+   "id": "HD2",
+   "element": "H",
+   "bonded_atoms": [
+    "CD"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD3": {
+   "id": "HD3",
+   "element": "H",
+   "bonded_atoms": [
+    "CD"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE2": {
+   "id": "HE2",
+   "element": "H",
+   "bonded_atoms": [
+    "CE"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE3": {
+   "id": "HE3",
+   "element": "H",
+   "bonded_atoms": [
+    "CE"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HZ1": {
+   "id": "HZ1",
+   "element": "H",
+   "bonded_atoms": [
+    "NZ"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HZ2": {
+   "id": "HZ2",
+   "element": "H",
+   "bonded_atoms": [
+    "NZ"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HZ3": {
+   "id": "HZ3",
+   "element": "H",
+   "bonded_atoms": [
+    "NZ"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "MET": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "SD",
+    "HG2",
+    "HG3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "SD": {
+   "id": "SD",
+   "element": "S",
+   "bonded_atoms": [
+    "CG",
+    "CE"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "CE": {
+   "id": "CE",
+   "element": "C",
+   "bonded_atoms": [
+    "SD",
+    "HE1",
+    "HE2",
+    "HE3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG2": {
+   "id": "HG2",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG3": {
+   "id": "HG3",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE1": {
+   "id": "HE1",
+   "element": "H",
+   "bonded_atoms": [
+    "CE"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE2": {
+   "id": "HE2",
+   "element": "H",
+   "bonded_atoms": [
+    "CE"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE3": {
+   "id": "HE3",
+   "element": "H",
+   "bonded_atoms": [
+    "CE"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "PHE": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD1",
+    "CD2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CD1": {
+   "id": "CD1",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "CE1",
+    "HD1"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD2": {
+   "id": "CD2",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "CE2",
+    "HD2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CE1": {
+   "id": "CE1",
+   "element": "C",
+   "bonded_atoms": [
+    "CD1",
+    "CZ",
+    "HE1"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CE2": {
+   "id": "CE2",
+   "element": "C",
+   "bonded_atoms": [
+    "CD2",
+    "CZ",
+    "HE2"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "CZ": {
+   "id": "CZ",
+   "element": "C",
+   "bonded_atoms": [
+    "CE1",
+    "CE2",
+    "HZ"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD1": {
+   "id": "HD1",
+   "element": "H",
+   "bonded_atoms": [
+    "CD1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD2": {
+   "id": "HD2",
+   "element": "H",
+   "bonded_atoms": [
+    "CD2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE1": {
+   "id": "HE1",
+   "element": "H",
+   "bonded_atoms": [
+    "CE1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE2": {
+   "id": "HE2",
+   "element": "H",
+   "bonded_atoms": [
+    "CE2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HZ": {
+   "id": "HZ",
+   "element": "H",
+   "bonded_atoms": [
+    "CZ"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "PRO": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "CD",
+    "H",
+    "H1",
+    "H3",
+    "H2"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD",
+    "HG2",
+    "HG3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD": {
+   "id": "CD",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "CG",
+    "HD2",
+    "HD3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG2": {
+   "id": "HG2",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG3": {
+   "id": "HG3",
+   "element": "H",
+   "bonded_atoms": [
+    "CG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD2": {
+   "id": "HD2",
+   "element": "H",
+   "bonded_atoms": [
+    "CD"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD3": {
+   "id": "HD3",
+   "element": "H",
+   "bonded_atoms": [
+    "CD"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "SER": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "OG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OG": {
+   "id": "OG",
+   "element": "O",
+   "bonded_atoms": [
+    "CB",
+    "HG"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG": {
+   "id": "HG",
+   "element": "H",
+   "bonded_atoms": [
+    "OG"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "THR": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "OG1",
+    "CG2",
+    "HB"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OG1": {
+   "id": "OG1",
+   "element": "O",
+   "bonded_atoms": [
+    "CB",
+    "HG1"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "CG2": {
+   "id": "CG2",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "HG21",
+    "HG22",
+    "HG23"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB": {
+   "id": "HB",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG1": {
+   "id": "HG1",
+   "element": "H",
+   "bonded_atoms": [
+    "OG1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG21": {
+   "id": "HG21",
+   "element": "H",
+   "bonded_atoms": [
+    "CG2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG22": {
+   "id": "HG22",
+   "element": "H",
+   "bonded_atoms": [
+    "CG2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG23": {
+   "id": "HG23",
+   "element": "H",
+   "bonded_atoms": [
+    "CG2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "TRP": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD1",
+    "CD2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CD1": {
+   "id": "CD1",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "NE1",
+    "HD1"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD2": {
+   "id": "CD2",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "CE2",
+    "CE3"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "NE1": {
+   "id": "NE1",
+   "element": "N",
+   "bonded_atoms": [
+    "CD1",
+    "CE2",
+    "HE1"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CE2": {
+   "id": "CE2",
+   "element": "C",
+   "bonded_atoms": [
+    "CD2",
+    "NE1",
+    "CZ2"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "CE3": {
+   "id": "CE3",
+   "element": "C",
+   "bonded_atoms": [
+    "CD2",
+    "CZ3",
+    "HE3"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CZ2": {
+   "id": "CZ2",
+   "element": "C",
+   "bonded_atoms": [
+    "CE2",
+    "CH2",
+    "HZ2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CZ3": {
+   "id": "CZ3",
+   "element": "C",
+   "bonded_atoms": [
+    "CE3",
+    "CH2",
+    "HZ3"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "CH2": {
+   "id": "CH2",
+   "element": "C",
+   "bonded_atoms": [
+    "CZ2",
+    "CZ3",
+    "HH2"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD1": {
+   "id": "HD1",
+   "element": "H",
+   "bonded_atoms": [
+    "CD1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE1": {
+   "id": "HE1",
+   "element": "H",
+   "bonded_atoms": [
+    "NE1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE3": {
+   "id": "HE3",
+   "element": "H",
+   "bonded_atoms": [
+    "CE3"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HZ2": {
+   "id": "HZ2",
+   "element": "H",
+   "bonded_atoms": [
+    "CZ2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HZ3": {
+   "id": "HZ3",
+   "element": "H",
+   "bonded_atoms": [
+    "CZ3"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HH2": {
+   "id": "HH2",
+   "element": "H",
+   "bonded_atoms": [
+    "CH2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "TYR": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG",
+    "HB2",
+    "HB3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG": {
+   "id": "CG",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "CD1",
+    "CD2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CD1": {
+   "id": "CD1",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "CE1",
+    "HD1"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "CD2": {
+   "id": "CD2",
+   "element": "C",
+   "bonded_atoms": [
+    "CG",
+    "CE2",
+    "HD2"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CE1": {
+   "id": "CE1",
+   "element": "C",
+   "bonded_atoms": [
+    "CD1",
+    "CZ",
+    "HE1"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "CE2": {
+   "id": "CE2",
+   "element": "C",
+   "bonded_atoms": [
+    "CD2",
+    "CZ",
+    "HE2"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "CZ": {
+   "id": "CZ",
+   "element": "C",
+   "bonded_atoms": [
+    "CE1",
+    "CE2",
+    "OH"
+   ],
+   "bond_order": [
+    "DOUB",
+    "SING",
+    "SING"
+   ]
+  },
+  "OH": {
+   "id": "OH",
+   "element": "O",
+   "bonded_atoms": [
+    "CZ",
+    "HH"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB2": {
+   "id": "HB2",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB3": {
+   "id": "HB3",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD1": {
+   "id": "HD1",
+   "element": "H",
+   "bonded_atoms": [
+    "CD1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HD2": {
+   "id": "HD2",
+   "element": "H",
+   "bonded_atoms": [
+    "CD2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE1": {
+   "id": "HE1",
+   "element": "H",
+   "bonded_atoms": [
+    "CE1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HE2": {
+   "id": "HE2",
+   "element": "H",
+   "bonded_atoms": [
+    "CE2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HH": {
+   "id": "HH",
+   "element": "H",
+   "bonded_atoms": [
+    "OH"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ },
+ "VAL": {
+  "N": {
+   "id": "N",
+   "element": "N",
+   "bonded_atoms": [
+    "CA",
+    "H",
+    "H2",
+    "H1",
+    "H3"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CA": {
+   "id": "CA",
+   "element": "C",
+   "bonded_atoms": [
+    "N",
+    "C",
+    "CB",
+    "HA"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "C": {
+   "id": "C",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "O",
+    "OXT"
+   ],
+   "bond_order": [
+    "SING",
+    "DOUB",
+    "SING"
+   ]
+  },
+  "O": {
+   "id": "O",
+   "element": "O",
+   "bonded_atoms": [
+    "C"
+   ],
+   "bond_order": [
+    "DOUB"
+   ]
+  },
+  "CB": {
+   "id": "CB",
+   "element": "C",
+   "bonded_atoms": [
+    "CA",
+    "CG1",
+    "CG2",
+    "HB"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG1": {
+   "id": "CG1",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "HG11",
+    "HG12",
+    "HG13"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "CG2": {
+   "id": "CG2",
+   "element": "C",
+   "bonded_atoms": [
+    "CB",
+    "HG21",
+    "HG22",
+    "HG23"
+   ],
+   "bond_order": [
+    "SING",
+    "SING",
+    "SING",
+    "SING"
+   ]
+  },
+  "OXT": {
+   "id": "OXT",
+   "element": "O",
+   "bonded_atoms": [
+    "C",
+    "HXT"
+   ],
+   "bond_order": [
+    "SING",
+    "SING"
+   ]
+  },
+  "H": {
+   "id": "H",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H2": {
+   "id": "H2",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HA": {
+   "id": "HA",
+   "element": "H",
+   "bonded_atoms": [
+    "CA"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HB": {
+   "id": "HB",
+   "element": "H",
+   "bonded_atoms": [
+    "CB"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG11": {
+   "id": "HG11",
+   "element": "H",
+   "bonded_atoms": [
+    "CG1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG12": {
+   "id": "HG12",
+   "element": "H",
+   "bonded_atoms": [
+    "CG1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG13": {
+   "id": "HG13",
+   "element": "H",
+   "bonded_atoms": [
+    "CG1"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG21": {
+   "id": "HG21",
+   "element": "H",
+   "bonded_atoms": [
+    "CG2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG22": {
+   "id": "HG22",
+   "element": "H",
+   "bonded_atoms": [
+    "CG2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HG23": {
+   "id": "HG23",
+   "element": "H",
+   "bonded_atoms": [
+    "CG2"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "HXT": {
+   "id": "HXT",
+   "element": "H",
+   "bonded_atoms": [
+    "OXT"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H1": {
+   "id": "H1",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  },
+  "H3": {
+   "id": "H3",
+   "element": "H",
+   "bonded_atoms": [
+    "N"
+   ],
+   "bond_order": [
+    "SING"
+   ]
+  }
+ }
+}

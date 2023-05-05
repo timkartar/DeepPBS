@@ -1,0 +1,21 @@
+{
+    "residue_regexes": [
+        {
+            "residue_regex": "DA|DC|DG|DT|DI",
+            "group": "standard DNA",
+            "atom_regexes": [
+                {
+                    "atom_regex": ".*",
+                    "class": 1
+                }
+            ]
+        }
+    ],
+    "nc": 2,
+    "default": 0,
+    "classes": {
+        "0": "default",
+        "1": "DNA"
+    },
+    "name": "BINARY_STANDARD_DNA"
+}
