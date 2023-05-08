@@ -21,6 +21,7 @@ Developement Environment:
 * seaborn 0.11.2
 * trimesh 3.10.0
 * numpy 1.21.5
+* freesasa 2.1.0
 
 ## Installation
 
