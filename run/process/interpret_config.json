@@ -1,6 +1,5 @@
 {
-  "data_dir": "/home/raktim/cameron/CAGCAG_pdbs/npz/",
-  "output_path": "/home/raktim/geobind_dna/bin/process/output",
+  "data_dir": "/home/raktim/deeppbs/run/process/npz/",
   "nc": 4,
   "labels_key": "Y_pwm",
   "cache_dataset": false,

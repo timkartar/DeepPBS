@@ -1,6 +1,6 @@
 {
   "data_dir": "/home/raktim/dataset/assembly",
-  "output_path": "/home/raktim/deeppbs/bin/output",
+  "output_path": "/home/raktim/deeppbs/run/output",
   "nc": 4,
   "labels_key": "Y_pwm",
   "cache_dataset": false,
