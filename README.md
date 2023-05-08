@@ -53,4 +53,5 @@ parameters are unused) and `proc_source.sh` for required environment setup
 
 ./vis_interpret.sh 5x6g
 ```
-[![Everything Is AWESOME](https://yt-embed.herokuapp.com/embed?v=o1jJQ_OJydw)](https://www.youtube.com/watch?v=o1jJQ_OJydw "Everything Is AWESOME")
+[![Everything Is AWESOME](https://yt-embed.live/embed?v=o1jJQ_OJydw)](https://www.youtube.com/watch?v=o1jJQ_OJydw "Application of DeepPBS over MD simulation trajectory of Exd-Scr DNA complex
+")
