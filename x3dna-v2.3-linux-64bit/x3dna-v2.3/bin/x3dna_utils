@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+
+### Driver script of utilities to replace their Perl counterparts
+###     3DNA v2.3-2017feb08, created and maintained by Xiang-Jun Lu (PhD)
+
+$VERBOSE = true
+
+abort "Please set the 3DNA environment variable" unless ENV['X3DNA']
+require ENV['X3DNA'] + '/lib/trollop'
+require ENV['X3DNA'] + '/lib/miscs'
+
+$prg = File.basename($0)
+$sline = Utils.separation_line
+
+cmds_info = {
+    "block_atom" => "generate a base block schematic representation",
+    "cp_std" => "select standard PDB datasets for analyze/rebuild",
+    "dcmnfile" => "remove fixed-name files generated with 3DNA",
+    "x3dna_r3d2png" => "convert .r3d to image with Raster3D or PyMOL"
+}
+sub_cmds = cmds_info.keys.sort
+lst_cmds = sub_cmds.join(', ')
+str_cmds = sub_cmds.map { |cmd| "        #{cmd} -- #{cmds_info[cmd]}\n" }.join("")
+
+Trollop::options do             # global options
+    version Utils.version
+    banner $sline + "\n" +
+        "A miscellaneous collection of 3DNA utilities\n" +
+        "    Usage: #{$prg} [-h|-v] sub-command [-h] [options]\n" +
+        "    where sub-command must be one of: \n" +
+        str_cmds + $sline
+    stop_on sub_cmds
+end
+
+cmd = ARGV.shift                # get the sub-command
+Utils.fatal("Must specify a valid sub-command: #{lst_cmds}") unless cmd && lst_cmds.include?(cmd)
+
+case cmd
+when "block_atom"
+    opts = Trollop::options do
+        banner Utils.block_atom_banner
+        opt :pdbfile, "PDB file", :type => :string
+    end
+    pdbfile = ARGV.shift || opts[:pdbfile] || "must-be-specified"
+    Utils.block_atom(pdbfile)
+
+when "cp_std"
+    opts = Trollop::options do
+        banner Utils.cp_std_banner
+        opt :block, "Copy rectangular blocks", :default => false
+        opt :dataset, "Select a PDB dataset", :default => "BDNA"
+    end
+    opts[:dataset] = ARGV.first if ARGV.size > 0
+    Utils.cp_std(opts[:dataset], opts[:block])
+
+when "dcmnfile"
+    opts = Trollop::options do
+        banner "cleanup fixed-name files generated with 3DNA"
+    end
+    Utils.dcmnfile
+
+when "x3dna_r3d2png"
+    opts = Trollop::options do
+        banner Utils.x3dna_r3d2png_banner
+        opt :dpi_pymol, "create PyMol ray-tracer image at specified DPI", :type => :integer
+        opt :r3dfile, "name of .r3d input file", :type => :string, :required => true
+        opt :imgfile, "name of .png image file", :default => "temp_r3d.png"
+    end
+    Utils.fatal("File '#{opts[:r3dfile]}' non-existent") unless File.exist?(opts[:r3dfile])
+    opts[:imgfile] += ".png" unless opts[:imgfile] =~ /\.png$/i
+    Utils.x3dna_r3d2png(opts)
+end

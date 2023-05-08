@@ -1,0 +1,72 @@
+/FTSIZE 18 def % label font size
+/YOFFSET {FTSIZE 0.4 mul} bind def  % y-axis offset for label
+/Helvetica-Bold findfont FTSIZE scalefont setfont
+/GREYLEVEL 0.25 def  % for black and white gray lavel
+
+/SCENTER {dup stringwidth pop 2 div neg 0 rmoveto show} bind def  % center text
+/NP {newpath} bind def
+/DB {moveto lineto lineto lineto closepath} bind def   
+/LN {moveto lineto stroke} bind def
+/CIRCLE {0 360 arc} bind def
+/FB {setgray fill} bind def
+/R6 {moveto lineto lineto lineto lineto lineto closepath} bind def
+/R9 {moveto lineto lineto lineto lineto lineto lineto lineto lineto closepath} bind def
+
+% dot line style, color & width
+/Ds {[2 4] 0 setdash} bind def
+/Dl {1 0 1 setrgbcolor} bind def
+/Dw {1 setlinewidth} bind def
+
+% stacking diagram widths for base-pairs 1 & 2
+/W1 {1 setlinewidth} bind def
+/W2 {3 setlinewidth} bind def
+
+% minor and major grooves filling color saturation
+/MINOR_SAT 0.9 def
+/MAJOR_SAT 0.1 def
+/OTHER_SIDES {0 0 1 sethsbcolor fill} bind def
+
+% line drawing colors for ACGITU & others
+/Al {0.0000 1.00 1.00 sethsbcolor} bind def
+/Cl {0.1667 1.00 1.00 sethsbcolor} bind def
+/Gl {0.3333 1.00 1.00 sethsbcolor} bind def
+/Il {0.3333 1.00 0.57 sethsbcolor} bind def
+/Tl {0.6667 1.00 1.00 sethsbcolor} bind def
+/Ul {0.5000 1.00 1.00 sethsbcolor} bind def
+/Xl {0.0000 0.00 0.00 sethsbcolor} bind def
+
+% minor groove filling colors for ACGITU & others
+/Am {0.0000 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Cm {0.1667 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Gm {0.3333 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Im {0.3333 MINOR_SAT 0.57      sethsbcolor fill} bind def
+/Tm {0.6667 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Um {0.5000 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Xm {0.0000 0.00      MAJOR_SAT sethsbcolor fill} bind def
+/Sm {0.0000 0.00      0.6       sethsbcolor fill} bind def
+
+% major groove filling colors for ACGITU & others
+/AM {0.0000 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/CM {0.1667 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/GM {0.3333 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/IM {0.3333 MAJOR_SAT 0.57      sethsbcolor fill} bind def
+/TM {0.6667 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/UM {0.5000 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/XM {0.0000 0.00      MINOR_SAT sethsbcolor fill} bind def
+
+% define line width, line join style & cap style (1 means round)
+1 setlinewidth 1 setlinejoin 1 setlinecap
+
+% atom color list
+/ATOM00 {1.0000 0.0784 0.5765} bind def % Unknown deep pink
+/ATOM01 {0.7843 0.7843 0.7843} bind def % C light grey
+/ATOM02 {0.9412      0      0} bind def % O red
+/ATOM03 {0.2500 0.2500 0.2500} bind def % H 0.25 gray 
+/ATOM04 {0.5608 0.5608 1.0000} bind def % N light blue
+/ATOM05 {1.0000 0.7843 0.1961} bind def % S yellow
+/ATOM06 {1.0000 0.6471      0} bind def % P orange
+/ATOM07 {0.8549 0.6471 0.1255} bind def % F goldenrod
+/ATOM08 {     0 1.0000      0} bind def % Cl green
+/ATOM09 {0.6471 0.1647 0.1647} bind def % Br brown
+/ATOM10 {0.6275 0.1255 0.9412} bind def % I purple
+/ATOM11 {0.8549 0.6471 0.1255} bind def % Si goldenrod

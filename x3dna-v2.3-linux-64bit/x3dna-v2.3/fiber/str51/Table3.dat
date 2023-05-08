@@ -1,0 +1,32 @@
+S. Premilat & G. Albiser "X-ray fibre diffraction study of an elevated
+temperature structure of poly (dA).poly (dT)."  J. Mol. Biol. 274, 64-71
+(1997).
+
+Table 3: The B* structure of poly(dA).poly(dT)
+
+===================================================================
+          R(A)     phi     z(A)             R(A)     phi    z(A)
+Phosphate                              Desoxyribose                
+O3'       9.81   -77.07   -2.43        C5'  9.51   -62.00  -1.54
+P        10.41   -75.68   -1.00        C4'  8.89   -54.28  -0.94
+O1P      11.88   -74.72   -1.12        C3'  9.15   -52.90   0.55
+O2P      10.23   -82.16   -0.11        C2'  7.76   -53.38   1.19
+O5'       9.73   -68.07   -0.55        C1'  6.84   -49.84   0.03
+                                       O4'  7.46   -54.30  -1.12
+
+Adenine                                Thymine                        
+N9        5.44   -54.29    0.12        N1   5.44    54.29   -0.12
+C8        5.20   -68.51    0.41        C6   5.30    68.51   -0.42
+N7        4.02   -75.20    0.41        C5   4.24    78.28   -0.48
+C5        3.27   -57.25    0.11        C5M  4.69    96.27   -0.81
+C4        4.34   -44.84   -0.08        C4   2.90    70.55   -0.24
+N3        4.65   -28.50   -0.38        O4   1.93    89.47   -0.29
+C2        3.76   -15.19   -0.50        N3   3.21    45.74    0.05
+N1        2.45   -12.42   -0.35        C2   4.57    42.47    0.12
+C6        1.98   -44.77   -0.04        O2   5.18    30.35    0.39
+N6        0.94   -81.46    0.11
+
+The cylindrical co-ordinates of the molecular model. The phosphate-
+deoxyribose part of the chain is the one associated with the adenine base.
+The atomic co-ordinates of the phosphate-sugar group corresponding to the
+thymine are simply obtained by changing the sign of phi and z.

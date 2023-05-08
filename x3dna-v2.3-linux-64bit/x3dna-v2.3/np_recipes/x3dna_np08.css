@@ -1,0 +1,340 @@
+/* CSS validated by W3C: Xiang-Jun Lu <xl2134@columbia.edu> */
+
+body {
+    color: #000;
+    background-color: #fff;
+    background-repeat: repeat-y;
+    margin: 15px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.mainSidebar {
+    padding-left: 3px;
+}
+
+.mainContent {
+    background-color: #fff;
+    padding-left: 10px;
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    padding-right: 10px;
+    line-height: 128%;
+}
+
+.mainContent h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    padding-bottom: 0px;
+    border-bottom-width: thin;
+    border-bottom-style: dotted;
+    border-bottom-color: #FF9966;
+    padding-top: 0px;
+    border-top-width: medium;
+    border-top-style: solid;
+    border-top-color: #FF9900;
+    font-size: 14px;
+}
+
+.mainContent h2 {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    border-bottom-width: 1px;
+    border-bottom-style: groove;
+    border-bottom-color: #999999;
+    font-size: 14px;
+    padding-top: 3px;
+}
+
+.mainContent ul {
+    line-height: 128%;
+    font-family: "Times New Roman", Times, serif;
+    font-size: small;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.mainContent ol {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+.mainContent li {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 3px;
+    line-height: 148%;
+}
+
+.mainContent p {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    margin-top: 25px;
+}
+
+.date {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #009999;
+    font-style: italic;
+    border: thin groove;
+    margin-left: 8px;
+    margin-right: 6px;
+    padding: 0px;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.copyright {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-style: italic;
+    border-top: 2px dotted #333;
+    border-bottom: 2px dotted #333;
+    background-color: #999999;
+    clear: both;
+    padding: 1px 3px 3px 0;
+    margin-top: 0;
+    margin-left: 0;
+    text-align: center;
+}
+
+.bgGrayGreen {
+    background-color: #669999;
+}
+
+.disclaimer {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    font-style: italic;
+    color: #990000;
+    line-height: 166%;
+    border-top-width: thin;
+    border-bottom-width: thin;
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+    width: 168px;
+    padding-left: 2px;
+    margin-left: 6px;
+}
+
+.mainSidebar ul {
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style-type: none;
+    margin-right: 2px;
+    margin-top: 6px;
+}
+
+.mainSidebar li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 3px;
+    border-bottom: 1px dotted #666;
+    font-weight: bold;
+}
+
+.mainSidebar ul a {
+    text-decoration: none;
+    display: block;
+    padding-left: 20px;
+}
+
+.mainSidebar ul strong {
+    text-decoration: none;
+    display: block;
+    padding-left: 20px;
+    background: #699;
+    color: yellow;
+}
+
+a:link {
+    color: #00f;
+}
+
+a:visited {
+    color: #600;
+}
+
+a:active {
+    color: #f00;
+}
+
+a:hover {
+    color: #00f;
+    background-color: #ff0;
+}
+
+.my_title {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    /*  text-transform: capitalize;  */
+    color: #ff0;
+    text-align: right;
+    vertical-align: top;
+    padding-right: 6px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    padding-top: 3px;
+}
+
+.my_name {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+    color: #00f;
+    border-bottom-width: thin;
+    border-bottom-style: dashed;
+    border-bottom-color: #099;
+    padding-top: 10px;
+    padding-bottom: 3px;
+}
+
+.counter {
+    display: block;
+    padding-left: 20px;
+}
+
+.email {
+    display: block;
+    padding-left: 20px;
+}
+
+.x3dna {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    padding: 1px;
+    color: #003300;
+    font-size: small;
+}
+
+.n3dna {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    padding: 1px;
+    font-size: small;
+}
+
+.thanks {
+    font-family: "Times New Roman", Times, serif;
+    font-size: x-small;
+    border-bottom-width: thin;
+    border-bottom-style: dashed;
+    border-bottom-color: #999;
+}
+
+.tt_font {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    border-bottom: 1px dotted #666;
+}
+
+.tt_font_small {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    border-bottom: 1px dotted #666;
+}
+
+.faq_bar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    background-color: #ccc;
+    margin-top: 15px;
+}
+
+.nav_menu {
+    padding: 3px;
+    border: thin ridge #999;
+}
+
+.center {
+    text-align: center;
+}
+
+.pre_small {
+    font-family: "Courier New", Courier, mono, sans-serif;
+    font-size: 10px;
+    line-height: 158%;
+}
+
+.my_note {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-small;
+    background-color: #EEEEEE;
+    padding: 5px;
+}
+
+a:hover img {
+              /*     border-width: 0; */
+    background-color: white;
+}
+
+a#cq:hover {
+    border-width: 0;
+    background-color: transparent;
+}
+
+ol {
+    margin-left: 0;
+    padding-left: 40px;
+}
+
+ol li {
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+/*
+ol li:first-letter {
+    font-size: 1.08em;
+    font-weight: bold;
+    font-style: italic;
+}
+*/
+
+.altrow {
+    background-color: #efe;
+}
+
+p {
+    margin: 0 6px 6px 6px;
+}
+
+.cmds {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color : #ccc;
+    letter-spacing: 1px;
+    word-spacing: 6px;
+}
+
+tt {
+    font-size: 14px;
+}
+
+dt {
+    margin-left: 0;
+    padding-left: 6px;
+    font-weight: bold;
+}
+
+pre {
+    margin-left: 8px;
+    margin-bottom: 8px;
+    padding-left: 12px;
+    font-size: 12px;
+    border: solid 1px green;
+    line-height: 1.5;
+}
+
+.happy2006 { 
+             float: left;
+             margin: 0 10px 10px 0;
+}

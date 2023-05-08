@@ -1,0 +1,12 @@
+## here are some of parameters to control PyMOL ray-trace image;
+## make changes as you see fit.
+
+set orthoscopic, 1
+set antialias, 1
+set ambient, 0.5
+set direct, 0.8
+set gamma, 2
+set spec_power, 100
+set hash_max, 175
+zoom *, 1
+bg_color white

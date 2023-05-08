@@ -1,0 +1,15 @@
+fiber31.pdb
+fiber31.out
+    3         # triplex
+   10         # number of base-pairs
+    1    1    # explicit bp numbering/hetero atoms
+    1   20  21
+    2   19  22
+    3   18  23
+    4   17  24
+    5   16  25
+    6   15  26
+    7   14  27
+    8   13  28
+    9   12  29
+   10   11  30

@@ -1,0 +1,45 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+use vars qw($opt_h);
+use Getopt::Std;    # for easy command-line options processing
+
+use FindBin qw($Bin);
+use lib $Bin;
+use x3dna_utils;
+
+getopts("h");
+$opt_h ||= 0;       # help message
+
+if ( @ARGV != 1 or $opt_h ) {
+    print <<BLOCK_ATOM_USAGE;
+===========================================================================
+SYNOPSIS
+    block_atom PDBFILE
+DESCRIPTION
+    Gets an ALCHEMY data file which combines both atomic and block
+    representation from a PDB input file. The output file has the
+    same base name but with the ".alc" extension.
+EXAMPLES
+    block_atom bdl084.pdb
+    rasmol -alchemy -noconnect bdl084.alc
+AUTHOR
+    $author
+    Check URL: http://3dna.rutgers.edu/ for the latest
+===========================================================================
+BLOCK_ATOM_USAGE
+    die "\n";
+}
+
+my $pdbfile = $ARGV[0];
+-e $pdbfile or die "PDB file <$pdbfile> does NOT exist!\n";
+my $k = rindex( $pdbfile, '.' );    # from the last
+$k = length($pdbfile) if ( $k == -1 );    # no '.' found
+my $bname = substr( $pdbfile, 0, $k );
+
+my $X3DNA_BIN = x3dna_bin();
+
+system "$X3DNA_BIN/r3d_atom $pdbfile temp1";
+system "$X3DNA_BIN/pdb2img $pdbfile temp2";
+system "$X3DNA_BIN/comb_str atom_lkg.alc bblk_lkg.alc $bname.alc";

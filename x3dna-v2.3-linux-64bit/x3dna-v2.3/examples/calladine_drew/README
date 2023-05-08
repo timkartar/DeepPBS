@@ -1,0 +1,31 @@
+[1] Figure 3.14 on page 56 of CRC & HD DNA book, Edition 2
+
+   In p.56 Figs. (c) and (d), the 36 degrees twist angle is helical twist,
+   which corresponds ~34 degrees of step twist angle as given in CEHS. For
+   Figs. (a) and (b) the two twists are identical.
+
+   p56figab/p56figcd are two short shell scripts for getting Figs.
+      (a)/(b) and (c)/(d) in EPS, XFIG and Raster3D formats. The four
+      structures were set with reference to the middle helical frame
+      defined by rectangular blocks #1 and #11. Figs. (c) and (d) have
+      a small rotation about z-axis to make the helical axis vertical.
+
+   p56figab p56a | p56b
+   p56figcd p56c | p56d
+     
+[2] Figure 4.8 on page 78 of CRC & HD DNA book, Edition 2
+   
+   p78fig is a script similar to p56fig. The four structures were set with
+   reference to the middle frame defined by blocks #11 and #12.
+
+   p78fig p78a | p78b | p78c | p78d
+
+[3] Negative propeller twist induces steric clash between purines in YR
+    (pyrimidine-purine) dinucleotide steps
+
+    see files: yr_clash.*
+
+The script 'get_all' combines all the above functionality into one.
+
+                          ==============================================
+                           Xiang-Jun Lu (xiangjun@x3dna.org); 2013-07-09

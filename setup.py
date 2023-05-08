@@ -11,8 +11,9 @@ setuptools.setup(
     description="Geometry-invariant deep learning on protein-DNA structures for interpretable prediction of binding specificity across protein families",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    include_package_data=True,
     url="https://github.com/timkartar/DeepPBS",
-    packages=setuptools.find_packages(),
+    packages=['deeppbs', 'deeppbs.nn', 'deeppbs._data'],
     classifiers=[
 	"Development Status :: 3 - Alpha",
         "Programming Language :: Python :: 3",

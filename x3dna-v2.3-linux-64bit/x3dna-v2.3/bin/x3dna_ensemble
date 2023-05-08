@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+### Driver script to handle a MODEL/ENDMDL delineated ensemble
+###     3DNA v2.3-2017feb08, created and maintained by Xiang-Jun Lu (PhD)
+
+$VERBOSE = true
+require ENV['X3DNA'] + '/lib/ensemble'
+
+$prg = File.basename($0)
+$sline = Utils.separation_line
+
+cmds_info = {
+    "analyze" => "analyze MODEL/ENDMDL delineated ensemble (NMR or MD)",
+    "extract" => "extract structural parameters after running 'analyze'",
+    "reorient" => "reorient models to a particular frame/orientation",
+    "block_image" => "generate a base block schematic image",
+}
+sub_cmds = cmds_info.keys.sort
+lst_cmds = sub_cmds.join(', ')
+str_cmds = sub_cmds.map { |cmd| "        #{cmd} -- #{cmds_info[cmd]}\n" }.join("")
+
+Trollop::options do             # global options
+    version Utils.version
+    banner $sline + "\n" +
+        "Utilities for the analysis and visualization of an ensemble\n" +
+        "    Usage: #{$prg} [-h|-v] sub-command [-h] [options]\n" +
+        "    where sub-command must be one of: \n" +
+        str_cmds + $sline
+    stop_on sub_cmds
+end
+
+cmd = ARGV.shift                # get the sub-command
+Utils.fatal("Must specify a valid sub-command: #{lst_cmds}") unless cmd && lst_cmds.include?(cmd)
+
+case cmd
+when "analyze"
+    Ensemble::Analyze.new.main
+when "extract"
+    Ensemble::Extract.new.main
+when "reorient"
+    Ensemble::Reorient.new.main
+when "block_image"
+    Ensemble::BlockImage.new.main
+end

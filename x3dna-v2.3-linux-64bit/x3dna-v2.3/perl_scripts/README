@@ -1,0 +1,11 @@
+This directory contains Perl scripts from previous versions (v2.0 and
+v1.5) of 3DNA. As of v2.1, we have switched from Perl to Ruby as the
+script language. Some functionalities from the original Perl scripts
+are now consolidated into the Ruby script 'x3dna_utils'. The new Ruby
+script 'x3dna_ensemble' is for analyzing NMR ensembles or trajectories
+of molecular dynamics simulations.
+
+The original Perl scripts are kept here for back reference only --
+I'll correct bugs as they are identified, but no more new features.
+
+-- Xiang-Jun Lu (2012-07-09)

@@ -1,0 +1,34 @@
+File "stacking.pdb" is from the analysis of the 1.4 A resolution
+structure (CGCGAATTCGCG)2 solved by Shui et al. (bdl084/355d). The 11
+base-stacking diagrams in color EPS format were generated using the
+following command:
+         find_pair bdl084.pdb stdout | analyze stdin
+         mstack2img '-tlcdo -s=25' stacking.pdb 1 11 bdl084_
+
+"mstack2img" (in directory $X3DNA/perl_scripts as of 3DNA v2.1) is a
+short Perl script which calls "stack2img" to do the job.
+
+Option -c means color figure. By default, A is rendered red, T blue, G green
+          and C yellow, following the NDB convention
+       -d draws hydrogen bonds
+       -t means "normal top view", with long base-pair axis horizontal
+       -l label each base with chain ID and residue number
+       -o means filled the base rings
+            these one-letter options can be in either case, any order
+            and/or combined
+       -s=25 sets the scale factor so that all generated figures are 
+           on the same scale
+
+If you would like only a single structure, simply change "1 11" above
+to "n n", where "n" is an integer between 1 and 11, say 5.
+
+Alternatively, run the following commands:
+
+ex_str -5 stacking.pdb step5.pdb
+stack2img -cdo -s=25 step5.pdb step5.ps
+
+That is, use the utility program "ex_str" to extract the desired
+dinucleotide step to a file, then run "stack2img" to get the EPS file.
+
+                          ==============================================
+                           Xiang-Jun Lu (xiangjun@x3dna.org); 2013-07-09

@@ -1,0 +1,59 @@
+1. Program "anyhelix" can be used to analyze triplex, quadruplex etc.
+
+   Using fiber31.pdb [fiber model #31, Poly d(T).Poly d(A).Poly d(T)]
+   as an example, here are the procedures on how to analyze it:
+
+   [a] fiber31.inp is the input file listing each triplet.
+       (The nucleotide numbers can be derived by first running
+                   find_pair -p fiber31.pdb fiber31.bps
+        then (possibly) manual editing the generated file 'mulbp.inp')
+
+   [2] Run "anyhelix" on fiber31.inp, i.e.,
+                            anyhelix fiber31.inp
+       fiber31.out contains the detailed listing of various parameters.
+
+       For each triplet, the program finds all possible base-pairs and
+       calculate their base-pair parameters. Anti-parallel bases in a
+       pair (such as a Watson-Crick base-pair), are noted with "-",
+       e.g. A-T; and parallel bases in a pair are noted with "+",
+       e.g., A+T (Hoogsteen pair).
+
+   [3] Running "anyhelix" on fiber31.inp also generates several auxiliary
+       files with fixed names:
+       stacking.pdb -- gives each di-triplet step stacking geometry in a
+                      multiple PDB structure data file. For N triplets,
+                      there are N - 1 such steps. To extract one from it,
+                      you can use the utility program "ex_str" as this:
+                        ex_str -2 stacking.pdb s2.pdb
+
+                      This will extract the 2nd step (i.e., triplets 2 and
+                      3) into a PDB file called "s2.pdb". You can then view
+                      s2.pdb with Jmol/PyMOL, or generate a high-quality image
+                      in PostScript format using the program "stack2img":
+                        stack2img -tdco s2.pdb s2.ps
+
+                      Options -t simply adjusts the view of the presentation
+                                 by a 90 degrees rotation by z-axis;
+                              -d draw H-bonds;
+                              -c color by residue;
+                              -o filled the base ring
+                      These options can be in either lower or upper cases,
+                      in any order, and can be combined as illustrated here.
+       multiplets.pdb -- similar to stacking.pdb, with each triplet set with
+                      reference to its middle frame. Specifically, the view
+                      is perpendicular to the mean base plane of the
+                      triplet.
+       allpairs.pdb -- similar to multiplets.pdb, but for each base-pair
+
+2. "analyze" now also works for a parallel duplex. "para.inp" is an input
+   file to "analyze", which corresponds to the parallel Hoogsteen duplex
+   formed between chain A (poly d(A)) and chain C (poly d(T)) of
+   fiber31.pdb:
+        analyze para.inp
+
+   Of course, "para.inp" is also suitable for "anyhelix": they give
+   identical base pair parameters. "analyze" also provide additional
+   parameters such as backbone torsion angles, sugar conformations etc.
+
+                          ==============================================
+                           Xiang-Jun Lu (xiangjun@x3dna.org); 2013-07-09

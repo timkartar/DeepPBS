@@ -1,0 +1,76 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+use vars qw($opt_h);
+use Getopt::Std;    # for easy command-line options processing
+
+use File::Copy;     # File copy
+
+use FindBin qw($Bin);
+use lib $Bin;
+use x3dna_utils;
+
+getopts("h");
+$opt_h ||= 0;       # help message
+
+if ( @ARGV != 1 or $opt_h ) {
+    print <<CP_STD_USAGE;
+===========================================================================
+SYNOPSIS
+    cp_std PDB_DATASET
+DESCRIPTION
+    Selects the standard PDB data files to be used with "analyze"
+    and "rebuild". Available sets include ADNA, BDNA, NDB96 and
+    RNA, which have exactly the same base geometry and orientation
+    but different backbone conformations. Users can also set their
+    own standard file with the "std_base" utility program.
+EXAMPLES
+    cp_std BDNA
+AUTHOR
+    $author
+    Check URL: http://3dna.rutgers.edu/ for the latest
+===========================================================================
+CP_STD_USAGE
+    die "\n";
+}
+
+my $X3DNA = x3dna_dir();
+
+my $btype = uc( $ARGV[0] );
+if ( $btype =~ /block/i ) {    # block with thickness = 1 Angstrom
+    my $prefix = "$X3DNA/config/block";
+    copy( "$prefix/Block_BP1.alc", "Block_BP.alc" );
+    copy( "$prefix/Block_R1.alc",  "Block_R.alc" );
+    copy( "$prefix/Block_Y1.alc",  "Block_Y.alc" );
+    die "\n";
+}
+
+my @std_bases = <$X3DNA/config/atomic/{$btype}_?.pdb>;
+
+system("rm -f Atomic_?.pdb");
+
+foreach (@std_bases) {
+    my $base = substr $_, -5, 1;
+    print "$_\n";
+    copy( "$_", "Atomic_$base.pdb" );
+    copy( "$_", "Atomic.\L$base.pdb" );    # lower case counterpart
+}
+
+if ( !( -e "Atomic_I.pdb" && -e "Atomic_i.pdb" ) ) {
+    open( FG, "Atomic_G.pdb" )  || die "Can't open Atomic_G.pdb for reading: $!\n";
+    open( FI, ">Atomic_I.pdb" ) || die "Can't open Atomic_I.pdb for writing: $!\n";
+    my $num = 0;
+    while (<FG>) {
+        if ( /^ATOM/ || /^HETATM/ ) {
+            next if (/ N2 /);              # skip N2 atom of G
+            s/  G /  I /;                  # change residue name G ---> I
+            $num++;
+            substr( $_, 6, 5 ) = sprintf( "%5d", $num );
+        }
+        print FI;
+    }
+    close(FG);
+    close(FI);
+    copy( "Atomic_I.pdb", "Atomic.i.pdb" );
+}

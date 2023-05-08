@@ -1,0 +1,14 @@
+REMARK    Standard base geometry file extracted from Babcock-Olson RNA
+REMARK    program <bases.inn>. Default pivot point [0 1.808 0] is used
+REMARK    Note: ls-fitting in RNA using base ring atoms & the C1* atom
+ATOM      1  C1*   G     1      -2.427   5.425   0.000                          
+ATOM      2  N1    G     1      -0.960   0.562   0.000                          
+ATOM      3  C2    G     1      -2.227   1.095   0.000                          
+ATOM      4  N3    G     1      -2.485   2.397   0.000                          
+ATOM      5  C4    G     1      -1.349   3.135   0.000                          
+ATOM      6  C5    G     1      -0.044   2.696   0.000                          
+ATOM      7  C6    G     1       0.214   1.304   0.000                          
+ATOM      8  N7    G     1       0.838   3.769   0.000                          
+ATOM      9  C8    G     1       0.062   4.819   0.000                          
+ATOM     10  N9    G     1      -1.277   4.510   0.000                          
+END

@@ -1,0 +1,79 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+use FindBin qw($Bin);
+use lib $Bin;
+use x3dna_utils;
+
+my $inpfile;
+my $program;
+if ( @ARGV == 1 && ( $ARGV[0] !~ /-/ ) ) {
+    $inpfile = $ARGV[0];
+    $program = "analyze";
+} elsif ( @ARGV == 2 && ( uc( $ARGV[0] ) =~ /-CEHS/ ) ) {
+    $inpfile = $ARGV[1];
+    $program = "cehs";
+} else {
+    print <<MANALYZE_USAGE;
+===========================================================================
+SYNOPSIS
+    manalyze [-cehs] INPFILE
+DESCRIPTION
+    A wrapper to "analyze" and "cehs" for analyzing multiple structures
+    using a single input file. Please note that "analyze" and "cehs" both
+    work with multiple input files: "analyze INPFILE1 INPFILE2" has the
+    function as "cat INPFILE1 INPFILE2 > comb1_2; manalyze comb1_2".
+    Check directory Examples/Analyze_Rebuild for an example.
+EXAMPLES
+    manalyze multi_str.inp
+AUTHOR
+    $author
+    $url
+===========================================================================
+MANALYZE_USAGE
+    die "\n";
+}
+
+open( FINP, $inpfile ) || die "Can't open $inpfile for reading: $!\n";
+
+my $X3DNA_BIN = x3dna_bin();
+
+my $num = 0;    # structure number
+my $pdbfile;
+my $num_bp;
+while (1) {
+    last if ( !defined( $pdbfile = <FINP> ) );
+
+    while (1) {
+        if ( defined($pdbfile) && $pdbfile =~ /^\#/ ) {
+            $pdbfile = <FINP>;
+        } else {
+            last;
+        }
+    }
+    last if ( !defined($pdbfile) );
+
+    # extract one input file into "tmpfile"
+    open( FTMP, ">tmpfile" ) || die "Can't open tmpfile for writing: $!\n";
+    print FTMP $pdbfile;
+    for ( my $i = 1 ; $i <= 4 ; $i++ ) {
+        $_ = <FINP>;
+        print FTMP;
+        if ( $i == 3 && /(\d+)/ ) {
+            $num_bp = $1;
+        }
+    }
+    for ( my $i = 1 ; $i <= $num_bp ; $i++ ) {
+        $_ = <FINP>;
+        print FTMP;
+    }
+    close(FTMP);
+
+    $num++;
+    chop($pdbfile);
+    print "\n\n ========= Processing structure \#$num $pdbfile =========\n";
+    qx($X3DNA_BIN/$program tmpfile);
+}
+
+close(FINP);

@@ -1,0 +1,50 @@
+# Coloring scheme for chains in "blocview" generated images.
+# This list contains one-letter chain-ID and corresponding color name
+#      which should be one of MolScript's 164 pre-defined names stored
+#      in file "mcolname.dat". Otherwise, the default color corresponding
+#      to "*" at the end is used.
+# 0-9 are assigned the same color as A-J
+# Users might change colors here or add new chains and their colors
+A       red
+B       yellow
+C       lawngreen
+D       cyan
+E       blue
+F       brown
+G       violet
+H       wheat
+I       pink
+J       bisque
+K       khaki
+L       magenta
+M       peru
+N       plum
+O       green
+P       tan
+Q       tomato
+R       orange
+S       turquoise
+T       salmon
+U       blanchedalmond
+V       firebrick
+W       blueviolet
+X       darkgreen
+Y       darkturquoise
+Z       orangered
+0       red
+1       yellow
+2       lawngreen
+3       cyan
+4       blue
+5       brown
+6       violet
+7       wheat
+8       pink
+9       bisque
+*       goldenrod
+
+# protein by_chain [default] or a specific color
+protein   purple
+
+# nucleic acid by_chain [default] or a specific color [coil_radius]
+nucleic_acid    by_chain  0.8

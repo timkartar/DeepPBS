@@ -1,0 +1,150 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+# Here is a purpose-specific Perl script calling various 3DNA programs and
+# outside tools to get the overlapped hydration patterns. It serves as an
+# example of what can be achieved with some scripting skills.
+# Xiang-Jun Lu (3dna.lu@gmail.com) April 28, 2008
+
+my $X3DNA_BIN = x3dna_bin();
+my $pdb_id    = "1kx5";
+my $pdbfile   = "$pdb_id.pdb";
+my $bpsfile   = "$pdb_id.inp";
+
+# find_pair with -w option for hydration
+system("$X3DNA_BIN/find_pair -w $pdbfile $bpsfile");
+system("$X3DNA_BIN/analyze -w $bpsfile");
+
+# loop through the 146 base-pairs from "bestpairs.pdb" and extract
+# them into 1kx5_AT.pdb and 1kx5_GC.pdb
+my @pairs = get_pairs($bpsfile);
+
+# extract the pairs into 'all_AT.pdb' and 'all_GC.pdb' with proper
+# orientation change for T-A and G-C; Raster3D scenes into
+# 'all_AT.r3d' and 'all_GC.r3d'
+my $AT_pdb = "all_AT.pdb";
+my $GC_pdb = "all_GC.pdb";
+my $AT_r3d = "all_AT.r3d";
+my $GC_r3d = "all_GC.r3d";
+init_files( $AT_pdb, $GC_pdb, $AT_r3d, $GC_r3d );
+
+my $rotx180 = "rotx180.dat";
+my $rotz90  = "rotz90.dat";
+create_rotfile( $rotx180, $rotz90 );
+
+my $num_AT  = 0;
+my $num_GC  = 0;
+my $options = "-od -b=0.15 -r=0.10 -s=30";
+
+for ( my $i = 0 ; $i < @pairs ; $i++ ) {
+    my $pair = $pairs[$i];
+    my $num  = $i + 1;
+
+    system("$X3DNA_BIN/ex_str -$num bestpairs.pdb strnum.pdb");
+
+    next if ( $num == 52 || $num == 55 );    # irregular geometry: AN1 -- TO4
+
+    if ( $pair eq "A-----T" || $pair eq "T-----A" ) {
+        $num_AT++;
+        if ( $pair eq "A-----T" ) {
+            system("$X3DNA_BIN/rotate_mol -r=$rotz90 strnum.pdb strnum_ok.pdb");
+        } else {                             # "T-----A": reorient it to "A-----T"
+            system("$X3DNA_BIN/rotate_mol -r=$rotx180 strnum.pdb strnum_x180.pdb");
+            system("$X3DNA_BIN/rotate_mol -r=$rotz90 strnum_x180.pdb strnum_ok.pdb");
+        }
+        system("cat strnum_ok.pdb >> $AT_pdb");
+        if ( $num_AT == 1 ) {                # with header
+            system("$X3DNA_BIN/r3d_atom $options strnum_ok.pdb strnum_ok.r3d");
+        } else {                             # without header lines
+            system("$X3DNA_BIN/r3d_atom -n $options strnum_ok.pdb strnum_ok.r3d");
+        }
+        system("cat strnum_ok.r3d >> $AT_r3d");
+    } elsif ( $pair eq "G-----C" || $pair eq "C-----G" ) {
+        $num_GC++;
+        if ( $pair eq "G-----C" ) {
+            system("$X3DNA_BIN/rotate_mol -r=$rotz90 strnum.pdb strnum_ok.pdb");
+        } else {                             # "C-----G": reorient it to "G-----C"
+            system("$X3DNA_BIN/rotate_mol -r=$rotx180 strnum.pdb strnum_x180.pdb");
+            system("$X3DNA_BIN/rotate_mol -r=$rotz90 strnum_x180.pdb strnum_ok.pdb");
+        }
+        system("cat strnum_ok.pdb >> $GC_pdb");
+        if ( $num_GC == 1 ) {                # with header
+            system("$X3DNA_BIN/r3d_atom $options strnum_ok.pdb strnum_ok.r3d");
+        } else {                             # without header lines
+            system("$X3DNA_BIN/r3d_atom -n $options strnum_ok.pdb strnum_ok.r3d");
+        }
+        system("cat strnum_ok.r3d >> $GC_r3d");
+    } else {
+        print "non-Watson-Crick basepair $num\t$pair ::: SHOULD NOT HAPPEN!\n";
+    }
+}
+
+system("$X3DNA_BIN/x3dna_utils x3dna_r3d2png -r $AT_r3d -i all_AT.png");
+system("$X3DNA_BIN/x3dna_utils x3dna_r3d2png -r $GC_r3d -i all_GC.png");
+
+system("$X3DNA_BIN/ex_str -1 stacking.pdb 1kx5_s1.pdb");
+system("$X3DNA_BIN/stack2img -cdot -r -v=0.15 1kx5_s1.pdb 1kx5_s1.r3d");
+system("$X3DNA_BIN/x3dna_utils x3dna_r3d2png -r 1kx5_s1.r3d -i 1kx5_s1.png");
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+sub x3dna_dir {
+    my $bdir = $ENV{X3DNA};
+    return ( defined $bdir ) ? $bdir : "$ENV{HOME}/X3DNA";
+}
+
+sub x3dna_bin {
+    return x3dna_dir() . "/bin";
+}
+
+sub get_pairs {
+    my $bpsfile = shift;
+
+    print "::: $bpsfile ...\n";
+
+    my $str;
+
+    open( FH, $bpsfile );
+
+    my $num = 5;    # header lines
+    for ( my $i = 1 ; $i <= $num ; $i++ ) {    # skip the first 5 lines
+        $str = <FH>;
+    }
+
+    my @pairs = ();
+    $num = 146;                                # number of base-pairs
+    for ( my $i = 1 ; $i <= $num ; $i++ ) {    # skip the first 5 lines
+        $str = <FH>;
+        push @pairs, substr( $str, 41, 7 );
+    }
+
+    close(FH);
+
+    $num = 0;
+    foreach my $pair (@pairs) {
+        $num++;
+        print "$num\t$pair\n";
+    }
+
+    return @pairs;
+}
+
+sub init_files {
+    foreach my $fname (@_) {
+        open( FH, ">$fname" );
+        close(FH);
+    }
+}
+
+sub create_rotfile {
+    my ( $rotx180, $rotz90 ) = @_;
+
+    open( FH, ">$rotx180" );
+    print FH "by rotation x 180";
+    close(FH);
+
+    open( FH, ">$rotz90" );
+    print FH "by rotation z 90";
+    close(FH);
+}

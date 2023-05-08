@@ -1,0 +1,120 @@
+1. The repeating units of each fiber structure are mostly based on the
+   work of Chandrasekaran & Arnott (from #1 to #43). More recent fiber
+   models are based on Alexeev et al. (#44-#45), van Dam & Levitt (#46
+   -#47) and Premilat & Albiser (#48-#55).
+
+2. Clean up of each residue
+   a. currently ignore hydrogen atoms [can be easily added]
+   b. change ME/C7 group of thymine to C5M
+   c. re-assign O3' atom to be attached with C3'
+   d. change distance unit from nm to A [most of the entries]
+   e. re-ordering atoms according to the NDB convention
+
+3. Fix up of problem structures.
+   a. str#8 has no N9 atom for guanine
+   b. str#10 is not available from the disk, manually input
+   c. str#14 C5M atom was named C5 for Thymine, resulting two C5 atoms
+   d. str#17 has wrong assignment of O3' atom on Guanine
+   e. str#33 has wrong C6 position in U3
+   f. str#37 to #str41 were typed in manually following Arnott's
+        new list as given in "Oxford Handbook of Nucleic Acid Structure"
+        edited by S. Neidle (Oxford Press, 1999)
+   g. str#38 coordinates for N6(A) and N3(T) are WRONG as given in the
+        original literature
+   h. str#39 and #40 have the same O3' coordinates for the 2nd strand
+
+4. str#44 & 45 have fixed strand II residues (T)
+
+5. str#46 & 47 have +z-axis upwards (based on BI.pdb & BII.pdb)
+
+6. str#48 to 55 have +z-axis upwards
+
+7. str#56 has fixed nomenclature of atoms, and expanded Table 1 to
+   include A, G, T, and U
+
+List of 55 fiber structures + Pauling triplex model
+
+id#  Twist   Rise        Structure description
+   (degree) (Angstrom)
+-------------------------------------------------------------------------------
+ 1   32.7   2.548  A-DNA  (calf thymus; generic sequence: A, C, G and T)
+ 2   65.5   5.095  A-DNA  poly d(ABr5U) : poly d(ABr5U)
+ 3    0.0  28.030  A-DNA  (calf thymus) poly d(A1T2C3G4G5A6A7T8G9G10T11) :
+                                        poly d(A1C2C3A4T5T6C7C8G9A10T11)
+ 4   36.0   3.375  B-DNA  (calf thymus; generic sequence: A, C, G and T)
+ 5   72.0   6.720  B-DNA  poly d(CG) : poly d(CG)
+ 6  180.0  16.864  B-DNA  (calf thymus) poly d(C1C2C3C4C5) : poly d(G6G7G8G9G10)
+ 7   38.6   3.310  C-DNA  (calf thymus; generic sequence: A, C, G and T)
+ 8   40.0   3.312  C-DNA  poly d(GGT) : poly d(ACC)
+ 9  120.0   9.937  C-DNA  poly d(G1G2T3) : poly d(A4C5C6)
+10   80.0   6.467  C-DNA  poly d(AG) : poly d(CT)
+11   80.0   6.467  C-DNA  poly d(A1G2) : poly d(C3T4)
+12   45.0   3.013  D-DNA  poly d(AAT) : poly d(ATT)
+13   90.0   6.125  D-DNA  poly d(CI) : poly d(CI)
+14  -90.0  18.500  D-DNA  poly d(A1T2A3T4A5T6) : poly d(A1T2A3T4A5T6)
+15  -60.0   7.250  Z-DNA  poly d(GC) : poly d(GC)
+16  -51.4   7.571  Z-DNA  poly d(As4T) : poly d(As4T)
+17    0.0  10.200  L-DNA  (calf thymus) poly d(GC) : poly d(GC)
+18   36.0   3.230  B'-DNA alpha poly d(A) : poly d(T) (H-DNA)
+19   36.0   3.233  B'-DNA beta2 poly d(A) : poly d(T) (H-DNA  beta)
+20   32.7   2.812  A-RNA  poly (A) : poly (U)
+21   30.0   3.000  A'-RNA poly (I) : poly (C)
+22   32.7   2.560  Hybrid poly (A) : poly d(T)
+23   32.0   2.780  Hybrid poly d(G) : poly (C)
+24   36.0   3.130  Hybrid poly d(I) : poly (C)
+25   32.7   3.060  Hybrid poly d(A) : poly (U)
+26   36.0   3.010  10-fold poly (X) : poly (X)
+27   32.7   2.518  11-fold poly (X) : poly (X)
+28   32.7   2.596  Poly (s2U) : poly (s2U) (symmetric base-pair)
+29   32.7   2.596  Poly (s2U) : poly (s2U) (asymmetric base-pair)
+30   32.7   3.160  Poly d(C) : poly d(I) : poly d(C)
+31   30.0   3.260  Poly d(T) : poly d(A) : poly d(T)
+32   32.7   3.040  Poly (U) : poly (A) : poly(U) (11-fold)
+33   30.0   3.040  Poly (U) : poly (A) : poly(U) (12-fold)
+34   30.0   3.290  Poly (I) : poly (A) : poly(I)
+35   31.3   3.410  Poly (I) : poly (I) : poly(I) : poly(I)
+36   60.0   3.155  Poly (C) or poly (mC) or poly (eC)
+37   36.0   3.200  B'-DNA beta2  Poly d(A) : poly d(U)
+38   36.0   3.240  B'-DNA beta1  Poly d(A) : poly d(T)
+39   72.0   6.480  B'-DNA beta2  Poly d(AI) : poly d(CT)
+40   72.0   6.460  B'-DNA beta1  Poly d(AI) : poly d(CT)
+41  144.0  13.540  B'-DNA  Poly d(AATT) : poly d(AATT)
+42   32.7   3.040  Poly(U) : poly d(A) : poly(U) [cf. #32]
+43   36.0   3.200  Beta Poly d(A) : Poly d(U) [cf. #37]
+44   36.0   3.233  Poly d(A) : poly d(T) (Ca salt)
+45   36.0   3.233  Poly d(A) : poly d(T) (Na salt)
+46   36.0   3.38   B-DNA (BI-type nucleotides; generic sequence: A, C, G and T)
+47   40.0   3.32   C-DNA (BII-type nucleotides; generic sequence: A, C, G and T)
+48   87.8   6.02   D(A)-DNA  ploy d(AT) : ploy d(AT) (right-handed)
+49   60.0   7.20   S-DNA  ploy d(CG) : poly d(CG) (C_BG_A, right-handed)
+50   60.0   7.20   S-DNA  ploy d(GC) : poly d(GC) (C_AG_B, right-handed)
+51   31.6   3.22   B*-DNA  poly d(A) : poly d(T)
+52   90.0   6.06   D(B)-DNA  poly d(AT) : poly d(AT) [cf. #48]
+53  -38.7   3.29   C-DNA (generic sequence: A, C, G and T) (depreciated)
+54   32.73  2.56   A-DNA (generic sequence: A, C, G and T) [cf. #1]
+55   36.0   3.39   B-DNA (generic sequence: A, C, G and T) [cf. #4]
+56  105.0   3.40   Pauling's triplex model (generic sequence: A, C, G, T, U)
+-------------------------------------------------------------------------------
+List 1-41 based on Struther Arnott: "Polynucleotide secondary structures:
+     an historical perspective", pp. 1-38 in "Oxford Handbook of Nucleic
+     Acid Structure" edited by Stephen Neidle (Oxford Press, 1999).
+     
+     #42 and #43 are from Chandrasekaran & Arnott: "The Structures of DNA
+     and RNA Helices in Oriented Fibers", pp 31-170 in "Landolt-Bornstein
+     Numerical Data and Functional Relationships in Science and Technology"
+     edited by W. Saenger (Springer-Verlag, 1990).
+
+#44-#45 based on Alexeev et al. (1987). "The structure of poly(dA).poly(dT)
+     as revealed by an X-ray fiber diffraction." J. Biomol. Str. Dyn, 4,
+     pp. 989-1011.
+
+#46-#47 based on van Dam & Levitt (2000). "BII nucleotides in the B and C forms
+     of natural-sequence polymeric DNA: a new model for the C form of DNA."
+     J. Mol. Biol., 304, pp. 541-561.
+
+#48-#55 based on Premilat & Albiser (2001). "A new D-DNA form of poly(dA-dT).
+     poly(dA-dT): an A-DNA type structure with reversed Hoogsteen Pairing."
+     Eur. Biophys. J., 30, pp. 404-410  (and several other publications).
+
+#56 based on Pauling & Corey (1953). "A proposed structure for the nucleic
+     acids." Proc. Natl. Acad. Sci. U.S.A., 39(2), 84-97.

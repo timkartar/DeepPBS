@@ -1,0 +1,368 @@
+%!PS-Adobe-3.0
+%%Title: (roll_a.eps)
+%%Creator: (3DNA v2.0 [December 2007] (by Dr. Xiang-Jun Lu; 3dna.lu@gmail.com))
+%%CreationDate: (Tue Jan 22 17:55:43 2008)
+%%Orientation: Portrait
+%%BoundingBox:    222   157   391   635
+
+/FTSIZE 18 def % label font size
+/YOFFSET {FTSIZE 0.4 mul} bind def  % y-axis offset for label
+/Helvetica-Bold findfont FTSIZE scalefont setfont
+/GREYLEVEL 0.25 def  % for black and white gray lavel
+
+/SCENTER {dup stringwidth pop 2 div neg 0 rmoveto show} bind def  % center text
+/NP {newpath} bind def
+/DB {moveto lineto lineto lineto closepath} bind def   
+/LN {moveto lineto stroke} bind def
+/CIRCLE {0 360 arc} bind def
+/FB {setgray fill} bind def
+/R6 {moveto lineto lineto lineto lineto lineto closepath} bind def
+/R9 {moveto lineto lineto lineto lineto lineto lineto lineto lineto closepath} bind def
+
+% dot line style, color & width
+/Ds {[2 4] 0 setdash} bind def
+/Dl {1 0 1 setrgbcolor} bind def
+/Dw {1 setlinewidth} bind def
+
+% stacking diagram widths for base-pairs 1 & 2
+/W1 {1 setlinewidth} bind def
+/W2 {3 setlinewidth} bind def
+
+% minor and major grooves filling color saturation
+/MINOR_SAT 0.9 def
+/MAJOR_SAT 0.1 def
+/OTHER_SIDES {0 0 1 sethsbcolor fill} bind def
+
+% line drawing colors for ACGITU & others
+/Al {0.0000 1.00 1.00 sethsbcolor} bind def
+/Cl {0.1667 1.00 1.00 sethsbcolor} bind def
+/Gl {0.3333 1.00 1.00 sethsbcolor} bind def
+/Il {0.3333 1.00 0.57 sethsbcolor} bind def
+/Tl {0.6667 1.00 1.00 sethsbcolor} bind def
+/Ul {0.5000 1.00 1.00 sethsbcolor} bind def
+/Xl {0.0000 0.00 0.00 sethsbcolor} bind def
+
+% minor groove filling colors for ACGITU & others
+/Am {0.0000 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Cm {0.1667 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Gm {0.3333 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Im {0.3333 MINOR_SAT 0.57      sethsbcolor fill} bind def
+/Tm {0.6667 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Um {0.5000 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Xm {0.0000 0.00      MAJOR_SAT sethsbcolor fill} bind def
+/Sm {0.0000 0.00      0.6       sethsbcolor fill} bind def
+
+% major groove filling colors for ACGITU & others
+/AM {0.0000 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/CM {0.1667 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/GM {0.3333 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/IM {0.3333 MAJOR_SAT 0.57      sethsbcolor fill} bind def
+/TM {0.6667 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/UM {0.5000 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/XM {0.0000 0.00      MINOR_SAT sethsbcolor fill} bind def
+
+% define line width, line join style & cap style (1 means round)
+1 setlinewidth 1 setlinejoin 1 setlinecap
+
+% atom color list
+/ATOM00 {1.0000 0.0784 0.5765} bind def % Unknown deep pink
+/ATOM01 {0.7843 0.7843 0.7843} bind def % C light grey
+/ATOM02 {0.9412      0      0} bind def % O red
+/ATOM03 {0.2500 0.2500 0.2500} bind def % H 0.25 gray 
+/ATOM04 {0.5608 0.5608 1.0000} bind def % N light blue
+/ATOM05 {1.0000 0.7843 0.1961} bind def % S yellow
+/ATOM06 {1.0000 0.6471      0} bind def % P orange
+/ATOM07 {0.8549 0.6471 0.1255} bind def % F goldenrod
+/ATOM08 {     0 1.0000      0} bind def % Cl green
+/ATOM09 {0.6471 0.1647 0.1647} bind def % Br brown
+/ATOM10 {0.6275 0.1255 0.9412} bind def % I purple
+/ATOM11 {0.8549 0.6471 0.1255} bind def % Si goldenrod
+   232   167 translate
+
+NP Xl   133.4  436.7  130.9  434.2  109.7  455.4  112.2  457.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   132.1  404.9  129.7  402.4  108.5  423.6  110.9  426.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    29.5  375.2   27.0  372.8   48.2  351.6   50.7  354.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   146.2   39.0  148.7   36.5  127.5   15.3  125.0   17.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    33.4  335.9   33.4  332.4   63.4  332.4   63.4  335.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   114.4   40.2  116.8   37.7   95.6   16.5   93.2   19.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    42.3  100.4   44.8   98.0   66.0  119.1   63.5  121.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    41.7  242.4   41.7  238.9   11.8  238.9   11.8  242.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    11.8  125.5   11.8  122.0   41.7  122.0   41.7  125.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    63.4  219.0   63.4  215.5   33.4  215.5   33.4  219.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    37.7  400.1   35.2  397.6   48.3  384.5   50.8  387.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    81.4   40.3   83.9   37.8   70.8   24.7   68.3   27.2 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    75.3  100.3   77.8   97.8   90.9  110.9   88.4  113.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    75.1  195.6   75.1  192.1   56.6  192.1   56.6  195.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    18.5  265.8   18.5  262.3    0.0  262.3    0.0  265.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    56.6  312.5   56.6  309.0   75.1  309.0   75.1  312.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     0.0  148.9    0.0  145.4   18.5  145.4   18.5  148.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   123.9  380.0  121.4  377.5  108.4  390.6  110.8  393.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    72.6  289.1    2.6  289.1    2.6  285.6   72.6  285.6 DB
+  gsave Xm grestore stroke
+NP Xl    56.1  414.8  105.6  365.3  103.1  362.8   53.6  412.3 DB
+  gsave XM grestore stroke
+NP Xl     2.6  172.2   72.6  172.2   72.6  168.7    2.6  168.7 DB
+  gsave XM grestore stroke
+NP Xl   103.1   95.1   53.6   45.6   56.1   43.1  105.6   92.6 DB
+  gsave Xm grestore stroke
+NP Xl    70.8  433.2  110.8  393.1  108.4  390.6   68.3  430.7 DB
+  gsave XM grestore stroke
+NP Xl     0.0  195.6   56.6  195.6   56.6  192.1    0.0  192.1 DB
+  gsave XM grestore stroke
+NP Xl    56.6  312.5    0.0  312.5    0.0  309.0   56.6  309.0 DB
+  gsave Xm grestore stroke
+NP Xl    75.1  265.8   18.5  265.8   18.5  262.3   75.1  262.3 DB
+  gsave Xm grestore stroke
+NP Xl    50.8  387.0   90.9  347.0   88.4  344.5   48.3  384.5 DB
+  gsave XM grestore stroke
+NP Xl   121.4   80.3   81.4   40.3   83.9   37.8  123.9   77.9 DB
+  gsave Xm grestore stroke
+NP Xl    18.5  148.9   75.1  148.9   75.1  145.4   18.5  145.4 DB
+  gsave XM grestore stroke
+NP Xl    75.3  100.3   35.2   60.3   37.7   57.8   77.8   97.8 DB
+  gsave Xm grestore stroke
+NP Xl   148.7  421.4  133.4  436.7  130.9  434.2  146.2  418.9 DB
+  gsave Xm grestore stroke
+NP Xl    95.6  441.4  110.9  426.1  108.5  423.6   93.2  438.9 DB
+  gsave XM grestore stroke
+NP Xl   109.7    2.5  125.0   17.8  127.5   15.3  112.2    0.0 DB
+  gsave XM grestore stroke
+NP Xl   129.7   55.5  114.4   40.2  116.8   37.7  132.1   53.0 DB
+  gsave Xm grestore stroke
+NP Xl    11.8  219.0   33.4  219.0   33.4  215.5   11.8  215.5 DB
+  gsave XM grestore stroke
+NP Xl    63.4  242.4   41.7  242.4   41.7  238.9   63.4  238.9 DB
+  gsave Xm grestore stroke
+NP Xl    50.7  354.1   66.0  338.8   63.5  336.3   48.2  351.6 DB
+  gsave XM grestore stroke
+NP Xl    33.4  335.9   11.8  335.9   11.8  332.4   33.4  332.4 DB
+  gsave Xm grestore stroke
+NP Xl    41.7  125.5   63.4  125.5   63.4  122.0   41.7  122.0 DB
+  gsave XM grestore stroke
+NP Xl    42.3  100.4   27.0   85.1   29.5   82.7   44.8   98.0 DB
+  gsave Xm grestore stroke
+NP Xl    42.3  100.4   27.0   85.1   48.2  106.3   63.5  121.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    56.6  145.4    0.0  145.4   18.5  145.4   75.1  145.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   121.4   80.3   81.4   40.3   68.3   27.2  108.4   67.3 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    79.6   69.1   63.1   85.6  gsave Dw Ds LN grestore
+NP Xl    75.3  100.3   35.2   60.3   48.3   73.4   88.4  113.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    33.4  122.0   11.8  122.0   41.7  122.0   63.4  122.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   103.1   95.1  105.6   92.6  105.6   92.6  103.1   95.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   103.1   95.1   53.6   45.6   53.6   45.6  103.1   95.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    46.5  355.8   63.1  372.3  gsave Dw Ds LN grestore
+NP Xl    37.6  170.5   37.6  193.9  gsave Dw Ds LN grestore
+NP Xl   116.8   37.7  132.1   53.0  110.9   31.8   95.6   16.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    29.5  375.2   44.8  359.9   66.0  338.8   50.7  354.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    56.6  312.5    0.0  312.5   18.5  312.5   75.1  312.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    11.8  125.5   33.4  125.5   63.4  125.5   41.7  125.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    33.4  335.9   11.8  335.9   41.7  335.9   63.4  335.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    72.6  289.1    2.6  289.1    2.6  289.1   72.6  289.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    96.1   52.5   79.6   69.1  gsave Dw Ds LN grestore
+NP Xl   112.6  421.9  129.2  438.4  gsave Dw Ds LN grestore
+NP Xl   129.7  402.4  114.4  417.7   93.2  438.9  108.5  423.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   103.1  362.8   53.6  412.3   53.6  412.3  103.1  362.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     0.0  148.9   56.6  148.9   75.1  148.9   18.5  148.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    53.6   45.6   56.1   43.1   56.1   43.1   53.6   45.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    75.1  265.8   18.5  265.8    0.0  265.8   56.6  265.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   129.7   55.5  114.4   40.2   93.2   19.0  108.5   34.3 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    37.6  310.8   37.6  334.2  gsave Dw Ds LN grestore
+NP Xl   121.4  377.5   81.4  417.6   68.3  430.7  108.4  390.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    72.6  168.7    2.6  168.7    2.6  168.7   72.6  168.7 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    75.3  357.6   35.2  397.6   48.3  384.5   88.4  344.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     2.6  289.1    2.6  285.6    2.6  285.6    2.6  289.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    63.1   85.6   46.5  102.1  gsave Dw Ds LN grestore
+NP Xl    63.4  242.4   41.7  242.4   11.8  242.4   33.4  242.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    41.7  238.9   63.4  238.9   33.4  238.9   11.8  238.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    75.1  192.1   18.5  192.1    0.0  192.1   56.6  192.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    37.6  147.1   37.6  170.5  gsave Dw Ds LN grestore
+NP Xl   148.7   36.5  133.4   21.2  112.2    0.0  127.5   15.3 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    37.6  217.3   37.6  240.6  gsave Dw Ds LN grestore
+NP Xl     0.0  309.0   56.6  309.0   75.1  309.0   18.5  309.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    72.6  172.2   72.6  168.7   72.6  168.7   72.6  172.2 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    63.4  215.5   41.7  215.5   11.8  215.5   33.4  215.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     2.6  172.2   72.6  172.2   72.6  172.2    2.6  172.2 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    72.6  289.1   72.6  285.6   72.6  285.6   72.6  289.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    37.6  334.2   46.5  355.8  gsave Dw Ds LN grestore
+NP Xl    11.8  332.4   33.4  332.4   63.4  332.4   41.7  332.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     2.6  285.6   72.6  285.6   72.6  285.6    2.6  285.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   130.9   23.7  146.2   39.0  125.0   17.8  109.7    2.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    18.5  195.6   75.1  195.6   56.6  195.6    0.0  195.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    56.1  414.8  105.6  365.3  105.6  365.3   56.1  414.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   130.9  434.2  146.2  418.9  125.0  440.1  109.7  455.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    42.3  357.5   27.0  372.8   48.2  351.6   63.5  336.3 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    29.5   82.7   44.8   98.0   66.0  119.1   50.7  103.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     2.6  172.2    2.6  168.7    2.6  168.7    2.6  172.2 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    37.6  123.7   37.6  147.1  gsave Dw Ds LN grestore
+NP Xl    37.6  287.4   37.6  310.8  gsave Dw Ds LN grestore
+NP Xl   112.6   36.0   96.1   52.5  gsave Dw Ds LN grestore
+NP Xl   105.6  365.3  103.1  362.8  103.1  362.8  105.6  365.3 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    56.1   43.1  105.6   92.6  105.6   92.6   56.1   43.1 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    37.7   57.8   77.8   97.8   90.9  110.9   50.8   70.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    83.9   37.8  123.9   77.9  110.8   64.8   70.8   24.7 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    37.6  193.9   37.6  217.3  gsave Dw Ds LN grestore
+NP Xl   116.8  420.2  132.1  404.9  110.9  426.1   95.6  441.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    41.7  219.0   63.4  219.0   33.4  219.0   11.8  219.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    83.9  420.1  123.9  380.0  110.8  393.1   70.8  433.2 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    37.7  400.1   77.8  360.1   90.9  347.0   50.8  387.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   129.2   19.5  112.6   36.0  gsave Dw Ds LN grestore
+NP Xl    96.1  405.4  112.6  421.9  gsave Dw Ds LN grestore
+NP Xl    18.5  262.3   75.1  262.3   56.6  262.3    0.0  262.3 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    56.1  414.8   53.6  412.3   53.6  412.3   56.1  414.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    63.1  372.3   79.6  388.8  gsave Dw Ds LN grestore
+NP Xl    46.5  102.1   37.6  123.7  gsave Dw Ds LN grestore
+NP Xl    79.6  388.8   96.1  405.4  gsave Dw Ds LN grestore
+NP Xl    37.6  264.0   37.6  287.4  gsave Dw Ds LN grestore
+NP Xl    37.6  240.6   37.6  264.0  gsave Dw Ds LN grestore
+NP Xl   148.7  421.4  133.4  436.7  112.2  457.9  127.5  442.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    63.5  121.6   48.2  106.3   50.7  103.8   66.0  119.1 DB
+  gsave XM grestore stroke
+NP Xl    29.5  375.2   44.8  359.9   42.3  357.5   27.0  372.8 DB
+  gsave Xm grestore stroke
+NP Xl    41.7  219.0   63.4  219.0   63.4  215.5   41.7  215.5 DB
+  gsave Xm grestore stroke
+NP Xl   127.5  442.6  112.2  457.9  109.7  455.4  125.0  440.1 DB
+  gsave XM grestore stroke
+NP Xl   116.8  420.2  132.1  404.9  129.7  402.4  114.4  417.7 DB
+  gsave Xm grestore stroke
+NP Xl    33.4  242.4   11.8  242.4   11.8  238.9   33.4  238.9 DB
+  gsave XM grestore stroke
+NP Xl    11.8  125.5   33.4  125.5   33.4  122.0   11.8  122.0 DB
+  gsave Xm grestore stroke
+NP Xl    63.4  335.9   41.7  335.9   41.7  332.4   63.4  332.4 DB
+  gsave XM grestore stroke
+NP Xl   130.9   23.7  146.2   39.0  148.7   36.5  133.4   21.2 DB
+  gsave Xm grestore stroke
+NP Xl   108.5   34.3   93.2   19.0   95.6   16.5  110.9   31.8 DB
+  gsave XM grestore stroke
+NP Xl    88.4  113.4   48.3   73.4   50.8   70.9   90.9  110.9 DB
+  gsave XM grestore stroke
+NP Xl    83.9  420.1  123.9  380.0  121.4  377.5   81.4  417.6 DB
+  gsave Xm grestore stroke
+NP Xl    37.7  400.1   77.8  360.1   75.3  357.6   35.2  397.6 DB
+  gsave Xm grestore stroke
+NP Xl     0.0  148.9   56.6  148.9   56.6  145.4    0.0  145.4 DB
+  gsave Xm grestore stroke
+NP Xl    56.6  265.8    0.0  265.8    0.0  262.3   56.6  262.3 DB
+  gsave XM grestore stroke
+NP Xl    75.1  312.5   18.5  312.5   18.5  309.0   75.1  309.0 DB
+  gsave XM grestore stroke
+NP Xl    18.5  195.6   75.1  195.6   75.1  192.1   18.5  192.1 DB
+  gsave Xm grestore stroke
+NP Xl   108.4   67.3   68.3   27.2   70.8   24.7  110.8   64.8 DB
+  gsave XM grestore stroke
+NP Xl    72.6  289.1    2.6  289.1    2.6  285.6   72.6  285.6 DB
+  gsave XM grestore stroke
+NP Xl     2.6  172.2   72.6  172.2   72.6  168.7    2.6  168.7 DB
+  gsave Xm grestore stroke
+NP Xl    56.1  414.8  105.6  365.3  103.1  362.8   53.6  412.3 DB
+  gsave Xm grestore stroke
+NP Xl   103.1   95.1   53.6   45.6   56.1   43.1  105.6   92.6 DB
+  gsave XM grestore stroke
+NP Xl    83.9  420.1   81.4  417.6   68.3  430.7   70.8  433.2 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    75.1  265.8   75.1  262.3   56.6  262.3   56.6  265.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    77.8  360.1   75.3  357.6   88.4  344.5   90.9  347.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    35.2   60.3   37.7   57.8   50.8   70.9   48.3   73.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    18.5  195.6   18.5  192.1    0.0  192.1    0.0  195.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   121.4   80.3  123.9   77.9  110.8   64.8  108.4   67.3 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    56.6  148.9   56.6  145.4   75.1  145.4   75.1  148.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     0.0  312.5    0.0  309.0   18.5  309.0   18.5  312.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    41.7  219.0   41.7  215.5   11.8  215.5   11.8  219.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   148.7  421.4  146.2  418.9  125.0  440.1  127.5  442.6 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    33.4  125.5   33.4  122.0   63.4  122.0   63.4  125.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    11.8  335.9   11.8  332.4   41.7  332.4   41.7  335.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   116.8  420.2  114.4  417.7   93.2  438.9   95.6  441.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    63.4  242.4   63.4  238.9   33.4  238.9   33.4  242.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    27.0   85.1   29.5   82.7   50.7  103.8   48.2  106.3 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    44.8  359.9   42.3  357.5   63.5  336.3   66.0  338.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   130.9   23.7  133.4   21.2  112.2    0.0  109.7    2.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   129.7   55.5  132.1   53.0  110.9   31.8  108.5   34.3 DB
+  gsave 1.0 FB grestore stroke
+
+showpage

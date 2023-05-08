@@ -1,0 +1,199 @@
+#!/usr/bin/env perl
+# Script for analyzing multiple NMR structures. It is designed as a
+# prototype for further processing, and for MD simulations etc.
+#
+# Version history:
+#     initial release       -- October 2001
+#     significant revisions -- March 2005 (command-line option
+#       processing with Getopt::Long module, use strict, and can start
+#       with an NMR PDB file directly, etc.
+
+use warnings;
+use strict;
+use Getopt::Long;
+
+use FindBin qw($Bin);
+use lib $Bin;
+use x3dna_utils;
+
+# Input file for "analyze", with the line containing the NMR PDB file,
+# and the second line the prefix of the output file. This format is
+# what's needed in the original version. It allows user to modify the
+# base-pairing info, in case the structure is highly distorted that
+# some might be missing from "find_pair".
+my $inpfile;
+my $n1 = 1;          # starting model, default to 1
+my $n2 = 1000000;    # ending model, default to all
+
+# For simplicity, the user could just input the NMR PDB file name
+my $pdbfile;
+
+my $program = "analyze";    # another option is "cehs"
+my $help;
+
+GetOptions(
+            "inpfile:s" => \$inpfile,
+            "n1:i"      => \$n1,
+            "n2:i"      => \$n2,
+            "pdbfile:s" => \$pdbfile,
+            "program:s" => \$program,
+            "help"      => \$help
+          );
+check_options();
+
+my $BDIR = x3dna_bin();
+
+( defined $inpfile ) ? process_inpfile() : process_pdbfile();
+
+# ****************************************************************************
+
+sub nmr_strs_usage {
+    print <<NMR_STRS_USAGE;
+===========================================================================
+NAME:
+    nmr_strs - process multiple nucleic acid structures determined by NMR
+SYNOPSIS:
+    nmr_strs [options]
+DESCRIPTION:
+    Processes multiple NMR models of nucleic acid structure in PDB
+    format. The output files will be named with file prefix followed
+    by zero-leading 4-digit number (e.g., 0006). Check examples/nmr
+    for an example. In the following, 's' meaning string, 'i' means
+    integer. Either -inpfile OR -pdbfile must present. If both are
+    provided, option -inpfile takes precedence over -pdbfile.
+
+      --inpfile=s   name of the input file for the analysis program
+      --pdbfile=s   name of the NMR PDB file. The output file prefix will be
+                        the name of the PDB file without ending '.' part
+      --n1=i        starting model number (must be positive), default to 1
+      --n2=i        ending model number (must be positive, and larger than
+                        -n1), default to the last model in the PDB file
+      --program=s   name of the analysis program, either "analyze" (default)
+                        or "cehs"
+      --help        this help message
+EXAMPLES:
+    nmr_strs --pdbfile 1hrz.pdb
+    nmr_strs --inpfile 1hrz.inp --n1 2 --n2 5
+AUTHOR:
+    $author
+    $url
+===========================================================================
+NMR_STRS_USAGE
+    die "\n";
+}
+
+sub check_options {
+    nmr_strs_usage() if ( defined $help );
+
+    unless ( defined $inpfile or defined $pdbfile ) {
+        warn "You must provided either input file or PDB file\n";
+        nmr_strs_usage();
+    }
+
+    if ( defined $inpfile and defined $pdbfile ) {
+        warn "You have provided both input file <$inpfile> and PDB file <$pdbfile>\n";
+        warn "   $inpfile takes precedence over $pdbfile, which is ignored\n";
+        undef $pdbfile;
+    }
+
+    if ( defined $inpfile and not -e $inpfile ) {
+        warn "Your input file $inpfile does not exist!\n";
+        nmr_strs_usage();
+    }
+
+    if ( defined $pdbfile and not -e $pdbfile ) {
+        warn "Your input PDB file $pdbfile does not exist!\n";
+        nmr_strs_usage();
+    }
+
+    if ( $n1 <= 0 ) {
+        warn "Starting NMR model number <$n1> must be a positive integer\n";
+        nmr_strs_usage();
+    }
+
+    if ( $n2 <= 0 ) {
+        warn "Ending NMR model number <$n2> must be a positive integer\n";
+        nmr_strs_usage();
+    }
+
+    if ( $n1 > $n2 ) {
+        warn "Ending NMR model number <$n2> should be larger than starting <$n1>\n";
+        nmr_strs_usage();
+    }
+
+    $program = lc $program;    # converted to lower case
+    if ( $program ne "cehs" and $program ne "analyze" ) {
+        warn "Analysis program <$program> must be either <analyze> or <cehs>\n";
+        nmr_strs_usage();
+    }
+}
+
+sub process_inpfile {
+    open( FH, $inpfile ) or die "Can't open $inpfile for reading: $!\n";
+    my @inp_lines = <FH>;
+    close(FH);
+
+    my $my_pdbfile = $inp_lines[0];    # to avoid conflict with outside $pdbfile
+    chomp $my_pdbfile;
+    -e $my_pdbfile or die "PDB file <$my_pdbfile> does NOT exist\n";
+    my $prefix = $inp_lines[1];        # output file prefix
+    chomp $prefix;
+
+    process_models( $my_pdbfile, $prefix, \@inp_lines );
+}
+
+sub process_pdbfile {
+    my $idot = rindex $pdbfile, '.';
+    my $prefix = ( $idot < 0 ) ? $pdbfile : substr( $pdbfile, 0, $idot );
+    my $inpfile = $prefix . ".inp";
+
+    # generate the input file based on best representative conformer
+    qx($BDIR/ex_str -nmrb $pdbfile rpst_conf.pdb);
+    qx(find_pair -t rpst_conf.pdb $inpfile);
+
+    open( FH, $inpfile ) or die "Can't open $inpfile for reading: $!\n";
+    my @inp_lines = <FH>;
+    close(FH);
+    my $num_lines = scalar @inp_lines;    # number of input lines
+
+    # change the first two lines, for use with option -inpfile
+    open( FH, ">$inpfile" ) or die "Can't open $inpfile for writing: $!\n";
+    print FH "$pdbfile\n";
+    print FH "$prefix\n";
+    for ( my $j = 2 ; $j < $num_lines ; $j++ ) {
+        print FH $inp_lines[$j];
+    }
+    close(FH);
+
+    process_models( $pdbfile, $prefix, \@inp_lines );
+}
+
+sub process_models {
+    my ( $my_pdbfile, $prefix, $inp_lines_Ref ) = @_;
+    my $num_lines = scalar @$inp_lines_Ref;
+
+    if ( $n2 == 1000000 ) {
+        $n2 = -1;
+        open( FH, $my_pdbfile ) or die "Can't open $my_pdbfile for reading\n";
+        while (<FH>) {
+            $n2 = $1 if ( /^MODEL\s+(\d+)/ and ( $1 > $n2 ) );
+        }
+        close(FH);
+        warn "No NMR model in PDB file <$my_pdbfile>\n" if ( $n2 == -1 );
+    }
+
+    for ( my $i = $n1 ; $i <= $n2 ; $i++ ) {
+        qx($BDIR/ex_str -nmr -$i $my_pdbfile tmpstri);
+        next if ( -z "tmpstri" );    # model $i does not exist
+        open( FH, ">tmpfile" ) or die "Can't open tmpfile for writing: $!\n";
+        print FH "tmpstri\n";        # ith structure PDB file name
+        printf FH "$prefix%4.4d.out\n", $i;    # output file name
+        for ( my $j = 2 ; $j < $num_lines ; $j++ ) {
+            print FH $inp_lines_Ref->[$j];
+        }
+        close(FH);
+
+        print "\n\n =========== Processing structure \#$i ===========\n";
+        qx($BDIR/$program tmpfile);
+    }
+}

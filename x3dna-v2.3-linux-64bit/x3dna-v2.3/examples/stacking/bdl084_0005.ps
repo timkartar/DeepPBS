@@ -1,0 +1,205 @@
+%!PS-Adobe-3.0
+%%Title: (bdl084_0005.ps)
+%%Creator: (3DNA v2.1 (2013), created and maintained by Xiang-Jun Lu (PhD))
+%%CreationDate: (Tue Jul  9 15:43:01 2013)
+%%Orientation: Portrait
+%%BoundingBox:     30   247   582   545
+
+/FTSIZE 18 def % label font size
+/YOFFSET {FTSIZE 0.4 mul} bind def  % y-axis offset for label
+/Helvetica-Bold findfont FTSIZE scalefont setfont
+/GREYLEVEL 0.25 def  % for black and white gray lavel
+
+/SCENTER {dup stringwidth pop 2 div neg 0 rmoveto show} bind def  % center text
+/NP {newpath} bind def
+/DB {moveto lineto lineto lineto closepath} bind def   
+/LN {moveto lineto stroke} bind def
+/CIRCLE {0 360 arc} bind def
+/FB {setgray fill} bind def
+/R6 {moveto lineto lineto lineto lineto lineto closepath} bind def
+/R9 {moveto lineto lineto lineto lineto lineto lineto lineto lineto closepath} bind def
+
+% dot line style, color & width
+/Ds {[2 4] 0 setdash} bind def
+/Dl {1 0 1 setrgbcolor} bind def
+/Dw {1 setlinewidth} bind def
+
+% stacking diagram widths for base-pairs 1 & 2
+/W1 {1 setlinewidth} bind def
+/W2 {3 setlinewidth} bind def
+
+% minor and major grooves filling color saturation
+/MINOR_SAT 0.9 def
+/MAJOR_SAT 0.1 def
+/OTHER_SIDES {0 0 1 sethsbcolor fill} bind def
+
+% line drawing colors for ACGITU & others
+/Al {0.0000 1.00 1.00 sethsbcolor} bind def
+/Cl {0.1667 1.00 1.00 sethsbcolor} bind def
+/Gl {0.3333 1.00 1.00 sethsbcolor} bind def
+/Il {0.3333 1.00 0.57 sethsbcolor} bind def
+/Tl {0.6667 1.00 1.00 sethsbcolor} bind def
+/Ul {0.5000 1.00 1.00 sethsbcolor} bind def
+/Xl {0.0000 0.00 0.00 sethsbcolor} bind def
+
+% minor groove filling colors for ACGITU & others
+/Am {0.0000 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Cm {0.1667 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Gm {0.3333 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Im {0.3333 MINOR_SAT 0.57      sethsbcolor fill} bind def
+/Tm {0.6667 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Um {0.5000 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Xm {0.0000 0.00      MAJOR_SAT sethsbcolor fill} bind def
+/Sm {0.0000 0.00      0.6       sethsbcolor fill} bind def
+
+% major groove filling colors for ACGITU & others
+/AM {0.0000 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/CM {0.1667 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/GM {0.3333 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/IM {0.3333 MAJOR_SAT 0.57      sethsbcolor fill} bind def
+/TM {0.6667 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/UM {0.5000 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/XM {0.0000 0.00      MINOR_SAT sethsbcolor fill} bind def
+
+% define line width, line join style & cap style (1 means round)
+1 setlinewidth 1 setlinejoin 1 setlinecap
+
+% atom color list
+/ATOM00 {1.0000 0.0784 0.5765} bind def % Unknown deep pink
+/ATOM01 {0.7843 0.7843 0.7843} bind def % C light grey
+/ATOM02 {0.9412      0      0} bind def % O red
+/ATOM03 {0.2500 0.2500 0.2500} bind def % H 0.25 gray 
+/ATOM04 {0.5608 0.5608 1.0000} bind def % N light blue
+/ATOM05 {1.0000 0.7843 0.1961} bind def % S yellow
+/ATOM06 {1.0000 0.6471      0} bind def % P orange
+/ATOM07 {0.8549 0.6471 0.1255} bind def % F goldenrod
+/ATOM08 {     0 1.0000      0} bind def % Cl green
+/ATOM09 {0.6471 0.1647 0.1647} bind def % Br brown
+/ATOM10 {0.6275 0.1255 0.9412} bind def % I purple
+/ATOM11 {0.8549 0.6471 0.1255} bind def % Si goldenrod
+    40   257 translate
+
+NP W1 Al    32.2  195.9   50.5  163.8 LN
+NP W1 Al    50.5  163.8   86.3  167.7 LN
+NP W1 Al    40.0  220.5   32.2  195.9 LN
+NP W1 Al    36.1  258.9    0.0  265.6 LN
+NP W1 Al    86.3  167.7  104.1  156.2 LN
+NP W1 Al    36.1  258.9   40.0  220.5 LN
+NP W1 Al    50.5  163.8   45.4  149.6 LN
+NP W1 Al   211.6  136.6  178.2  136.7 LN
+NP W1 Al    36.1  258.9   54.9  278.1 LN
+NP W1 Al   232.9  162.2  211.6  136.6 LN
+NP W1 Al   178.2  136.7  166.4  167.9 LN
+NP W1 Tl   359.9  165.5  385.9  192.1 LN
+NP W1 Tl   325.0  174.9  314.8  203.7 LN
+NP W1 Al   104.1  156.2  133.5  177.8 LN
+NP W1 Al   133.5  177.8  166.4  167.9 LN
+NP W1 Tl   325.0  174.9  359.9  165.5 LN
+NP W1 Al   220.3  193.3  232.9  162.2 LN
+NP W1 Dl   232.9  162.2  302.3  148.7
+  gsave Ds LN grestore
+NP W1 Al
+  166.4  167.9  178.2  136.7  211.6  136.6  232.9  162.2
+  220.3  193.3  185.2  196.7  164.5  224.3  134.3  211.8
+  133.5  177.8 R9
+  gsave AM grestore stroke
+NP   166.4  167.9  185.2  196.7 LN
+0.1 setgray   199.7  165.1 YOFFSET sub moveto (A5) SCENTER
+NP W1 Al   185.2  196.7  166.4  167.9 LN
+NP W1 Tl   302.3  148.7  325.0  174.9 LN
+NP W1 Dl   241.6  218.8  314.8  203.7
+  gsave Ds LN grestore
+NP W1 Tl   359.9  165.5  367.5  133.1 LN
+NP W1 Al   133.5  177.8  134.3  211.8 LN
+NP W1 Al   185.2  196.7  220.3  193.3 LN
+NP W1 Tl
+  325.0  174.9  302.3  148.7  309.7  115.2  343.8  108.2
+  367.5  133.1  359.9  165.5 R6
+  gsave TM grestore stroke
+0.1 setgray   334.4  141.6 YOFFSET sub moveto (T20) SCENTER
+NP W1 Al   220.3  193.3  241.6  218.8 LN
+NP W1 Tl   380.2   57.0  354.0   73.6 LN
+NP W1 Tl   309.7  115.2  302.3  148.7 LN
+NP W1 Al   164.5  224.3  185.2  196.7 LN
+NP W1 Tl   393.7   30.0  380.2   57.0 LN
+NP W1 Al    45.4  149.6   38.4  114.6 LN
+NP W1 Al   134.3  211.8  164.5  224.3 LN
+NP W1 Tl   343.8  108.2  367.5  133.1 LN
+NP W1 Tl   343.8  108.2  309.7  115.2 LN
+NP W1 Tl   309.7  115.2  288.0   93.8 LN
+NP W1 Al    78.5  156.8  104.1  156.2 LN
+NP W1 Tl   354.0   73.6  343.8  108.2 LN
+NP W1 Al    45.4  149.6   78.5  156.8 LN
+NP W1 Tl   393.7   30.0  371.8    2.0 LN
+NP W1 Al    38.4  114.6   30.3   92.6 LN
+NP W2 Al    30.3   92.6   10.0   63.5 LN
+NP W1 Tl   368.1   73.6  354.0   73.6 LN
+NP W2 Al    83.8   58.1  115.1   45.3 LN
+NP W1 Tl   390.9   45.9  393.7   30.0 LN
+NP W2 Al    66.1   79.5   83.8   58.1 LN
+NP W2 Al   115.1   45.3  140.8   70.5 LN
+NP W2 Al    30.3   92.6   66.1   79.5 LN
+NP W1 Tl   477.8   89.5  489.2  113.6 LN
+NP W2 Al    30.3   92.6   17.6  114.5 LN
+NP W1 Tl   390.9   45.9  368.1   73.6 LN
+NP W1 Tl   477.8   89.5  444.4   72.1 LN
+NP W1 Tl   444.4   72.1  423.2   56.0 LN
+NP W2 Al   140.8   70.5  155.7   73.0 LN
+NP W2 Al   115.1   45.3  111.5   32.6 LN
+NP W1 Tl   423.2   56.0  390.9   45.9 LN
+NP W1 Tl   477.8   89.5  501.1   63.5 LN
+NP W1 Tl   477.8   89.5  464.7  108.8 LN
+NP W2 Al   155.7   73.0  165.1  108.2 LN
+NP W2 Al   252.3  126.4  226.3  105.1 LN
+NP W2 Tl   354.3  234.1  360.3  270.8 LN
+NP W2 Al   226.3  105.1  197.0  121.5 LN
+NP W2 Al   111.5   32.6  126.0    0.0 LN
+NP W2 Tl   320.2  221.5  295.2  238.5 LN
+NP W2 Tl   460.9  144.1  430.9  155.2 LN
+NP W2 Al   165.1  108.2  197.0  121.5 LN
+NP W2 Al   252.2  159.7  252.3  126.4 LN
+NP W2 Tl   320.2  221.5  354.3  234.1 LN
+NP W2 Al   165.1  108.2  143.9  134.8 LN
+NP W2 Al
+  197.0  121.5  226.3  105.1  252.3  126.4  252.2  159.7
+  222.3  175.4  192.9  155.6  159.2  163.5  143.9  134.8
+  165.1  108.2 R9
+  gsave Am grestore stroke
+NP   197.0  121.5  192.9  155.6 LN
+0.1 setgray   224.6  140.6 YOFFSET sub moveto (A6) SCENTER
+NP W2 Tl   430.9  155.2  402.6  155.4 LN
+NP W2 Al   192.9  155.6  197.0  121.5 LN
+NP W2 Tl   354.3  234.1  379.1  211.8 LN
+NP W2 Tl   317.2  187.2  320.2  221.5 LN
+NP W2 Dl   222.1  208.7  295.2  238.5
+  gsave Ds LN grestore
+NP W2 Dl   252.2  159.7  317.2  187.2
+  gsave Ds LN grestore
+NP W2 Al   222.3  175.4  252.2  159.7 LN
+NP W2 Tl
+  320.2  221.5  317.2  187.2  342.2  164.5  374.1  178.0
+  379.1  211.8  354.3  234.1 R6
+  gsave Tm grestore stroke
+0.1 setgray   347.1  199.7 YOFFSET sub moveto (T19) SCENTER
+NP W2 Al   192.9  155.6  222.3  175.4 LN
+NP W2 Al   143.9  134.8  159.2  163.5 LN
+NP W2 Al   159.2  163.5  192.9  155.6 LN
+NP W2 Tl   374.1  178.0  379.1  211.8 LN
+NP W2 Tl   342.2  164.5  317.2  187.2 LN
+NP W2 Al   222.3  175.4  222.1  208.7 LN
+NP W2 Al   129.8   58.8  155.7   73.0 LN
+NP W2 Tl   374.1  178.0  342.2  164.5 LN
+NP W2 Al   111.5   32.6  129.8   58.8 LN
+NP W2 Tl   460.9  144.1  464.7  108.8 LN
+NP W2 Tl   342.2  164.5  336.4  134.6 LN
+NP W2 Tl   402.6  155.4  374.1  178.0 LN
+NP W2 Tl   452.6  155.6  460.9  144.1 LN
+NP W2 Tl   417.8  165.7  402.6  155.4 LN
+NP W2 Tl   496.5  243.0  485.7  269.2 LN
+NP W2 Tl   496.5  243.0  475.8  210.2 LN
+NP W2 Tl   452.6  155.6  417.8  165.7 LN
+NP W2 Tl   496.5  243.0  532.0  234.2 LN
+NP W2 Tl   475.8  210.2  474.5  183.1 LN
+NP W2 Tl   474.5  183.1  452.6  155.6 LN
+
+showpage

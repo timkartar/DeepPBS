@@ -1,0 +1,195 @@
+#!/usr/bin/env ruby
+
+### Ruby version to replace the Perl script 'blocview'
+###     3DNA v2.3-2017feb08, created and maintained by Xiang-Jun Lu (PhD)
+
+$VERBOSE = true
+require 'fileutils'
+require ENV['X3DNA'] + '/lib/trollop'
+require ENV['X3DNA'] + '/lib/miscs'
+
+def main
+    Utils.dcmnfile              # tidy up the playground
+    set_globals
+
+    opts = parse_options
+    pdbfile = ARGV.shift
+    Utils.assert_file_exist(pdbfile, "must specify a PDB file")
+    FileUtils.cp(pdbfile, $dft_pdbfile)
+
+    set_view(opts)
+    get_r3d_header(opts)
+    get_component_scenes(opts)
+
+    if opts[:imgfile] == "none" || !Utils.x3dna_r3d2png(opts)
+        puts "no image output; '#{opts[:r3dfile]}' -- to be fed into render/pymol"
+    else
+        Utils.x3dna_r3d2png(opts)
+        Utils.output_scale_factor(opts[:r3dfile]) unless opts[:dpi_pymol]
+    end
+end
+
+def remove_nt_backbone(msfile)
+    File.open("temp.msc", "w") do |aFile|
+        File.open(msfile).each_line do |line|
+            if line =~ /^\s*double-helix/i
+                aFile.puts "! #{line}" # commented it out
+            else
+                aFile.puts line
+            end
+        end
+    end
+    FileUtils.cp("temp.msc", msfile)
+end
+
+def has_coordinates(pdbfile)
+    atom_hetatm = false
+    File.open(pdbfile).each_line do |line|
+        if line =~ /^(ATOM  |HETATM)/i
+            atom_hetatm = true
+            break
+        end
+    end
+    atom_hetatm
+end
+
+def get_component_scenes(opts)
+    if opts[:ball_and_stick]    # as for ligand below
+        FileUtils.cp($dft_pdbfile, $temp_pdb)
+
+    else
+        opt = opts[:p_base_ring] ? "-z" : "-x"
+        Utils.run_cmd("#{$x3dna}get_part #{opt} #{$dft_pdbfile} tb.pdb #{$msg}")
+
+        # color nucleic-acid base/sugar by residue type
+        Utils.run_cmd("#{$x3dna}r3d_atom -ncz -r=0.16 tb.pdb #{$temp_r3d} #{$msg}")
+        Utils.append_r3dfile(opts[:r3dfile], $temp_r3d)
+
+        # block representation of the bases
+        style = opts[:minor_groove] ? "-rcnm" : "-rcni"
+        Utils.run_cmd("#{$x3dna}pdb2img #{style} #{$dft_pdbfile} #{$temp_r3d} #{$msg}")
+        Utils.append_r3dfile(opts[:r3dfile], $temp_r3d)
+
+        if Utils.has_executable?($molauto)
+            # use "molauto" to get protein secondary structure & nucleic acid backbone
+            Utils.run_cmd("#{$molauto} -nocentre -ss_hb #{$dft_pdbfile} > temp")
+            Utils.run_cmd("#{$x3dna}get_part -c #{$dft_pdbfile} temp2 #{$msg}")
+            remove_nt_backbone("temp2") if opts[:no_ds]
+            # use "molscript" to get a Raster3D input, and delete its header section
+            Utils.run_cmd("#{$molscript} -r < temp2 > temp #{$msg}")
+            Utils.remove_r3d_header("temp", $temp_r3d)
+            Utils.append_r3dfile(opts[:r3dfile], $temp_r3d)
+        end
+
+        # get input for ligands
+        Utils.run_cmd("#{$x3dna}get_part -t #{$dft_pdbfile} #{$temp_pdb} #{$msg}");
+    end
+
+    if has_coordinates($temp_pdb)
+        opt = "-r=0.0 -b=0.20 -o -n" # ball for atoms
+        Utils.run_cmd("#{$x3dna}r3d_atom #{opt} #{$temp_pdb} #{$temp_r3d} #{$msg}")
+        Utils.append_r3dfile(opts[:r3dfile], $temp_r3d)
+
+        opt = "-r=0.12 -gn"     # gray rod
+        Utils.run_cmd("#{$x3dna}r3d_atom #{opt} #{$temp_pdb} #{$temp_r3d} #{$msg}")
+        Utils.append_r3dfile(opts[:r3dfile], $temp_r3d)
+    end
+end
+
+def get_r3d_header(opts)
+    opt = opts[:scale] ? "-s=#{opts[:scale]}" : ""
+    Utils.run_cmd("#{$x3dna}r3d_atom #{opt} #{$dft_pdbfile} #{$temp_r3d} #{$msg}")
+    File.open(opts[:r3dfile], "w") do |oFile|
+        File.open($temp_r3d) do |iFile|
+            while line = iFile.gets
+                oFile.puts line if $. <= 20
+            end
+        end
+    end
+end
+
+def set_view(opts)
+    # get only protein, nucleic acid, ligands and delete H-atoms
+    Utils.run_cmd("#{$x3dna}get_part -pnt #{$dft_pdbfile} #{$temp_pdb} #{$msg}")
+    Utils.run_cmd("#{$x3dna}get_part -d #{$temp_pdb} #{$dft_pdbfile} #{$msg}")
+
+    return if opts[:original]   # use the original PDB coordinates
+
+    opt = opts[:protein] ? "-p" : opts[:all] ? "-a" : "-b"
+    Utils.run_cmd("#{$x3dna}rotate_mol -c #{opt} #{$dft_pdbfile} #{$temp_pdb} #{$msg}")
+
+    if opts[:xrot] || opts[:yrot] || opts[:zrot]
+        rotfile = "blocview_rotxyz.ang"
+        File.open(rotfile, "w") do |aFile|
+            aFile.puts "by rotation x #{opts[:xrot]}\n" if opts[:xrot]
+            aFile.puts "by rotation y #{opts[:yrot]}\n" if opts[:yrot]
+            aFile.puts "by rotation z #{opts[:zrot]}\n" if opts[:zrot]
+        end
+        Utils.run_cmd("#{$x3dna}rotate_mol -c -r=#{rotfile} #{$temp_pdb} #{$dft_pdbfile} #{$msg}")
+    else
+        FileUtils.cp($temp_pdb, $dft_pdbfile)
+    end
+end
+
+def set_globals
+    $prg = File.basename($0)
+    $msg = " 2> msgfile"        # stderr redirected to 'msgfile'
+    $x3dna = Utils.x3dna_bindir
+
+    $dft_pdbfile = "blocview.pdb"
+    $temp_pdb = "blocview_temp.pdb"
+    $temp_r3d = "blocview_temp.r3d"
+
+    $molauto = "molauto"
+    $molscript = "molscript"
+end
+
+def docinfo
+    sline = Utils.separation_line
+    <<TXT
+#{sline}
+Generate a schematic image which combines base block representation
+with protein ribbon. The image has informative color coding for the
+nucleic acid part and is set in the "best view" by default. MolScript
+Raster3D (or PyMOL) and ImageMagick must be properly installed.
+
+Usage:
+        #{$prg} [options] PDBFile
+Examples:
+        #{$prg} -i 355d.png 355d.pdb
+             # generate an image named '355d.png'
+        #{$prg} -i none -r 355d.r3d 355d.pdb
+             # generate "355d.r3d" to be fed to "render/pymol"
+Options:
+#{sline}
+TXT
+end
+
+def parse_options
+    opts = Trollop::options do
+        version Utils.version
+        banner docinfo
+
+        opt :imgfile, "name of image file", :default => "blocview.png"
+        opt :r3dfile, "name of .r3d file", :default => "blocview.r3d"
+        opt :dpi_pymol, "create PyMOL ray-traced image at specific DPI", :type => :integer
+        opt :scale, "set scale factor (for 'render' of Raster3D)", :type => :float
+        opt :xrot, "rotation angle about x-axis", :type => :float
+        opt :yrot, "rotation angle about y-axis", :type => :float
+        opt :zrot, "rotation angle about z-axis", :type => :float
+        opt :original, "use original coordinates", :default => false
+        opt :ball_and_stick, "get a ball-and-stick image", :default => false
+        opt :minor_groove, "show minor groove in black", :default => false
+        opt :p_base_ring, "use only P and base ring atoms", :default => false, :short => "-c"
+        opt :no_ds, "do not show double-helix ribbon", :default => false
+        opt :protein, "set best view based on protein atoms", :default => false
+        opt :all, "set best view based on all atoms", :default => false
+    end
+
+    opts[:all] = false if opts[:protein] && opts[:all]
+    opts[:imgfile] += ".png" unless opts[:imgfile] =~ /(^none|\.png)$/i
+
+    opts
+end
+
+main

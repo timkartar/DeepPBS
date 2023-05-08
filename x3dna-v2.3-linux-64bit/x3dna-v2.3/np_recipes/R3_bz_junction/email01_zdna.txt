@@ -1,0 +1,143 @@
+From xiangjun@rutchem.rutgers.edu Tue Jul 26 19:32:02 2005
+Date: Mon, 25 Jul 2005 13:18:17 -0400 (EDT)
+From: Xiangjun LU <xiangjun@rutchem.rutgers.edu>
+To: "[utf-8] í•˜ì„±ì² " <hasungc@skku.edu>
+Cc: W. K. Olson <olson@rutchem.rutgers.edu>
+Subject: Re: Feedback for 3DNA Home Page: Request for calculating strange
+    DNA structure!.
+
+Dear SungChul Ha,
+
+Nice to hear from you. Have you run the updated 3DNA program from the URL
+I provided in my previous email? I would expect that the local base
+parameters from the revised program should be the same as you would
+analyze B- and Z-part *separately*, i.e., the new program (with -n option)
+should handle a structure with B/Z junction automatically. Could you
+please verify this?
+
+I am glad that you raised the Rise discrepancy, 2.6A from 3DNA vs. 3.82 A
+in O. I am not sure exactly how Rise is caluclated in O, but this Rise
+discrepancy is clearly related to relatively large buckles, in opposite
+sense, in the two bps. This is documented in the standard reference frame
+report (Olson et al., J. Mol. Biol. 313(1), 229-237, 2001), and I have
+generated a GIF image to illustrate this point at URL:
+    http://rutchem.rutgers.edu/~xiangjun/3DNA/temp/
+
+Since SCHNAaP/CEHS (FreeHelix/NewHelix as well) is based on RC8-YC6 middle 
+point in defining the bp origin, one would expect a much larger rise in 
+such cases. This is indeed the case, as shown in the output file from the 
+"cehs" program (I have just updated it and put it on the above URL): The 
+Rise is now 3.72 A, close to 3.82 A as you got from O.
+    step       Shift     Slide      Rise      Tilt      Roll     Twist
+   1 CT/AG      1.88      1.00      3.72      3.59     -8.64    -14.19
+
+The point here is not the numerical value per se, but what does it mean.  
+In this regard, one would find the stacking diagram and side view image
+given in the about URL helpful. Both of them are conveniently generated
+with 3DNA.
+
+Hope this helps.
+
+Xiang-Jun
+
+PS. If you run the updated 3DNA, do not forget to use -n option for 
+    programs "analyze" and "cehs".
+
+On Mon, 25 Jul 2005, [utf-8] í^Õ^Øì^Ä±ì²  wrote:
+
+> Dear, Xiangjun LU
+> 
+> Thanks for your helpful suggestion and response. And I'm very sorry for
+> late response and not for providing more PDB file.
+>  In fact, we will use 3DNA for calculating the parameters of B-DNA and
+> Z-DNA.  But, we will calculate the parameter B-Z junction manually to
+> show people estimate of the structure.
+> 
+> The helical rise is different somewhat with the value you provided. The
+> value calcuated menually was 3.82A. If you see the BZ structure in the
+> display program like "O", you may find that the rise is more than 3.5A.
+> However, the twist is similar. The value is about 16.9 degree.
+> 
+> Sincerely
+> 
+> SungChul Ha.
+> 
+> 
+> 
+> ----- Original Message ----- 
+> From: "Xiangjun LU" <xiangjun@rutchem.rutgers.edu>
+> To: "Sung Chul Ha" <hasungc@skku.edu>
+> Cc: "W. K. Olson" <olson@rutchem.rutgers.edu>
+> Sent: Saturday, July 23, 2005 2:47 PM
+> Subject: Re: Feedback for 3DNA Home Page: Request for calculating strange DNA structure!.
+> 
+> 
+> > Hi Sung Chul Ha,
+> > 
+> > I have checked carefully your partial structure with a B-/Z-junction. As
+> > mentioned briefly in my previous message, your junction structure has
+> > expected features. That's why in the 3DNA version you used, the strucure
+> > was classified as below:
+> > 
+> > ****************************************************************************
+> > Structure classification: 
+> > 
+> > This nucleic acid structure is *unusual*
+> > ****************************************************************************
+> > 
+> > The *unusual* feature, however, was not used in calculating base-pair
+> > parameters (becasue that would complicate the rebuilding etc). Thus the
+> > numerical values you got make no sense. Now I have revised the code to
+> > make it work for such case. I have put the newly compiled version for
+> > Linux, the output for the partial B-/Z-dinucleotide you provided me, and a
+> > stacking diagram for the step, at URL:
+> >   http://rutchem.rutgers.edu/~xiangjun/3DNA/temp/
+> > 
+> > Please note:
+> > 
+> > [1] You need to use the newly added (undocumentd, since I regard it as
+> >    still at the test stage) -n for "analyze" to get the result, i.e., 
+> >      find_pair bzpartial.pdb stdout | analyze -n
+> > 
+> >    Run it on your full structure to see what result you get, and please
+> >    let know if it makes sense to you.
+> > 
+> > [2] The base-pair step parameters are as follows
+> > 
+> >    step       Shift     Slide      Rise      Tilt      Roll     Twist
+> >   1 CT/AG      1.26      0.80      2.60     10.16     -7.20    -17.02
+> > 
+> > [3] There are strong base stacking interactions along each strand, but 
+> >    no cross strand stacking:
+> >    4.88( 0.09)  0.00( 0.00)  0.00( 0.00)  7.56( 4.82)
+> > 
+> > [4] The stacking diagram available from the above URL will help understand 
+> >    the base parameters and stacking [2] and [3] better.
+> > 
+> > Hope this helps, and please let me know how it goes.
+> > 
+> > Xiang-Jun
+> > 
+> > On Fri, 15 Jul 2005, Sung Chul Ha wrote:
+> > 
+> >> Dear, Xiang Jun
+> >> 
+> >> I'm student in korea working the DNA structure consisting of B-DNA and Z-DNA.
+> >> Fortunately, we got the structure having B-DNA and Z-DNA simutaneously.
+> >> But, we have some problem to get base parameters using 3DNA.
+> >> 
+> >> I attached partial PDB file between Z-DNA and B-DNA.
+> >> : E10-F27 base pair (B-DNA) and E12-F26 base pair (Z-DNA)
+> >> So, Could you calculate the "rise" and "twist" of local base step parameters?
+> >> I'm very sorry for providing the partial structure.
+> >> 
+> >> Sincerely,
+> >> Sung Chul Ha
+> >> hasungc@skku.edu
+> >> 
+> >> 
+> >> 
+> > 
+> >
+> 
+

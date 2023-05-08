@@ -1,0 +1,29 @@
+name: deeppbs
+channels:
+  - pytorch
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9.13
+  - pip
+  - pytorch=1.12.1
+  - torchvision=0.13.1
+  - torchaudio=0.12.1
+  - cudatoolkit
+  - pyg::pyg
+  - pyg::pytorch-cluster
+  - pyg::pytorch-sparse
+  - pip:
+    - freesasa
+    - networkx
+    - biopython==1.79
+    - numpy==1.21.5
+    - torch-cluster==1.6.0
+    - matplotlib==3.5.2
+    - pandas==1.4.4
+    - pdb2pqr
+    - seaborn==0.11.2
+    - scipy==1.7.3
+    - scikit-learn==1.1.1
+    - logomaker
+

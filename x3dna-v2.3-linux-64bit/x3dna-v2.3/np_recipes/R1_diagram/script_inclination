@@ -1,0 +1,41 @@
+## [1] firstly one needs to create a file "inclination.dat" with
+## inclination set to 36 degrees, and all other parameters set to
+## zero.
+
+## the easiest is to use "regular_dna", with # of repeat set to 2
+
+## [2] read in rectangular blocks with R and Y in the same size
+
+\cp $X3DNA/config/block/Block_M.alc Block_R.alc
+\cp $X3DNA/config/block/Block_M.alc Block_Y.alc
+
+## [3] rebuild the structure in Alchemy format with option '-block2'
+## for the two bases in a pair. Since the two base blocks have the
+## same size and all base-pair parameters are zero, the two bases
+## touch each other as if a line is drawn in the middle of a base-pair
+## block; Since all other helical parameters (rise and twist) are all
+## zero, the two base pairs are perfectly overlapped. Alchemy file can
+## be viewed with Rasmol.
+
+rebuild -block2 inclination.dat inclination.alc
+### rasmol -alchemy inclination.alc
+
+## [4] set the global reference frame to the middle helical frame (-x)
+## of the step (-1,2), viewed from the normal minor-groove side (-m);
+## add the global axis (-g) with axis length set to 8 (-L=8); to be
+## viewed with Rasmol, please use option '-noconnect' to avoid Rasmol
+## recalculated linkage info
+
+frame_mol -m -g -L=8 -1,2 -x ref_frames.dat inclination.alc inclination_mg.alc
+### rasmol -alchemy -noconnect inclination_mg.alc
+
+## [5] set to side view for easy visualization (file "side_view.dat")
+## again note the option '-noconnect' for Rasmol
+
+rotate_mol -r=side_view.dat inclination_mg.alc inclination_sv.alc
+### rasmol -alchemy -noconnect inclination_sv.alc
+
+## [6] now generate the image in XFIG format (-f) with global axis
+## added (-g), scale factor set to 166 (-s=166)
+
+alc2img -f -g -s=166 inclination_sv.alc inclination_sv.fig

@@ -1,0 +1,63 @@
+# This script is a bit long, but it is actually quite simple. 
+# Try to understand exactly how it works, you would qualify as
+# an expert 3DNA user!
+#
+# Xiang-Jun Lu (3dna.lu@gmail.com) April 28, 2008
+#
+# [1] find helical regions from the original PDB file
+find_pair 1egk.pdb stdout
+
+# [2] extract each of the three helices
+ex_str -1 hel_regions.pdb h1.pdb
+ex_str -2 hel_regions.pdb h2.pdb
+ex_str -3 hel_regions.pdb h3.pdb
+
+# [3] h1 (A-form) is straight (h1.out)
+### Deviation from regular linear helix: 2.67(0.54)
+find_pair h1.pdb stdout | analyze stdin
+
+# h2 is not as straight (h2.out)
+### Deviation from regular linear helix: 3.48(0.82)
+find_pair h2.pdb stdout | analyze stdin
+
+# h3 (A-form) is straight (h3.out)
+### Deviation from regular linear helix: 2.74(0.54)
+find_pair h3.pdb stdout | analyze stdin
+
+# the global axis for h1 is x1 = [-0.348   0.922  -0.167]
+#     passing through point p1 = [10.137   3.741 -36.659]
+# the global axis for h3 is x2 = [0.597   0.161  -0.785]
+#     passing through point p2 = [-6.490  36.422  -4.525]
+# the angle between the two helices is 86 degrees
+#           angle = acos(dot(x1, x2)) * 180 /pi = 85.884
+#     and the shortest distance between them is 20.2 A
+#              xv = cross(x1, x2)
+#            dist = dot(p1 - p2, xv / norm(xv)) = 20.163
+
+# [4] manually create rotation matrix file "h1x_h3y.rot" based on h1
+# and h3 normalized helical axis from above, and change view
+rotate_mol -t=h1x_h3y.rot 1egk.pdb 1egk_h1x_h3y.pdb
+
+# [5] get default Raster3D cylinder scenes for helices 1 and 3
+find_pair 1egk_h1x_h3y.pdb stdout
+ex_str -1 hel_regions.pdb h1x.pdb
+ex_str -3 hel_regions.pdb h3y.pdb
+
+find_pair h1x.pdb stdout | analyze stdin
+\mv poc_haxis.r3d h1x.r3d
+
+find_pair h3y.pdb stdout | analyze stdin
+\mv poc_haxis.r3d h3y.r3d
+
+# manually edit h1x.r3d and h3y.r3d ==> h1x_ok.r3d and h3y_ok.r3d
+### (a) un-comment cylinder scenes based on P atom, and change color
+###     to red for h1, and green for h3
+### (b) change color for the thinner middle axis to black
+
+# [6] get the scenes for the overall structure and combined them with
+#     cylinders from above
+blocview -o 1egk_h1x_h3y.pdb
+cat blocview.r3d transparent.r3d h1x_ok.r3d h3y_ok.r3d > 1egk_ok.r3d
+
+# [7] render the image
+x3dna_utils x3dna_r3d2png -r 1egk_ok.r3d -i 1egk_ok.png

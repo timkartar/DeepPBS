@@ -1,0 +1,7 @@
+## for rendering with Raster3D
+nmr_ensemble -i=2grw_best.png -r -s=60 2grw.pdb
+nmr_ensemble -i=2grw_all.png -s=60 2grw.pdb
+
+## for PyMOL ray-traced image -- it takes a while for the ensemble
+nmr_ensemble -i=2grw_best_pymol.png -r -t=300 2grw.pdb
+nmr_ensemble -i=2grw_all_pymol.png -t=300 2grw.pdb

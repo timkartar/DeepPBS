@@ -1,0 +1,6 @@
+rebuild $1.dat temp.alc
+frame_mol -max -1,11 ref_frames.dat temp.alc temp2.alc
+rotate_mol -r=rotz temp2.alc temp.alc
+alc2img -al -s=18 temp.alc $1.ps
+alc2img -fal -s=250 temp.alc $1.fig
+alc2img -ral -s=50 temp.alc $1.r3d

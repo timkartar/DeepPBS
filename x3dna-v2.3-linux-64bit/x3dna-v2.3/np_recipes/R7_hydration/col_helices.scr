@@ -1,0 +1,301 @@
+zap
+load nmrpdb hel_regions.pdb
+# load 1kx5.pdb
+# restrict not (protein or water)
+
+
+#------Helix #1, color: red------
+select -73:I, 73:J
+color red
+select -72:I, 72:J
+color red
+select -71:I, 71:J
+color red
+select -70:I, 70:J
+color red
+select -69:I, 69:J
+color red
+select -68:I, 68:J
+color red
+select -67:I, 67:J
+color red
+select -66:I, 66:J
+color red
+select -65:I, 65:J
+color red
+select -64:I, 64:J
+color red
+select -63:I, 63:J
+color red
+select -62:I, 62:J
+color red
+select -61:I, 61:J
+color red
+select -60:I, 60:J
+color red
+select -59:I, 59:J
+color red
+select -58:I, 58:J
+color red
+select -57:I, 57:J
+color red
+select -56:I, 56:J
+color red
+select -55:I, 55:J
+color red
+select -54:I, 54:J
+color red
+select -53:I, 53:J
+color red
+select -52:I, 52:J
+color red
+select -51:I, 51:J
+color red
+select -50:I, 50:J
+color red
+select -49:I, 49:J
+color red
+select -48:I, 48:J
+color red
+select -47:I, 47:J
+color red
+select -46:I, 46:J
+color red
+select -45:I, 45:J
+color red
+select -44:I, 44:J
+color red
+select -43:I, 43:J
+color red
+select -42:I, 42:J
+color red
+select -41:I, 41:J
+color red
+select -40:I, 40:J
+color red
+select -39:I, 39:J
+color red
+select -38:I, 38:J
+color red
+select -37:I, 37:J
+color red
+select -36:I, 36:J
+color red
+select -35:I, 35:J
+color red
+select -34:I, 34:J
+color red
+select -33:I, 33:J
+color red
+select -32:I, 32:J
+color red
+select -31:I, 31:J
+color red
+select -30:I, 30:J
+color red
+select -29:I, 29:J
+color red
+select -28:I, 28:J
+color red
+select -27:I, 27:J
+color red
+select -26:I, 26:J
+color red
+select -25:I, 25:J
+color red
+select -24:I, 24:J
+color red
+select -23:I, 23:J
+color red
+select -22:I, 22:J
+color red
+select -21:I, 21:J
+color red
+select -20:I, 20:J
+color red
+select -19:I, 19:J
+color red
+select -18:I, 18:J
+color red
+select -17:I, 17:J
+color red
+select -16:I, 16:J
+color red
+select -15:I, 15:J
+color red
+select -14:I, 14:J
+color red
+select -13:I, 13:J
+color red
+select -12:I, 12:J
+color red
+select -11:I, 11:J
+color red
+select -10:I, 10:J
+color red
+select -9:I, 9:J
+color red
+select -8:I, 8:J
+color red
+select -7:I, 7:J
+color red
+select -6:I, 6:J
+color red
+select -5:I, 5:J
+color red
+select -4:I, 4:J
+color red
+select -3:I, 3:J
+color red
+select -2:I, 2:J
+color red
+select -1:I, 1:J
+color red
+select 0:I, 0:J
+color red
+select 1:I, -1:J
+color red
+select 2:I, -2:J
+color red
+select 3:I, -3:J
+color red
+select 4:I, -4:J
+color red
+select 5:I, -5:J
+color red
+select 6:I, -6:J
+color red
+select 7:I, -7:J
+color red
+select 8:I, -8:J
+color red
+select 9:I, -9:J
+color red
+select 10:I, -10:J
+color red
+select 11:I, -11:J
+color red
+select 12:I, -12:J
+color red
+select 13:I, -13:J
+color red
+select 14:I, -14:J
+color red
+select 15:I, -15:J
+color red
+select 16:I, -16:J
+color red
+select 17:I, -17:J
+color red
+select 18:I, -18:J
+color red
+select 19:I, -19:J
+color red
+select 20:I, -20:J
+color red
+select 21:I, -21:J
+color red
+select 22:I, -22:J
+color red
+select 23:I, -23:J
+color red
+select 24:I, -24:J
+color red
+select 25:I, -25:J
+color red
+select 26:I, -26:J
+color red
+select 27:I, -27:J
+color red
+select 28:I, -28:J
+color red
+select 29:I, -29:J
+color red
+select 30:I, -30:J
+color red
+select 31:I, -31:J
+color red
+select 32:I, -32:J
+color red
+select 33:I, -33:J
+color red
+select 34:I, -34:J
+color red
+select 35:I, -35:J
+color red
+select 36:I, -36:J
+color red
+select 37:I, -37:J
+color red
+select 38:I, -38:J
+color red
+select 39:I, -39:J
+color red
+select 40:I, -40:J
+color red
+select 41:I, -41:J
+color red
+select 42:I, -42:J
+color red
+select 43:I, -43:J
+color red
+select 44:I, -44:J
+color red
+select 45:I, -45:J
+color red
+select 46:I, -46:J
+color red
+select 47:I, -47:J
+color red
+select 48:I, -48:J
+color red
+select 49:I, -49:J
+color red
+select 50:I, -50:J
+color red
+select 51:I, -51:J
+color red
+select 52:I, -52:J
+color red
+select 54:I, -54:J
+color red
+select 55:I, -55:J
+color red
+select 56:I, -56:J
+color red
+select 57:I, -57:J
+color red
+select 58:I, -58:J
+color red
+select 59:I, -59:J
+color red
+select 60:I, -60:J
+color red
+select 61:I, -61:J
+color red
+select 62:I, -62:J
+color red
+select 63:I, -63:J
+color red
+select 64:I, -64:J
+color red
+select 65:I, -65:J
+color red
+select 66:I, -66:J
+color red
+select 67:I, -67:J
+color red
+select 68:I, -68:J
+color red
+select 69:I, -69:J
+color red
+select 70:I, -70:J
+color red
+select 71:I, -71:J
+color red
+select 72:I, -72:J
+color red
+select 73:I, -73:J
+color red
+
+select all

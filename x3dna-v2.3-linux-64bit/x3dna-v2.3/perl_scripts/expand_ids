@@ -1,0 +1,468 @@
+#!/usr/bin/env perl
+# Script to expand base identification from default 3DNA 'analyze'
+# output.
+#
+# Version history:
+#     started  --  October 12, 2007
+
+use warnings;
+use strict;
+
+use FindBin qw($Bin);
+use lib $Bin;
+use x3dna_utils;
+
+my $short_fmt;    # directly from running 'analyze'
+my $long_fmt;     # expanded form
+
+if ( @ARGV == 2 ) {
+    $short_fmt = $ARGV[0];
+    $long_fmt  = $ARGV[1];
+    if ( not -e $short_fmt ) {
+        warn "Your input file <$short_fmt> does not exist!\n";
+        pause_prg_usage();
+    }
+} else {
+    prg_usage();
+}
+
+my $ds = get_strand($short_fmt);
+
+my $num;
+my @nucs;
+
+open( FINP, $short_fmt )   or die "Can't open $short_fmt for reading: $!\n";
+open( FOUT, ">$long_fmt" ) or die "Can't open $long_fmt for writing: $!\n";
+
+if ( $ds == 2 ) {
+    print "File <${short_fmt}> refers to a duplex structure output\n";
+    handle_duplex();
+} else {
+    print "File <${short_fmt}> refers to a single-strand output\n";
+    handle_ss();
+}
+
+close(FINP);
+close(FOUT);
+
+sub skip_lines {
+    my $num = shift;
+
+    for ( my $i = 1 ; $i <= $num ; $i++ ) {
+        my $str = <FINP>;
+        print FOUT $str;
+    }
+}
+
+sub adjust_ave_std {
+    my $nspace = shift;
+
+    my $spaces = ' ' x $nspace;
+
+    my $str   = <FINP>;
+    my $tilde = ' ' x 4 . '~' x 60;
+    printf( FOUT "%s%s\n", $spaces, $tilde );
+
+    for ( my $i = 1 ; $i <= 2 ; $i++ ) {
+        my $str = <FINP>;
+        chomp($str);
+        printf( FOUT "%s%s\n", $spaces, ltrim($str) );
+    }
+}
+
+sub ds_step {
+    for ( my $i = 1 ; $i < $num ; $i++ ) {
+        my $j   = $i + 1;
+        my $str = <FINP>;
+        chomp($str);
+        printf( FOUT "%4ld %s*%s/%s*%s%s\n",
+                $i, $nucs[$i]->[0], $nucs[$j]->[0], $nucs[$j]->[1], $nucs[$i]->[1],
+                substr( $str, 10 ) );
+    }
+    return 1;
+}
+
+sub ds_2steps {
+    for ( my $i = 1 ; $i < $num ; $i++ ) {
+        my $j   = $i + 1;
+        my $str = <FINP>;
+        chomp($str);
+        printf( FOUT "%4ld %s/%s%s",
+                $i, $nucs[$i]->[0], $nucs[$j]->[0], substr( $str, 8, 26 ) );
+        printf( FOUT "%4ld %s/%s%s\n",
+                $i, $nucs[$i]->[1], $nucs[$j]->[1], substr( $str, 8, 26 ) );
+    }
+    return 1;
+}
+
+sub ds_base {
+    my $stnd = shift;
+
+    for ( my $i = 1 ; $i <= $num ; $i++ ) {
+        my $str = <FINP>;
+        chomp($str);
+        printf( FOUT "%4ld %s%s\n", $i, $nucs[$i]->[$stnd], substr( $str, 6 ) );
+    }
+
+    return 1;
+}
+
+sub ds_base_pair {
+    my $sidx = shift;    # starting index, 0-based
+
+    for ( my $i = 1 ; $i <= $num ; $i++ ) {
+        my $str = <FINP>;
+        chomp($str);
+        printf( FOUT "%4ld %s%s\n", $i, $nucs[$i]->[2], substr( $str, 12 ) );
+    }
+    return 1;
+}
+
+sub handle_duplex {
+    while ( my $str = <FINP> ) {
+        my $done = 0;
+
+        $num = $1 if ( $str =~ /^Number of base-pairs?: (\d+)/ );
+
+        if ( $str =~ /^RMSD of the bases/ ) {
+            print FOUT $str;
+            skip_lines(2);
+            for ( my $i = 1 ; $i <= $num ; $i++ ) {
+                $str = <FINP>;
+                print FOUT $str;
+                $nucs[$i] = [
+                              substr( $str, 20, 13 ),
+                              substr( $str, 40, 13 ),
+                              substr( $str, 20, 33 )
+                            ];
+            }
+        }
+
+        if ( $str =~ /^Detailed H-bond information/ ) {
+            print FOUT $str;
+            $done = ds_base_pair(12);
+        }
+
+        if ( $str =~ /^     step      i1-i2/ ) {
+            print FOUT
+                "                               step                              i1-i2"
+                . "        i1-j2        j1-i2        j1-j2        sum\n";
+            $done = ds_step();
+        }
+
+        if ( $str =~ /^Origin / ) {
+            print FOUT $str;
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT "                     bp                   "
+                . "Ox        Oy        Oz        Nx        Ny        Nz\n";
+            $done = ds_base_pair(9);
+        }
+
+        if ( $str =~ /^Local base-pair parameters/ ) {
+            print FOUT $str;
+            $str = <FINP>;
+            print FOUT "                     bp                  "
+                . "Shear    Stretch   Stagger    Buckle  Propeller  Opening\n";
+            $done = ds_base_pair(9);
+            adjust_ave_std(32);
+        }
+
+        if ( $str =~ /^Local base-pair step parameters/ ) {
+            print FOUT $str;
+            $str = <FINP>;
+            print FOUT
+                "                               step                              "
+                . "Shift     Slide      Rise      Tilt      Roll     Twist\n";
+            $done = ds_step();
+            adjust_ave_std(56);
+        }
+
+        if ( $str =~ /^Local base-pair helical parameters/ ) {
+            print FOUT $str;
+            $str = <FINP>;
+            print FOUT
+                "                               step                              "
+                . "X-disp    Y-disp   h-Rise     Incl.       Tip   h-Twist\n";
+            $done = ds_step();
+            adjust_ave_std(56);
+        }
+
+        if ( $str =~ /^    bp     lambda/ ) {
+            print FOUT "                     bp              "
+                . "lambda(I) lambda(II)  C1'-C1'   RN9-YN1   RC8-YC6\n";
+            $done = ds_base_pair(8);
+        }
+
+        if ( $str =~ /^Classification of each dinucleotide step/ ) {
+            print FOUT $str;
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT
+                "                               step                              "
+                . "Xp      Yp      Zp     XpH     YpH     ZpH    Form\n";
+            $done = ds_step();
+        }
+
+        if ( $str =~ /^                  Minor Groove/ ) {
+            print FOUT "                                      "
+                . "                              Minor Groove        Major Groove\n";
+            $str = <FINP>;
+            print FOUT "                                      "
+                . "                             P-P     Refined     P-P     Refined\n";
+            $done = ds_step();
+        }
+
+        if ( $str =~ /^     bp       disp/ ) {
+            print FOUT "                     bp                 "
+                . "disp.    angle     twist      rise\n";
+            $done = ds_base_pair(8);
+        }
+
+        if ( $str =~ /^          chi for purines/ ) {
+            print FOUT $str;
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT "          base        alpha    beta   gamma   delta"
+                . "  epsilon   zeta    chi\n";
+            $done = ds_base(0);
+
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT "          base        alpha    beta   gamma   delta"
+                . "  epsilon   zeta    chi\n";
+            $done = ds_base(1);
+        }
+
+        if ( $str =~ /^      P:  phase angle of pseudorotation/ ) {
+            print FOUT $str;
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT "           base         v0      v1      v2      v3      v4"
+                . "      tm       P    Puckering\n";
+            $done = ds_base(0);
+
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT "           base         v0      v1      v2      v3      v4"
+                . "      tm       P    Puckering\n";
+            $done = ds_base(1);
+        }
+
+        if ( $str =~ /^Same strand P/ ) {
+            print FOUT $str;
+            skip_lines(1);
+            $str = <FINP>;
+            print FOUT "                                         Strand I"
+                . "                                                  Strand II\n";
+            $str = <FINP>;
+            print FOUT "                 step                 P--P     C1'--C1'"
+                . "                    step                 P--P     C1'--C1'\n";
+            $done = ds_2steps();
+        }
+
+        if ( $str =~ /^Helix radius / ) {
+            print FOUT $str;
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT "                                                     "
+                . "                     Strand I                      Strand II\n";
+            $str = <FINP>;
+            print FOUT "                               step                  "
+                . "               P        O4'       C1'        P        O4'        C1'\n";
+            $done = ds_step();
+        }
+
+        if ( $str =~ /^Position / ) {
+            print FOUT $str;
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT "                               step                  "
+                . "             Px        Py        Pz        Hx        Hy        Hz\n";
+            $done = ds_step();
+        }
+
+        print FOUT $str unless ($done);
+    }
+}
+
+sub ss_step {
+    for ( my $i = 1 ; $i < $num ; $i++ ) {
+        my $str = <FINP>;
+        chomp($str);
+        printf( FOUT "%4ld %s/%s%s\n",
+                $i, $nucs[$i],
+                $nucs[ $i + 1 ],
+                substr( $str, 9 ) );
+    }
+    return 1;
+}
+
+sub ss_base {
+    for ( my $i = 1 ; $i <= $num ; $i++ ) {
+        my $str = <FINP>;
+        chomp($str);
+        printf( FOUT "%4ld %s%s\n", $i, $nucs[$i], substr( $str, 6 ) );
+    }
+    return 1;
+}
+
+sub handle_ss {
+    while ( my $str = <FINP> ) {
+        my $done = 0;
+
+        $num = $1 if ( $str =~ /^Number of bases?: (\d+)/ );
+
+        if ( $str =~ /^RMSD of the bases/ ) {
+            print FOUT $str;
+            skip_lines(2);
+            for ( my $i = 1 ; $i <= $num ; $i++ ) {
+                $str = <FINP>;
+                print FOUT $str;
+                $nucs[$i] = substr( $str, 20, 13 );
+            }
+        }
+
+        if ( $str =~ /^     step      i1-i2/ ) {
+            print FOUT "                step                  i1-i2\n";
+            $done = ss_step();
+        }
+
+        if ( $str =~ /^Local base step parameters/ ) {
+            print FOUT $str;
+            $str = <FINP>;
+            print FOUT "                 step                 Shift     Slide"
+                . "      Rise      Tilt      Roll     Twist\n";
+            $done = ss_step();
+            adjust_ave_std(23);
+        }
+
+        if ( $str =~ /^Local base helical parameters/ ) {
+            print FOUT $str;
+            $str = <FINP>;
+            print FOUT "                 step                 X-disp    Y-disp"
+                . "   h-Rise     Incl.       Tip   h-Twist\n";
+            $done = ss_step();
+            adjust_ave_std(23);
+        }
+
+        if ( $str =~ /^Main chain and chi torsion angles/ ) {
+            print FOUT $str;
+            skip_lines(12);
+            $str = <FINP>;
+            print FOUT "          base        alpha    beta   gamma"
+                . "   delta  epsilon   zeta    chi\n";
+            $done = ss_base();
+        }
+
+        if ( $str =~ /^Sugar conformational parameters/ ) {
+            print FOUT $str;
+            skip_lines(11);
+            $str = <FINP>;
+            print FOUT "          base          v0      v1      v2      v3"
+                . "      v4      tm       P    Puckering\n";
+
+            $done = ss_base();
+        }
+
+        if ( $str =~ /^Same strand P--P and / ) {
+            print FOUT $str;
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT "                 step                P--P     C1'--C1'\n";
+
+            $done = ss_step();
+        }
+
+        if ( $str =~ /^Helix radius / ) {
+            print FOUT $str;
+            skip_lines(2);
+            $str = <FINP>;
+            print FOUT
+                "                 step                    P        O4'       C1'\n";
+
+            $done = ss_step();
+        }
+
+        if ( $str =~ /^Position / ) {
+            print FOUT $str;
+            skip_lines(1);
+            $str = <FINP>;
+            print FOUT "                 step                   Px        Py"
+                . "        Pz        Hx        Hy        Hz\n";
+            $done = ss_step();
+        }
+
+        print FOUT $str unless ($done);
+    }
+}
+
+sub get_strand {
+    my $anafile = shift;
+    my $isOk    = 0;
+
+    open( FH, $anafile ) or die "Can't open $anafile for reading: $!\n";
+    while ( my $str = <FH> ) {
+        if ( $str =~ /^RMSD of the bases/ ) {
+            $isOk = 1;
+            return ( $str =~ /for WC bp/ ) ? 2 : 1;
+        }
+    }
+    close(FH);
+
+    die "File <$anafile> is not an output file from 3DNA 'analyze'" unless ($isOk);
+}
+
+# *************************************************************************
+
+sub prg_usage {
+    print <<PRG_USAGE;
+===========================================================================
+NAME:
+    expand_ids - expanding IDs from 3DNA 'analyze' run
+SYNOPSIS:
+    expand_ids short_form long_form 
+DESCRIPTION:
+    Default output from 3DNA 'analyze' program has a detailed description 
+    of each nucleotide from the PDB file, as follows for single strand:
+    ---------------------------------------------------------------------
+             Strand I
+    1   (0.010) ....>A:...1_:[..C]C-
+    2   (0.007) ....>A:...2_:[..G]G-
+    ---------------------------------------------------------------------
+
+    or as below for a duplex structure:
+    ---------------------------------------------------------------------
+             Strand I                    Strand II          Helix
+    1   (0.010) ....>A:...1_:[..C]C-----G[..G]:..24_:B<.... (0.010)     |
+    2   (0.007) ....>A:...2_:[..G]G-----C[..C]:..23_:B<.... (0.012)     |
+    ---------------------------------------------------------------------
+
+    Following this section, only a brief one-letter base ID and its serial
+    number is used. This script is used to expand the default short form to
+    a detailed description for each case when referring to a base, thus
+    makes its meaning clearer in context.
+EXAMPLES:
+    find_pair -s bdl084.pdb stdout | analyze
+    expand_ids bdl084.outs bdl084_long.outs
+
+    find_pair bdl084.pdb stdout | analyze
+    expand_ids bdl084.out bdl084_long.out
+AUTHOR:
+    $author
+    $url
+===========================================================================
+PRG_USAGE
+    die "\n";
+}
+
+sub pause_prg_usage {
+    my $str;
+
+    print '-' x 75;
+    print "\n\tpress ENTER to display full help message\n";
+
+    $str = <>;
+
+    prg_usage();
+}

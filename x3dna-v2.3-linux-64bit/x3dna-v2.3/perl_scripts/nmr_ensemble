@@ -1,0 +1,209 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+use vars qw( $opt_d $opt_h $opt_j $opt_t $opt_c $opt_k $opt_r $opt_b $opt_e
+    $opt_s $opt_i $opt_o $X3DNA_BIN $dft_r3dfile $dft_pdbfile);
+
+use Getopt::Std;    # for easy command-line options processing
+use File::Copy;     # File copy
+
+use FindBin qw($Bin);
+use lib $Bin;
+use x3dna_utils;
+
+process_options();
+
+$X3DNA_BIN = x3dna_bin();
+qx($X3DNA_BIN/../perl_scripts/dcmnfile -n);
+die "\n" if ($opt_c);    # just for file clean up
+
+output_usage() if ( @ARGV != 1 or $opt_h );
+
+$dft_r3dfile = "nmr_all.r3d";
+$dft_pdbfile = "tnmr.pdb";
+
+my $pdbfile = validate_pdbfile( $ARGV[0], $dft_pdbfile );
+copy( $pdbfile, $dft_pdbfile );    # make a copy to a default file name
+my $imgfile = ($opt_j) ? "t.jpg" : "t.png";
+
+my $strname = "str_selected";      # a fixed extracted structure name
+
+my $bstr_num = get_best_model();
+print "process the best representative NMR model <#$bstr_num> ......\n";
+
+get_best_model_rotmat();
+get_best_model_r3d();
+
+get_all_model_scenes($bstr_num);
+
+print "\nfinal processing to get the combined image\n";
+render_image( $dft_r3dfile, $imgfile, $opt_t );
+copy( $imgfile, $opt_i ) if ($opt_i);    # save image to its designated name
+
+output_scale_factor($dft_r3dfile) unless ($opt_t);
+
+# get special PDB file name (t.pdb) back
+copy( $pdbfile, $dft_pdbfile ) if ( $pdbfile eq '__copy__' );
+
+# finally display the image if -d option is given
+qx(display $imgfile) if ($opt_d);
+
+### --------------------------------------------------------------------
+sub get_all_model_scenes {
+
+    my $bstr_num = shift;
+
+    move( "t.r3d", $dft_r3dfile ) || die "move failed: $!";
+
+    open( FOUT, ">>$dft_r3dfile" )
+        || die "Can't open file <$dft_r3dfile> for appending: $!\n";
+
+    my $nmr_num = 1;    # best representative already counted
+    $opt_e = -1 if ($opt_r);    # only handle the best representative model
+
+    my $numi;
+    for ( my $i = $opt_b ; $i <= $opt_e ; $i++ ) {
+        qx($X3DNA_BIN/ex_str -$i -nmr $pdbfile xnmr0_tmp.pdb 2> $strname);
+        $numi = nmr_strid();
+        last if ( $numi == 0 );            # end of the ensemble
+        next if ( $numi == $bstr_num );    # already counted
+
+        print "processing NMR model <#$numi> ......\n";
+        qx($X3DNA_BIN/rotate_mol -t=best_rotmat.dat xnmr0_tmp.pdb xnmr_tmp.pdb);
+
+        my $opts = $opt_k ? "-ok" : "-o";    # "-or" to show only ONE backbone chain
+        qx($X3DNA_BIN/../perl_scripts/blocview $opts xnmr_tmp.pdb 2> msg_out);
+
+        print FOUT "### for NMR model <#$numi>\n";    # non-empty lines for RENDER
+        open( FINP, "t.r3d" ) || die "Can't open file <t.r3d> for reading: $!\n";
+        while (<FINP>) {                              # get rid of the 20 header lines
+            next if ( $. <= 20 );
+            print FOUT;
+        }
+        close(FINP);
+        $nmr_num++;
+    }
+
+    close(FOUT);
+
+    print "\nThere are <#$nmr_num> NMR models used in this image\n";
+}
+
+sub get_best_model_r3d {    # the Raster3D scenes of the best model
+    my $opts = '';
+    if ($opt_s) {
+        $opts = $opt_k ? "-ok -s=$opt_s" : "-o -s=$opt_s";
+    } else {
+        $opts = $opt_k ? "-ok" : "-o";
+    }
+    qx($X3DNA_BIN/../perl_scripts/blocview $opts xnmr_tmp.pdb 2> msg_out);
+}
+
+sub get_best_model_rotmat {    # the rotation matrix of the best view
+    if ($opt_o) {
+        copy( "best_str", "xnmr_tmp.pdb" );
+
+        open( FMAT, ">best_rotmat.dat" );
+        print FMAT "    1  # x-, y-, z-axes row-rise\n";
+        print FMAT "      0           0           0\n";
+        print FMAT "      1           0           0\n";
+        print FMAT "      0           1           0\n";
+        print FMAT "      0           0           1\n";
+        close(FMAT);
+
+    } else {
+        qx($X3DNA_BIN/rotate_mol -cb best_str xnmr_tmp.pdb);
+        move( "rotmat.dat", "best_rotmat.dat" ) || die "move failed: $!";
+    }
+}
+
+sub get_best_model {    # the best representative model (or 1st model) of the ensemble
+
+    qx($X3DNA_BIN/ex_str -nmrb $dft_pdbfile best_str 2> $strname);
+
+    my $bstr_num = nmr_strid();
+    die "PDB file <$dft_pdbfile> contains no NMR models!\n" if ( $bstr_num == 0 );
+
+    return $bstr_num;
+}
+
+sub output_usage {
+    die <<"NMR_USAGE";
+===========================================================================
+SYNOPSIS
+    nmr_ensemble [OPTION]... NMR_PDBFILE
+DESCRIPTION
+    Generates a schematic image which combines base block representation
+    with protein ribbon for an NMR ensemble. Users need to have MolScript,
+    Raster3D and ImageMagick properly installed on their system.
+        -d   display the generated image using "display" of ImageMagick
+        -c   clean up temporary common files
+        -r   just draw the best representative (or #1) model
+        -j   output image in JPG format (default to PNG)
+        -t[=]RESOLUTION   create PyMOL ray-traced image at RESOLUTION
+        -b[=]#      beginning NMR model number (default: 1)
+        -e[=]#      ending NMR model number (default: all models)
+        -s[=]NUM    set scale factor for the image
+        -i[=]IMAGE  set image file name (default: t.png)
+EXAMPLES
+    nmr_ensemble -d -i=pdb230d.jpg pdb230d.ent
+AUTHOR
+    $author
+    $url
+===========================================================================
+NMR_USAGE
+}
+
+sub nmr_strid {
+    open( FINP, $strname ) || die "Can't open file <$strname> for reading: $!\n";
+    my $strnum = 0;
+    while (<FINP>) {
+        if (/Model selected \#(\d+)/) {
+            $strnum = $1;
+            last;
+        } elsif (/not found in file /) {
+            last;
+        }
+    }
+    close(FINP);
+    return $strnum;
+}
+
+sub process_options {
+
+    getopts("ckdohjrb:e:s:i:t:");
+    $opt_h ||= 0;    # help message
+    $opt_d ||= 0;    # if to display the image
+    $opt_j ||= 0;    # if to output image in JPEG format
+    $opt_c ||= 0;    # if just to clean up temporary files
+    $opt_r ||= 0;    # best representative model
+    $opt_o ||= 0;    # if to transform
+
+    $opt_k ||= 0;    # don't draw DNA/RNA: 'double-helix chain A;'
+
+    $opt_b ||= 1;    # NMR beginning model #
+    remove_equal_sign($opt_b);
+    $opt_b = 1 if ( $opt_b <= 0 );
+
+    my $MAX_NMR_MODEL = 100000;    # very unlikely to be passed
+    $opt_e ||= $MAX_NMR_MODEL;     # NMR ending model #
+    remove_equal_sign($opt_e);
+    $opt_e = $MAX_NMR_MODEL if ( $opt_e <= 0 );
+
+    if ( $opt_b > $opt_e ) {
+        print "beginning no. $opt_b > ending no. $opt_e: swap them\n";
+        ( $opt_b, $opt_e ) = ( $opt_e, $opt_b );
+    }
+
+    $opt_s ||= 0;                  # set scale factor: -s=NUM or -s NUM
+    remove_equal_sign($opt_s);
+    $opt_s = 0 if ( $opt_s < 0 );
+
+    $opt_i ||= 0;                  # output image name
+    remove_equal_sign($opt_i);
+
+    $opt_t ||= 0;                  # create PyMOL ray_traced image
+    remove_equal_sign($opt_t);
+
+    check_image_options( $opt_i, $opt_j );
+}

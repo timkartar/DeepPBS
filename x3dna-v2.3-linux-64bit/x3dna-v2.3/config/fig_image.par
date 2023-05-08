@@ -1,0 +1,19 @@
+ 6.0  # dot separation (by 1/80 inch)
+   5  # dot line color (H-bond & origin line, 5 means magenta)
+   1  # dot line width
+   1  # base-pair 1 width in stacking diagram
+   3  # base-pair 2 width in stacking diagram
+   4  # A (4 means red)
+   6  # C (6 means yellow)
+   2  # G (2 means green)
+  12  # I (12 means dark green)
+   1  # T (1 means blue)
+   3  # U (3 means cyan)
+   0  # other bases (0 means black)
+ 0.9  # minor groove filling color saturation
+ 0.1  # major groove filling color saturation
+   7  # fill color for other sides of the block (7 means white)
+   1  # line width
+   2  # join style (2 means round)
+   1  # cap style (1 means round)
+   6  # minor groove gray scale [0-20 lighter to darker]

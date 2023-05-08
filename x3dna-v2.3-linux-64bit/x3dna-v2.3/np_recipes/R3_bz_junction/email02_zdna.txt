@@ -1,0 +1,52 @@
+From xiangjun@rutchem.rutgers.edu Wed Jun  7 23:33:49 2006
+Date: Thu, 2 Mar 2006 23:15:13 -0500 (EST)
+From: Xiangjun LU <xiangjun@rutchem.rutgers.edu>
+To: "[ks_c_5601-1987] ÇÏ¼ºÃ¶" <hasungc@skku.edu>
+Bcc: W. K. Olson <olson@rutchem.rutgers.edu>
+Subject: Re: A question about 3DNA
+
+Hi Sung CHul HA,
+
+Thanks for your message.
+
+I have tried your B-Z junction structure downloaded from the NDB, and
+found that the version I gave you works as expected -- 3DNA will detect
+the B-Z junction automatically, and give appropriate structure parameters.
+In the new release of 3DNA v1.6, I will make this point explicit.
+
+The problem you have with zd0001 is due to the default setting of a
+parameter in file misc_3dna.par is a bit too small:
+
+7.5           # max. distance criterion for helix break (FIND_PAIR)
+^^^
+
+simply change 7.5 to a larger number, e.g., 9.5, you will get what you
+expect.
+
+Have a look at the 3DNA FAQ section for how to made changes to the file
+misc_3dna.par for local or global effects.
+
+HTH,
+
+Xiangjun
+
+
+On Thu, 2 Mar 2006, [ks_c_5601-1987] ÇÏ¼ºÃ¶ wrote:
+
+> Dear, Xiangjun,
+> 
+> 
+> I'm a user of 3DNA.  previously, I questioned about 3DNA when I want to
+> analyze the structure of B-Z junction. I'm still appreciate for your
+> kind helps.
+> 
+> Anyway, when I calculated DNA parameters of Z-DNA using 3DNA, 3DNA
+> cannot analyze the rise and twist of one base step of Z-DNA with
+> sequence CGGCCG (NDB ID: ZD0001). So, is there anything to do or shoul I
+> reinstall new version?.
+> 
+> Thanks in advacne.
+> Sung CHul HA.
+> 
+> 
+

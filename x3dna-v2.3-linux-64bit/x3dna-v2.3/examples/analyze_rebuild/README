@@ -1,0 +1,80 @@
+[1] Four sets of PDB files are given here to illustrate the analysis procedure:
+    2d94  --- an A-DNA 8-mer
+    355d  --- a B-DNA 12-mer
+    1aoi  --- a nucleosomal DNA structure, with 146 base pairs
+    1tc3 --- a DNA-protein complex with an A-/B-DNA junction
+
+    The *.inp files for each of the DNA structure were generated with
+    "find_pair". Using 355d.pdb as an example:
+                       find_pair 355d.pdb 355d.inp
+
+    With "355d.inp" in hand, run "analyze" on it to get various parameters:
+                               analyze 355d.inp
+
+    The above two steps can be combined:
+                    find_pair 355d.pdb stdout | analyze stdin
+
+    The four structures can be analyzed simultaneously as below:
+              analyze 2d94.inp 355d.inp 1aoi.inp 1tc3.inp
+
+    In addition to the main output file (*.out), each run of "analyze"
+    also generates a serial of other files with fixed names (e.g.,
+    bp_step.par, stacking.pdb etc). Each time "analyze" is executed,
+    these files are over-written unless renamed.
+ 
+[2] Rebuilding with the sugar-phosphate backbone
+    The rebuilding of a DNA structure relies on its base sequence and
+    associated base-pair and step parameters, plus a set of standard
+    Atomic_?.pdb data files.
+    
+    The rebuilding algorithm is rigorous as far as the base geometry
+    is concerned. However, as shown below, one can build a full atomic
+    DNA/RNA structure with an approximate sugar-phosphate backbone.
+    Moreover, the rough backbone linkage can be optimized with phenix
+    while keeping base atoms fixed.
+
+    In directory $X3DNA/config/atomic/, there are 4 sets of standard
+    PDB files, corresponding to A-DNA (C3'-endo sugar), B-DNA
+    (C2'-endo), RNA (C3'-endo plus O2') and NDB96 (default, with no
+    backbone atoms). The base geometry is consistent throughout.
+
+    To use a set other than the default, simply copy these files to
+    over-write their Atomic_?.pdb counterparts; i.e., BDNA_A.pdb to
+    Atomic_A.pdb. This process is automated by script 'x3dna_utils':
+                       x3dna_utils cp_std BDNA
+
+    The above command puts the B-DNA set into your current directory
+    (as in this directory). See the corresponding FAQ on the Forum.
+
+    To rebuild 355d with a standard B-DNA sugar-phosphate backbone:
+             find_pair 355d.pdb stdout | analyze stdin
+
+    The resultant file "bp_step.par" contains base sequence and step
+    parameters. (Another file, "bp_helical.par", which contains
+    helical parameters, can also be used for the following rebuilding
+    process.)
+                 rebuild -atomic bp_step.par temp.pdb
+
+    Use Jmol/PyMOL to have a look of "temp.pdb". It contains
+    explicitly all covalent bonds (in CONECT records).
+
+    To verify that the algorithm used in 3DNA is rigorous and
+    reversible, re-analyze the rebuilt structure "temp.pdb", and you
+    will get the same base-pair parameters as directly from
+    "355d.pdb". Alternatively, you could superimpose "temp.pdb" to
+    "355d.pdb", and the RMSD is virtually zero if only base atoms
+    (i.e., excluding backbone) are considered. If the approximate
+    sugar-phosphate backbone atoms (full-atom) are also used in the
+    superposition, the results for the three DNA structures are as
+    follows:
+ 
+                                     1aoi   355d   2d94
+                      full-atom       0.82     0.73     0.52
+                      base-atom       0.05     0.02     0.03
+
+    In rebuilding full-atomic models, regular sugar-phosphate backbone
+    conformations were used: B-type for 1aoi and 355d, and A-type
+    for 2d94.
+
+                          ==============================================
+                           Xiang-Jun Lu (xiangjun@x3dna.org); 2013-07-09

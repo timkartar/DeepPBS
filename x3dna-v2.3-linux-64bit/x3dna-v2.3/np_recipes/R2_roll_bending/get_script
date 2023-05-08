@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+# to create a scripti named 'script_roll_bend' for generating Calladine roll-based 
+#    DNA curvature schematics
+# Xiang-Jun Lu (3dna.lu@gmail.com) April 28, 2008
+
+my $script = "script_roll_bend";
+
+my @strids = split( //, "abcde" );
+open( FH, ">$script" );
+
+foreach my $str (@strids) {
+    my $name = "roll_$str";
+    print FH "rebuild ${name}.dat ${name}_raw.alc\n";
+    print FH "frame_mol -m -11,12 ref_frames.dat ${name}_raw.alc ${name}_mm.alc\n";
+    print FH "rotate_mol -r=roty90.dat ${name}_mm.alc ${name}_ok.alc\n";
+    print FH "alc2img -f -l -s=128 ${name}_ok.alc ${name}.fig\n";
+    print FH "alc2img -l -s=7 ${name}_ok.alc ${name}.eps\n\n";
+}
+
+close(FH);
+
+chmod 0755, $script;

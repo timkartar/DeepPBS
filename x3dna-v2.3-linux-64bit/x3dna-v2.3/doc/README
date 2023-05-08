@@ -1,0 +1,34 @@
+[1] Xiang-Jun Lu and Wilma K Olson (2008). "3DNA: a versatile,
+    integrated software system for the analysis, rebuilding and
+    visualization of three-dimensional nucleic-acid structures."
+    Nature Protocols, 3, 1213-1227 (PDF included).
+
+    http://www.nature.com/nprot/journal/v3/n7/full/nprot.2008.104.html
+
+    Try to *reproduce* the reported recipes -- all required materials
+    are available in the directory $X3DNA/np_recipes/.
+
+[2] Xiang-Jun Lu and Wilma K. Olson (2003). "3DNA: a software package
+    for the analysis, rebuilding and visualization of
+    three-dimensional nucleic acid structures." Nucleic Acids
+    Research, 31(17), 5108-5121 (PDF included).
+
+    http://nar.oxfordjournals.org/cgi/content/full/31/17/5108
+
+[3] Andrew V. Colasanti, Xiang-Jun Lu, and Wilma K. Olson
+    (2013). "Analyzing and building nucleic acid structures with
+    3DNA." Journal of Visualized Experiments: JoVE 74:e4401 (PDF
+    included).
+
+[4] For details on key 3DNA algorithms, see 'tech_details.pdf' and
+    also blog posts at http://x3dna.org/.
+
+[5] 3DNA groove widths are based on the Appendix: "Calculation of
+    Major- and Minor-groove Widths" (PDF included) of El Hassan and
+    Calladine (1998). "Two distinct modes of protein-induced bending
+    in DNA." Journal of Molecular Biology 282(2), 331-343.
+
+[6] All questions are welcome and should be directed to the 3DNA Forum
+    at http://forum.x3dna.org/.
+
+    -- Xiang-Jun Lu (xiangjun@x3dna.org), 2016-01-01

@@ -1,0 +1,132 @@
+%!PS-Adobe-3.0
+%%Title: (p56d..ps)
+%%Creator: (3DNA (v1.4.4, March, 2002) by Xiang-Jun Lu at Wilma K. Olson's Lab.)
+%%CreationDate: (Fri May  3 09:58:55 2002)
+%%Orientation: Portrait
+%%BoundingBox:    197   344   415   448
+
+/FTSIZE 18 def % label font size
+/YOFFSET {FTSIZE 0.4 mul} bind def  % y-axis offset for label
+/Helvetica-Bold findfont FTSIZE scalefont setfont
+/GREYLEVEL 0.25 def  % for black and white gray level
+
+/SCENTER {dup stringwidth pop 2 div neg 0 rmoveto show} bind def  % center text
+/NP {newpath} bind def
+/DB {moveto lineto lineto lineto closepath} bind def   
+/LN {moveto lineto stroke} bind def
+/CIRCLE {0 360 arc} bind def
+/FB {setgray fill} bind def
+/R6 {moveto lineto lineto lineto lineto lineto closepath} bind def
+/R9 {moveto lineto lineto lineto lineto lineto lineto lineto lineto closepath} bind def
+
+% dot line style, color & width
+/Ds {[2 4] 0 setdash} bind def
+/Dl {1 0 1 setrgbcolor} bind def
+/Dw {1 setlinewidth} bind def
+
+% stacking diagram widths for base-pairs 1 & 2
+/W1 {1 setlinewidth} bind def
+/W2 {3 setlinewidth} bind def
+
+% minor and major grooves filling color saturation
+/MINOR_SAT 0.9 def
+/MAJOR_SAT 0.1 def
+/OTHER_SIDES {0 0 1 sethsbcolor fill} bind def
+
+% line drawing colors for ACGITU & others
+/Al {0.0000 1.00 1.00 sethsbcolor} bind def
+/Cl {0.1667 1.00 1.00 sethsbcolor} bind def
+/Gl {0.3333 1.00 1.00 sethsbcolor} bind def
+/Il {0.3333 1.00 0.57 sethsbcolor} bind def
+/Tl {0.6667 1.00 1.00 sethsbcolor} bind def
+/Ul {0.5000 1.00 1.00 sethsbcolor} bind def
+/Xl {0.0000 0.00 0.00 sethsbcolor} bind def
+
+% minor groove filling colors for ACGITU & others
+/Am {0.0000 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Cm {0.1667 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Gm {0.3333 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Im {0.3333 MINOR_SAT 0.57      sethsbcolor fill} bind def
+/Tm {0.6667 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Um {0.5000 MINOR_SAT 1.00      sethsbcolor fill} bind def
+/Xm {0.0000 0.00      MAJOR_SAT sethsbcolor fill} bind def
+/Sm {0.0000 0.00      0.9       sethsbcolor fill} bind def
+
+% major groove filling colors for ACGITU & others
+/AM {0.0000 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/CM {0.1667 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/GM {0.3333 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/IM {0.3333 MAJOR_SAT 0.57      sethsbcolor fill} bind def
+/TM {0.6667 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/UM {0.5000 MAJOR_SAT 1.00      sethsbcolor fill} bind def
+/XM {0.0000 0.00      MINOR_SAT sethsbcolor fill} bind def
+
+% define line width, line join style & cap style (1 means round)
+1 setlinewidth 1 setlinejoin 1 setlinecap
+
+% atom color list
+/ATOM00 {1.0000 0.0784 0.5765} bind def % Unknown deep pink
+/ATOM01 {0.7843 0.7843 0.7843} bind def % C light grey
+/ATOM02 {0.9412      0      0} bind def % O red
+/ATOM03 {0.2500 0.2500 0.2500} bind def % H 0.25 gray 
+/ATOM04 {0.5608 0.5608 1.0000} bind def % N light blue
+/ATOM05 {1.0000 0.7843 0.1961} bind def % S yellow
+/ATOM06 {1.0000 0.6471      0} bind def % P orange
+/ATOM07 {0.8549 0.6471 0.1255} bind def % F goldenrod
+/ATOM08 {     0 1.0000      0} bind def % Cl green
+/ATOM09 {0.6471 0.1647 0.1647} bind def % Br brown
+/ATOM10 {0.6275 0.1255 0.9412} bind def % I purple
+/ATOM11 {0.8549 0.6471 0.1255} bind def % Si goldenrod
+   207   354 translate
+
+NP Xl    25.1   23.5   76.4   22.3   76.6   13.4   25.2   14.6 DB
+  gsave XM grestore stroke
+NP Xl   172.7   60.7  121.4   61.9  121.2   70.8  172.5   69.6 DB
+  gsave XM grestore stroke
+NP Xl   197.8   70.7  197.6   79.6  172.5   69.6  172.7   60.7 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     0.0   13.5    0.2    4.6   25.2   14.6   25.1   23.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     2.0   84.2   79.0   82.4   78.5   73.4    1.4   75.2 DB
+  gsave XM grestore stroke
+NP Xl   195.7    0.0  118.7    1.8  119.3   10.7  196.3    8.9 DB
+  gsave XM grestore stroke
+NP Xl    51.5    3.4    0.2    4.6   25.2   14.6   76.6   13.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   146.3   80.8  197.6   79.6  172.5   69.6  121.2   70.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     0.0   13.5   51.3   12.3   76.4   22.3   25.1   23.5 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   197.8   70.7  146.4   71.9  121.4   61.9  172.7   60.7 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    51.3   12.3   51.5    3.4   76.6   13.4   76.4   22.3 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   146.4   71.9  146.3   80.8  121.2   70.8  121.4   61.9 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    98.2   12.0   99.6   72.1  gsave Dw Ds LN grestore
+NP Xl    94.2   12.9   94.7   21.9  119.3   10.7  118.7    1.8 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   103.6   71.2  103.0   62.3   78.5   73.4   79.0   82.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   103.0   62.3   26.0   64.1    1.4   75.2   78.5   73.4 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    94.7   21.9  171.8   20.1  196.3    8.9  119.3   10.7 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   171.2   11.1   94.2   12.9  118.7    1.8  195.7    0.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    26.6   73.0  103.6   71.2   79.0   82.4    2.0   84.2 DB
+  gsave 1.0 FB grestore stroke
+NP Xl     0.0   13.5   51.3   12.3   51.5    3.4    0.2    4.6 DB
+  gsave Xm grestore stroke
+NP Xl   197.8   70.7  146.4   71.9  146.3   80.8  197.6   79.6 DB
+  gsave Xm grestore stroke
+NP Xl   171.2   11.1  171.8   20.1  196.3    8.9  195.7    0.0 DB
+  gsave 1.0 FB grestore stroke
+NP Xl    26.6   73.0   26.0   64.1    1.4   75.2    2.0   84.2 DB
+  gsave 1.0 FB grestore stroke
+NP Xl   171.2   11.1   94.2   12.9   94.7   21.9  171.8   20.1 DB
+  gsave Xm grestore stroke
+NP Xl    26.6   73.0  103.6   71.2  103.0   62.3   26.0   64.1 DB
+  gsave Xm grestore stroke
+
+showpage

@@ -1,0 +1,49 @@
+#!/usr/bin/env perl
+# Extract a fragment from a PDB file based on chain ID and residue numbers.
+
+use warnings;
+use strict;
+
+my $argc = scalar @ARGV;
+
+my @cn;
+my ( $c, $n1, $n2 );
+
+die "Usage: $0 cid n1[:n2] [...] pdbfile outfile\n" if ( $argc % 2 || !$argc );
+
+for ( my $i = 0 ; $i < $argc - 2 ; $i += 2 ) {
+    $c = uc( $ARGV[$i] );    # to upper case
+    die "Chain ID must be one-character long: <$c>\n" unless length($c) == 1;
+    ( $n1, $n2 ) = split( /:/, $ARGV[ $i + 1 ] );
+    if ( defined $n1 and defined $n2 ) {
+        die "wrong order: n1 ($n1) > n2 ($n2)\n" if $n1 > $n2;
+    } elsif ( defined $n1 and not defined $n2 ) {
+        $n2 = $n1;
+    }
+    push @cn, [ $c, $n1, $n2 ];
+}
+
+my $pdb = $ARGV[-2];
+open( FP, $pdb ) || die "can't open PDB file <$pdb> for reading: $!\n";
+my @pdb_records = <FP>;
+close(FP);
+
+my $out = $ARGV[-1];
+open( FP, ">$out" ) || die "can't open output PDB file <$out>: $!\n";
+foreach my $s (@cn) {
+    ( $c, $n1, $n2 ) = @$s;
+    print "Chain $c $n1 to $n2\n";
+    foreach my $n ( $n1 .. $n2 ) {
+        my $qstr = sprintf( " %s%4d", $c, $n );
+        my @ok = grep( /^.{20}$qstr/, @pdb_records );
+        my $num = 0;
+        foreach my $rec (@ok) {
+            print $qstr, $rec if $rec =~ /HELIX/;
+
+            print FP $rec;
+            $num++;
+        }
+        print "\tno match for $qstr\n" unless $num;
+    }
+}
+close(FP);

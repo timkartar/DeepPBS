@@ -1,0 +1,13 @@
+p56figab p56a
+p56figab p56b
+p56figcd p56c
+p56figcd p56d
+
+p78fig p78a
+p78fig p78b
+p78fig p78c
+p78fig p78d
+
+rebuild -block2 yr_clash.dat temp.alc
+frame_mol -m -1,2 ref_frames.dat temp.alc temp2.alc
+alc2img temp2.alc yr_clash.ps

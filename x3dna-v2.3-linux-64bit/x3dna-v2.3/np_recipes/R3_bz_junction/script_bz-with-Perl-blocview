@@ -1,0 +1,20 @@
+# [0] Download 2acj from the NDB, and name it '2acj.pdb'
+
+# [1] for simplicity, extract only the nucleic acid (DNA) part
+get_part 2acj.pdb 2acj_dna.pdb
+
+# [2] run 'blocview' to get PyMOL ray-traced image at 300 resolution
+blocview -t=300 -i=2acj_dna.png 2acj_dna.pdb
+
+# [3] get base-pair information directly from the PDB file '2acj.pdb'
+find_pair 2acj.pdb 2acj.inp
+
+# [4] analyze to get structural parameters and the file 'stacking.pdb'
+#     the output parameters are in file '2acj.out'
+analyze 2acj.inp
+
+# [5] extract the step with B-Z junction
+ex_str -8 stacking.pdb bz_step.pdb
+
+# [6] draw the stacking diagram in EPS format
+stack2img -c -d -o -l -t bz_step.pdb bz_step.eps

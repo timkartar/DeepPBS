@@ -1,0 +1,126 @@
+#!/usr/bin/env perl
+# convert .r3d to Raster3D 'render' image or PyMOL ray-traced image.
+
+use warnings;
+use strict;
+
+use FindBin qw($Bin);
+use lib $Bin;
+use x3dna_utils;
+
+use vars qw($opt_p $opt_t $opt_h $opt_r $opt_w $opt_d);
+use Getopt::Std;
+use File::Copy;
+
+process_options();
+
+output_usage() if ( $opt_h or @ARGV != 2 );
+
+validate_files(@ARGV);
+my $r3d_file = $ARGV[0];
+my $imgfile  = $ARGV[1];
+
+my $tmpimg;
+if ( $opt_p or $opt_t ) {
+    my $pmlfile = "x3dna_r3d_pymol.pml";
+    $tmpimg = "x3dna_r3d_pymol.png";
+    my $x_pixels = $opt_r * $opt_w;
+    create_pml( $pmlfile, $r3d_file, $tmpimg, $x_pixels );
+    qx(pymol -qc $pmlfile > x3dna_r3d_pymol.msg);
+} else {
+    $tmpimg = "x3dna_r3d.avs";
+    qx(render < $r3d_file > $tmpimg);
+}
+
+qx(convert -trim +repage -border 5 -bordercolor white $tmpimg $imgfile);
+
+qx( display  $imgfile ) if ($opt_d);
+
+### ------------------------------------------------------------------------------
+sub process_options {
+    getopts("pdthr:w:");
+    $opt_h ||= 0;    # help message
+    $opt_d ||= 0;    # display image
+
+    ## the following options applies to PyMOL ray-traced image
+    $opt_p ||= 0;    # create PyMOL ray-traced image
+    $opt_t ||= 0;    #     same as $opt_p
+
+    $opt_r ||= 96;   # set image resolution -r=NUM or -r NUM
+    $opt_r =~ s/=//;
+    $opt_r = 96 if ( $opt_r < 0 );
+
+    $opt_w ||= 7;    # set image width in inches: -w=NUM or -w NUM
+    $opt_w =~ s/=//;
+    $opt_w = 7 if ( $opt_w < 0 );
+}
+
+sub output_usage {
+    die <<"R3D2PNG_USAGE";
+===========================================================================
+SYNOPSIS
+    x3dna_r3d2png [OPTION]...  Raster3D_File  Image_FILE
+DESCRIPTION
+    Convert various 3DNA generated .r3d file to an image using either
+    Raster3D 'render' or PyMOL ray-tracer. Need to have Raster3D/PyMol
+    and ImageMagick installed. Except for -d, the following options only
+    apply to PyMOL ray-traced images
+        -d   display generated image
+        -p   use PyMOL ray-tracer
+        -t   same as -p
+        -r   image resoultion in DPI (96)
+        -w   image width in inches (7)
+EXAMPLES
+    find_pair bdl084.pdb stdout | analyze
+    ex_str -1 bestpairs.pdb bp1.pdb
+    r3d_atom -do -r=0.06 -b=0.15 bp1.pdb bp1.r3d
+    x3dna_r3d2png bp1.r3d bp1_render.png
+    x3dna_r3d2png -p -r=96 bp1.r3d bp1_pyray.png
+
+    ex_str -5 stacking.pdb bs5.pdb
+    stack2img -rtdoc bs5.pdb bs5.r3d
+    x3dna_r3d2png -d bs5.r3d bs5_render.png
+    x3dna_r3d2png -p -r=300 bs5.r3d bs5_pyray.png
+AUTHOR
+    $author
+    $url
+===========================================================================
+R3D2PNG_USAGE
+}
+
+sub validate_files {
+    my ( $r3d_file, $imgfile ) = @_;
+
+    -e $r3d_file or die "Raster3D file <$r3d_file> does NOT exist\n";
+
+    die "wrong image type <$imgfile>: must end with '.png' or '.jpg'\n"
+        unless ( $imgfile =~ /\.png$/ or $imgfile =~ /\.jpg$/ );
+}
+
+sub create_pml {
+    my ( $pmlfile, $r3d_file, $tmpimg, $x_pixels ) = @_;
+
+    open( FH, ">$pmlfile" ) or die "can not open file <$pmlfile> for writting\n";
+    print FH "delete all\n";
+    print FH "load $r3d_file\n";
+
+    my $prpar = "pymol_ray.par";
+    unless ( -e $prpar ) {    # first check from current directory
+        $prpar = x3dna_dir() . "/config/" . $prpar;
+        die "can not locate file <$prpar>\n" unless -e $prpar;
+    }
+
+    open( FP, "$prpar" ) or die "can not open file <$prpar> for reading\n";
+    while (<FP>) {
+        next if (/^\s*\#/);    # skip lines starting with '#'
+        next if (/^\s*$/);     # skip empty lines
+        print FH;
+    }
+    close(FP);
+
+    print FH "ray $x_pixels\n";
+    print FH "png $tmpimg\n";
+    print FH "quit\n";
+
+    close(FH);
+}

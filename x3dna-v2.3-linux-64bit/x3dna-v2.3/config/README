@@ -1,0 +1,73 @@
+[1] Atomic_?.pdb (? = A, C, G, T or U) 
+      Default standard nucleotides geometry used by 3DNA for analyzing
+      and rebuilding full atomic nucleic acid structures in PDB format.
+
+      Under the subdirectory atomic/, there are four sets of standard
+      residue geometry files, ADNA_?.pdb, BDNA_?.pdb, NDB96_?.pdb and
+      RNA_?.pdb. The base geometries by Clowney et al. (1996) are used
+      throughout and they were downloaded from the NDB archive. The
+      NDB96 set includes just base and C1' atoms, without backbone.  The
+      ADNA set uses the C3'-endo sugar-backbone conformation as defined
+      by Arnott's fiber studies, but with a chi torsion angle of -160
+      degrees, average of high resolution single crystal X-ray
+      oligonucleotide structures. The RNA set is the same as the ADNA
+      set except for an additional O2' atom for each nucleotide. The
+      BDNA set is similarly defined (-110 degrees chi torsion angle).
+
+      The NDB96 set is the default. To use another set, simply copy them
+      to overwrite the corresponding Atomic_?.pdb. A utility program,
+      "x3dna_utils cp_std", can do this automatically for you. Other
+      residue geometries can be used with the utility program
+      "std_base".
+
+[2] Block_BP.alc -- it defines the default base-pair (bp) rectangular
+      block. It has a size of [10 x 4.5 x 0.5] (length x width x height,
+      in angstroms) and is in ALCHEMY format. The bp is used for the
+      Calladine-Drew style schematic presentation of DNA structures.
+
+    Block_R.alc is for the purine bases [4.5 x 4.5 x 0.5]
+    Block_Y.alc is for the pyrimidine bases [3.0 x 4.5 x 0.5]
+
+      Under the subdirectory block/, there six block geometry files.
+      Block_M.alc has half the size of BLOCK_BP.alc, and can be used if
+      you would like the two blocks in a bp to be of the same
+      size. Block_Ms.alc is slightly smaller in length than Block_M.alc
+      to avoid possible overlaps in a compressed bp (i.e. with negative
+      stretch). The blocks do not necessarily to be rectangular, as
+      shown in Block_R_nr.alc.
+
+[3] Pxyz.dat -- the xyz coordinates of phosphorus (P) atoms with regard
+      to the middle dinucleotide reference frame. Four sets were
+      defined, corresponding to average values in high resolution A- and
+      B-DNA crystal structures, their mean value, and TA-DNA.  Users can
+      add new sets following the format. This file is used by "rebuild"
+      for generating DNA structures with only base and P atoms.
+
+    PxyzH.dat is the same as above except the coordinates are given in
+      the middle helical frames.
+
+[4] fig_image.par -- parameters to style the generated XFig files, which
+      can be edited (xfig) by users to suit their needs.
+
+[5] ps_image.par -- parameters to define the style of the generated EPS
+      files, which can be edited (Adobe Illustrator) by users to suit
+      their needs.
+
+[6] baselist.dat -- a comprehensive list of currently known nucleotides
+    and their standard counterparts. It makes the analysis of unusual
+    DNA and RNA structures straightforward. Strictly speaking, this list
+    is no longer necessary since 3DNA can auto-detect a nucleotide based
+    on atoms names and coordinates.
+
+[7] misc_3dna.par -- geometric parameters for identifying bps and
+    locating helical regions, mainly used by the "find_pair" program.
+
+[8] my_header.r3d -- sample header file for Raster3D output
+    my_header_hres.r3d -- output 160 * 16 pixel high-resolution image
+    raster3d.par -- various styling parameters for Raster3d output
+
+[9] The directory RNA_bases/ contains the standard bases for calculating
+     Babcock and Olson's authentic "RNA" bp parameters (use "cehs -r").
+
+                       ==============================================
+                        Xiang-Jun Lu (xiangjun@x3dna.org); 2015-10-10

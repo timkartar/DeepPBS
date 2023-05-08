@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+
+# a short script to extract the recipe directly used in the 3DNA
+# Nature Protocol paper from a script file in each directory.
+# by Xiang-Jun Lu (3dna.lu@gmail.com) April 28, 2008
+
+=for example
+in directory R1_diagram/, running the following command
+
+../extract_np_recipes script_propeller
+
+will produce the following output on screen.
+
+01 \cp $X3DNA/config/block/Block_M.alc Block_R.alc
+02 \cp $X3DNA/config/block/Block_M.alc Block_Y.alc
+03 rebuild -block2 propeller.dat propeller.alc
+04 frame_mol -m -g -L=8 -1 ref_frames.dat propeller.alc propeller_mg.alc
+05 rotate_mol -r=side_view.dat propeller_mg.alc propeller_sv.alc
+06 alc2img -f -g -s=166 propeller_sv.alc propeller_sv.fig
+=cut
+
+use strict;
+use warnings;
+
+my $num = 0;
+while (<>) {
+    chomp;
+    next if /^\s*#/;
+    next if /^\s*$/;
+    $num++;
+    printf "%2.2d %s\n", $num, $_;
+}
+

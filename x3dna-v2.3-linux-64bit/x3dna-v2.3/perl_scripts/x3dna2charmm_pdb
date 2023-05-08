@@ -1,0 +1,71 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+## This is utility Perl script for converting 3DNA generated PDB file
+## to that accepted by CHARMM. Initially written in response to a
+## request from Guanming Wang (Guanming.Wang.Adv04@Alum.Dartmouth.ORG).
+
+## Please note that this script may not be that sophisticated, since I
+## know little about the specifications of the CHARMM PDB format.
+## Please let me know if you find any bug in it.
+
+die "Usage: $0  3DNA_generated_PDB  converted_PDB\n" unless @ARGV == 2;
+my $x3dna_pdb  = $ARGV[0];
+my $charmm_pdb = $ARGV[1];
+
+open( FH, "$x3dna_pdb" )   || die "Can't open <$x3dna_pdb> for reading: $!\n";
+open( FO, ">$charmm_pdb" ) || die "Can't open <$charmm_pdb> for writing: $!\n";
+
+while (<FH>) {
+    if (/^ATOM/) {
+        chomp;
+
+        # expand this list as necessary ...
+        my %one2three = (
+                          '  A' => 'ADE',
+                          '  C' => 'CYT',
+                          '  G' => 'GUA',
+                          '  T' => 'THY'
+                        );
+        my $residue = substr( $_, 17, 3 );
+        substr( $_, 17, 3 ) = $one2three{$residue}
+            if ( exists $one2three{$residue} );
+        my $chainID = substr( $_, 21, 1 );
+        substr( $_, 21, 1 )  = ' ';
+        substr( $_, 54, 18 ) = '  0.00  0.00      ';
+        substr( $_, 72, 1 )  = $chainID;
+        print FO "$_\n";
+    } else {
+        print FO;
+    }
+}
+close(FH);
+close(FO);
+
+=for example
+
+Sample CHARMM PDB file:
+ATOM     27  H2' ADE     1      -3.643   6.134   3.867  0.00  0.00      A
+ATOM     28  C3' ADE     1      -4.155   7.022   5.806  0.00  0.00      A
+ATOM     29  H3' ADE     1      -5.203   7.382   5.738  0.00  0.00      A
+ATOM     30  O3' ADE     1      -3.256   8.063   5.448  0.00  0.00      A
+ATOM     31  P   THY     2      -3.070   8.432   3.902  0.00  0.00      A
+ATOM     32  O1P THY     2      -4.195   7.871   3.120  0.00  0.00      A
+ATOM     33  O2P THY     2      -2.853   9.889   3.761  0.00  0.00      A
+ATOM     34  O5' THY     2      -1.722   7.646   3.549  0.00  0.00      A
+
+Sample 3DNA generated PDB file:
+ATOM     50  O3'   C A   3      -7.224  -1.903   7.585
+ATOM     51  C2'   C A   3      -6.408   0.308   8.023
+ATOM     52  C1'   C A   3      -5.322   0.045   6.986
+ATOM     53  N1    C A   3      -4.202   0.995   7.051
+
+Transformed file:
+ATOM     50  O3' CYT     3      -7.224  -1.903   7.585  0.00  0.00      A
+ATOM     51  C2' CYT     3      -6.408   0.308   8.023  0.00  0.00      A
+ATOM     52  C1' CYT     3      -5.322   0.045   6.986  0.00  0.00      A
+ATOM     53  N1  CYT     3      -4.202   0.995   7.051  0.00  0.00      A
+
+=cut
+

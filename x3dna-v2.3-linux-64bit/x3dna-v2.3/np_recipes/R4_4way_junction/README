@@ -1,0 +1,18 @@
+The 'script_h1x_h3y' file has been updated to v2.1, with the following
+changes:
+
+  o 'analyze' now requires the input file be specified explicitly, so
+      instead of
+            find_pair h1.pdb stdout | analyze
+      we now have
+            find_pair h1.pdb stdout | analyze stdin
+
+  o 'blocview' now generates 'blocview.r3d' instead of 't.r3d'
+
+  o 'x3dna_r3d2png' becomes a sub-command in 'x3dna_utils'.
+
+  o 'my_header.r3d' is copied from $X3DNA/config/my_header_hres.r3d
+    for high-resolution 'render'-ing with Raster3D.
+
+See the thread "Recipe 4 of 3DNA Nature paper: Questions" on 3DNA Forum:
+http://forum.x3dna.org/general-discussions/recipe-4-of-3dna-nature-paper-questions/

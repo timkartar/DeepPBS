@@ -1,0 +1,12 @@
+## for the best representative model in the most extended view
+ex_str -nmrb 2grw.pdb 2grw_best.pdb # extract the model
+blocview -i 2grw_best.png 2grw_best.pdb # render with Raster3D
+# blocview -d 300 -i 2grw_best_pymol.png 2grw_best.pdb # render with PyMOL
+
+## cf. the best representative model in its original orientation
+x3dna_ensemble block_image -m -i 2grw_raw.png 2grw.pdb
+
+## for the whole ensemble in the most extended view
+x3dna_ensemble reorient -v -e 2grw.pdb -o extended_view.pdb # reset to most extended view
+x3dna_ensemble block_image -i 2grw_all.png extended_view.pdb # render with Raster3D
+# x3dna_ensemble block_image -d 300 -i 2grw_all_pymol.png extended_view.pdb # render with PyMOL

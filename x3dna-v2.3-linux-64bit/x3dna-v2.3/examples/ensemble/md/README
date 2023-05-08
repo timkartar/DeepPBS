@@ -1,0 +1,8 @@
+Type:
+       x3dna_ensemble analyze -h 
+       x3dna_ensemble extract -h
+
+to work through the examples.
+
+                          ==============================================
+                           Xiang-Jun Lu (xiangjun@x3dna.org); 2013-07-09

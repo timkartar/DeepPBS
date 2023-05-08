@@ -1,0 +1,68 @@
+#!/usr/bin/env ruby
+
+### Set up X3DNA running environment
+###     3DNA v2.3-2017feb08, created and maintained by Xiang-Jun Lu (PhD)
+
+$VERBOSE = true
+homedir = File.expand_path('../..', __FILE__)
+
+shell = File.basename(ENV['SHELL'] || ENV['XTERM_SHELL'] || "not-set")
+shell = 'sh' if shell=='not-set' && ENV['MSYSTEM']  # MINGW32
+
+msg_env = 'set up the X3DNA environment variable'
+msg_path = 'add $X3DNA/bin to your command search path'
+
+case shell
+when "bash", "sh"
+    rcfile = (shell == "bash") ? "~/.bashrc" : "~/.profile"
+    envar = "export X3DNA='#{homedir}'"
+    pathvar = "export PATH='#{homedir}/bin':$PATH"
+when "tcsh", "csh"
+    rcfile = "~/.cshrc"
+    envar = "setenv X3DNA '#{homedir}'"
+    pathvar = "setenv PATH '#{homedir}/bin':$PATH"
+else
+    if shell == "not-set"
+        puts "The SHELL environment variable is not detected -- MinGW/MSYS?"
+    else
+        puts "Unkown shell #{shell}"
+    end
+    puts <<TXT
+
+You've to set up 3DNA manually:
+    o #{msg_env}
+         #{homedir}
+    o #{msg_path}
+         #{homedir}/bin
+
+Overall, getting 3DNA up and running should be straightforward. If you
+have technical problems, ask a local expert for help, or post them at
+the 3DNA forum (http://forum.x3dna.org/).
+TXT
+    exit
+end
+
+sline = '+' * 72
+puts <<TXT
+#{sline}
+To install X3DNA, do as follows:
+  (0) download the 3DNA distribution for your operating system from URL
+          http://x3dna.org/
+  (1) tar pzxvf x3dna-v2.3-linux-64bit.tar.gz
+          # here for the 3DNA v2.3 distribution on 64-bit Linux
+  (2) cd x3dna-v2.3/bin
+  (3) ./x3dna_setup
+          to run X3DNA, you first need to do two things:
+              o #{msg_env}
+              o #{msg_path}
+          for your '#{shell}' shell, add the following into #{rcfile}:
+          --------------------------------------------------------------
+              #{envar}
+              #{pathvar}
+          --------------------------------------------------------------
+          and then run: source #{rcfile}
+  (4) to verify your installation, type: ./find_pair -h
+          you should see some command-line help message
+Problems? Visit the 3DNA Forum at URL http://forum.x3dna.org/howtos/
+#{sline}
+TXT

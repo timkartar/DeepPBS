@@ -1,0 +1,5 @@
+     1  # x-, y-, z-axes row-rise
+      0.000   0.000   0.000   # translation
+     -0.348   0.922  -0.167   # x: h1 axis, from h1.out
+      0.597   0.161  -0.785   # y: h3 axis, from h3.out
+      0.000   0.000   1.000   # z: can be anything

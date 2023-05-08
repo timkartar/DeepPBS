@@ -1,0 +1,15 @@
+# [1] get all pairs and higher-order base associations
+find_pair -p 1jj2.pdb 1jj2.bps
+
+# [2] check '1jj2.bps' and identify 2 pentaplets
+#     (#117, #135)
+ex_str -117 multiplets.pdb p1.pdb
+ex_str -135 multiplets.pdb p2.pdb
+
+# [3] convert the PDB file to Xfig images
+stack2img -s=300 -f -cdol p1.pdb p1.fig
+stack2img -s=300 -f -cdol p2.pdb p2.fig
+
+# Here are the commands for EPS images
+stack2img -s=20 -cdol p1.pdb p1.eps
+stack2img -s=20 -cdol p2.pdb p2.eps

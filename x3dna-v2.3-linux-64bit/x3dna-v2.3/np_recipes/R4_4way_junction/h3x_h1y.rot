@@ -1,0 +1,5 @@
+    1  # x-, y-, z-axes row-rise
+      0.0000      0.0000      0.0000
+      0.597   0.161  -0.785     # h3 axis, extracted from h3.out
+     -0.348   0.922  -0.167     # h1 axis, extracted from h1.out
+      0.4823     -0.6771      0.5557  # can be anything

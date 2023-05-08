@@ -1,0 +1,39 @@
+This directory contains all the scripts (recipes) and associated data files for
+the 3DNA Nature Protocols paper.
+
+Please note that to generate the raster graphics images, one needs to have
+MolScript, Raster3D, PyMOL, ImageMagick, and Ghostscript installed. Xfig is
+useful for editing .fig files generated with 3DNA for touch-up (so is Adobe
+Illustrator for the .eps files). RasMol (v2.6.x, NOT v2.7.x) is very useful for
+viewing the Alchemy block representation. Please remember to use options
+'-alchemy' and '-noconnect'.
+
+Perl script 'extract_np_recipes' is used to extract the recipes listed in the
+3DNA Nature Protocols paper. Check source scripts for details.
+
+[1] R1_diagram -- for generating the schematic diagrams for propeller, rise and
+        inclination. Please check contents of the following 3 scripts for
+        details.
+
+                script_propeller
+                script_rise
+                script_inclination
+    
+[2] R2_roll_bending -- for roll-induced bending. Check 'script_roll_bend' for
+        details
+
+
+[3] R3_bz_junction -- for B-Z junction. Check 'script_bz' for details.
+
+
+[4] R4_4way_junction -- for DNA-RNA junction. Check 'script_h1x_h3y' for
+        details.
+
+[5] R5_pentaplets -- for pentaplets. Check 'script_1jj2' for details.
+
+[6] R6_nmr_ensemble -- for NMR ensemble images. Check 'script_2grw' for details.
+
+[7] R7_hydration -- for hydration patterns. Check Perl script 'get_AT_GC' for
+        details.
+
+Xiang-Jun Lu (3dna.lu@gmail.com) April 28, 2008

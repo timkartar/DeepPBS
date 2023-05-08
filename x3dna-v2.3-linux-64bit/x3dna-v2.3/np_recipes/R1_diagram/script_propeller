@@ -1,0 +1,28 @@
+## [1] firstly one needs to create a file "propeller.dat" with
+## propeller set to +45 degrees, and all other parameters set to zero.
+
+## the easiest is to use "regular_dna", with # of repeat set to 1
+
+## [2] set rectangular blocks with R and Y in the same size
+\cp $X3DNA/config/block/Block_M.alc Block_R.alc
+\cp $X3DNA/config/block/Block_M.alc Block_Y.alc
+
+## [3] rebuild the structure in Alchemy format with option '-block2'
+## for the two bases in a pair; Alchemy file can be viewed with Rasmol
+rebuild -block2 propeller.dat propeller.alc
+### rasmol -alchemy propeller.alc
+
+## [4] set the view from the normal minor-groove side (-m); and add
+## the global axis (-g) with axis length set to 8.0 (-L=8); to be
+## viewed with Rasmol, please use option '-noconnect' to avoid Rasmol
+## recalculated linkage info
+frame_mol -m -g -L=8 -1 ref_frames.dat propeller.alc propeller_mg.alc
+### rasmol -alchemy -noconnect propeller_mg.alc
+
+## [5] set to side view for easy visualization (file "side_view.dat")
+## again note the option '-noconnect' for Rasmol
+rotate_mol -r=side_view.dat propeller_mg.alc propeller_sv.alc
+### rasmol -alchemy -noconnect propeller_sv.alc
+
+## [6] now generate the image in XFIG format
+alc2img -f -g -s=166 propeller_sv.alc propeller_sv.fig

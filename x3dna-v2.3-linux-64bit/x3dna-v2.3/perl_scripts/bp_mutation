@@ -1,0 +1,289 @@
+#!/usr/bin/env perl
+# A utility script to mutate a base-pair to another one (Watson-Crick type).
+
+# Xiang-Jun Lu (3dna.lu@gmail.com)
+# First written: August, 2008
+# Slight modifications: May 20, 2011
+
+use warnings;
+use strict;
+use vars qw($opt_m $opt_z $opt_h);
+use Getopt::Std;    # for easy command-line options processing
+use File::Basename;
+
+my $fixed = 'mutation';      # as a global fixed base file name
+system("rm -f $fixed.*");    # clean up ...
+
+my ( $mutnum, $mut2bp, $inppdb, $outpdb ) = process_args();
+my ( $num_bp, $bp_ids_ref ) = get_pair_info( $fixed, $mutnum, $inppdb );
+
+mutate_bp( $num_bp, $bp_ids_ref, $mutnum, $mut2bp, $fixed, $inppdb );
+tidy_up( $fixed, $outpdb );
+
+log_info( $fixed, $num_bp, $bp_ids_ref, $mutnum, $mut2bp, $inppdb, $outpdb );
+
+sub process_args {
+    getopts("m:zh");
+
+    $opt_h ||= 0;    # help message
+    $opt_z ||= 0;    # zero-out base-pair parameters
+
+    $opt_m ||= 0;    # mutation string: -m=bpNUM_BP or -m bpNUM_BP
+    $opt_m =~ s/^=//;    # remove '=' sign
+
+    print_usage() if ( @ARGV != 2 or $opt_h );
+
+    my ( $mutstr, $inppdb, $outpdb );
+    my ( $mutnum, $mut2bp );
+
+    $mutstr = uc($opt_m);
+    $inppdb = $ARGV[0];
+    $outpdb = $ARGV[1];
+
+    if ( $mutstr =~ /^BP(\d+)_(..)$/ ) {
+        $mutnum = $1;
+        $mut2bp = $2;
+        unless ( grep( $mutstr, qw(AT TA GC CG) ) ) {
+            print "Wrong base-pair to mutated to: $mutstr\n";
+            print_usage();
+        }
+        $mut2bp = substr( $mut2bp, 0, 1 ) . '-' . substr( $mut2bp, 1, 1 );
+
+    } else {
+        print "Wrong format for mutation string: $mutstr\n";
+        print_usage();
+    }
+
+    die "PDB file <$inppdb> does not exists\n" unless -e $inppdb;
+    die "Base-pair number $mutnum < 1\n" if $mutnum < 1;
+
+    return ( $mutnum, $mut2bp, $inppdb, $outpdb );
+}
+
+sub print_usage {
+    my $prgname = basename($0);
+
+    print <<USAGE;
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+$prgname -m=bpNUM_BP [-z] input_pdb output_pdb
+
+The mutation string must be in the format of 'bpNUM_BP' where NUM is
+    an integer for the base-pair to be mutated, and BP is the final
+    base-pair. BP must be in the set (AT, TA, GC, CG). Case does not
+    matter.
+
+-z will zero-out the base-pair parameters, thus making the mutated
+    base-pair planar.
+
+e.g. $prgname -m=bp2_at 355d.pdb 355d_bp2at.pdb
+
+     mutate the second base-pair, G-C, to A-T in PDB entry 355d
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+USAGE
+    die "\n";
+}
+
+sub get_pair_info {
+    my ( $fixed, $mutnum, $inppdb ) = @_;
+
+    system(   "cp -f $inppdb $fixed.pdb; "
+            . "find_pair $fixed.pdb $fixed.bps 2> msg; "
+            . "analyze $fixed.bps 2>> msg; "
+            . "mv -f bp_step.par $fixed.par0; "
+            . "mv -f ref_frames.dat $fixed.frame" );
+
+    my @bp_ids = ();
+    my ( $num_bp, $pair, $id1, $id2 );
+
+    open( FH, "$fixed.out" ) or die "can't open $fixed.out for reading: $!\n";
+    while (<FH>) {
+        if (/^Number of base-pairs:\s*(\d+)/) {
+            $num_bp = $1;
+        }
+
+        if (/^RMSD of the bases /) {
+            for ( my $i = 1 ; $i <= 2 ; $i++ ) {    # skip two lines
+                <FH>;
+            }
+
+            for ( my $i = 1 ; $i <= $num_bp ; $i++ ) {    # skip two lines
+                my $str = <FH>;
+                $pair =
+                      substr( $str, 33, 1 )
+                    . substr( $str, 35, 1 )
+                    . substr( $str, 39, 1 );
+                $id1 = substr( $str, 20, 1 ) . substr( $str, 22, 4 );
+                $id2 = substr( $str, 52, 1 ) . substr( $str, 46, 4 );
+                $id1 =~ s/\.//g;
+                $id2 =~ s/\.//g;
+                push @bp_ids, [ $pair, $id1, $id2 ];
+            }
+
+            last;    # done with required info
+        }
+    }
+    close(FH);
+
+    die "PDB $inppdb does not have enough base-pairs (${num_bp} < $mutnum)\n"
+        unless $num_bp > $mutnum;
+
+    return ( $num_bp, \@bp_ids );
+}
+
+sub update_parfile {
+    my ( $fixed, $num_bp, $mutnum, $mut2bp ) = @_;
+    my $zeros = '    0.00    0.00    0.00    0.00    0.00    0.00';
+
+    open( FH, "$fixed.par0" ) or die "can't open $fixed.par0 for reading: $!\n";
+    open( FO, ">$fixed.par" ) or die "can't open $fixed.par for writing: $!\n";
+
+    for ( my $i = 1 ; $i <= 3 ; $i++ ) {
+        my $str = <FH>;
+        print FO $str;
+    }
+
+    for ( my $i = 1 ; $i <= $num_bp ; $i++ ) {
+        my $str = <FH>;
+        if ( $i == $mutnum ) {
+            substr( $str, 0, 3 ) = $mut2bp;
+        }
+        substr( $str, 4, 48 ) = $zeros if ($opt_z);
+        print FO $str;
+    }
+
+    close(FH);
+    close(FO);
+}
+
+sub mutate_bp {
+    my ( $num_bp, $bp_ids_ref, $mutnum, $mut2bp, $fixed, $inppdb ) = @_;
+
+    my $bp_ref = $bp_ids_ref->[ $mutnum - 1 ];
+    my $bp0    = $bp_ref->[0];
+
+    if ( $mut2bp eq $bp0 ) {
+        print "No need to mutate the same base-pair: $bp0\n";
+        system("cp -f $inppdb $fixed.mut0.pdb");
+        return;
+    }
+
+    update_parfile( $fixed, $num_bp, $mutnum, $mut2bp );
+
+    system(   "rebuild -atomic $fixed.par $fixed.3dna.pdb 2>> msg; "
+            . "get_part -b $fixed.3dna.pdb $fixed.base.pdb 2>> msg; "
+            . "frame_mol -1 $fixed.frame $inppdb $fixed.expt.pdb 2>> msg" );
+
+    open( FH, "$fixed.base.pdb" )
+        or die "can't open PDB file <$fixed.base.pdb> for reading: $!\n";
+    my @pdb_records = <FH>;
+    close(FH);
+
+    my $qstr1 = sprintf( " %s%4d", 'A', $mutnum );
+    my @base1 = grep( /^.{20}$qstr1/, @pdb_records );
+
+    my $qstr2 = sprintf( " %s%4d", 'B', 2 * $num_bp - $mutnum + 1 );
+    my @base2 = grep( /^.{20}$qstr2/, @pdb_records );
+
+    my $id = $bp_ref->[1];
+    $qstr1 = sprintf( " %s%4d", substr( $id, 0, 1 ), substr( $id, 1 ) );
+    $id    = $bp_ref->[2];
+    $qstr2 = sprintf( " %s%4d", substr( $id, 0, 1 ), substr( $id, 1 ) );
+
+    open( FH, "$fixed.expt.pdb" )
+        or die "can't open PDB file <$fixed.expt.pdb> for reading: $!\n";
+    open( FO, ">$fixed.mut0.pdb" )
+        or die "can't open file <$fixed.mut0.pdb> for writing: $!\n";
+
+    my $n1 = 0;
+    my $n2 = 0;
+    my $b1 = substr( $mut2bp, 0, 1 );
+    my $b2 = substr( $mut2bp, 2, 1 );
+
+    while ( my $str = <FH> ) {
+        if ( $str =~ /^.{20}$qstr1/ ) {
+            update_base( $str, $qstr1, \@base1, $b1, \$n1, *FH, *FO );
+        } elsif ( $str =~ /^.{20}$qstr2/ ) {
+            update_base( $str, $qstr2, \@base2, $b2, \$n2, *FH, *FO );
+        } else {
+            print FO $str;
+        }
+    }
+
+    close(FO);
+    close(FH);
+}
+
+sub is_bb_atom {
+    my $str = shift;
+
+    if ( $str =~ /^(ATOM  |HETATM)/ && length($str) >= 54 )
+    {    # with x-, y- and z-coordinates
+        my $aname = substr( $str, 12, 4 );
+        return ( $aname =~ /'|P/ ) ? 1 : 0;    # C5' etc, P, O1P, O2P
+    }
+
+    return 0;
+}
+
+sub update_base {
+    my ( $str, $qstr, $mut_ref, $bname, $n_ref, $fh, $fo ) = @_;
+
+    if ( is_bb_atom($str) ) {
+        substr( $str, 17, 3 ) = sprintf( "%3s", $bname );
+        print $fo $str;
+    } elsif ( $$n_ref == 0 ) {
+        ($$n_ref)++;
+        for ( my $i = 0 ; $i < @$mut_ref ; $i++ ) {
+            my $record = $mut_ref->[$i];
+            substr( $record, 21, 6 ) = substr( $str, 21, 6 );
+            print $fo $record;
+        }
+    }
+}
+
+sub tidy_up {
+    my ( $fixed, $outpdb ) = @_;
+
+    open( FH, "$fixed.mut0.pdb" )
+        or die "can't open file <$fixed.mut0.pdb> for reading: $!\n";
+    open( FO, ">$outpdb" ) or die "can't open file <$outpdb> for writing: $!\n";
+    my $n = 0;
+
+    while ( my $str = <FH> ) {
+        if ( $str =~ /^(ATOM  |HETATM)/ ) {
+            $n++;
+            substr( $str, 6, 5 ) = sprintf( "%5d", $n );
+            my $rname = substr( $str, 17, 3 );
+            $rname =~ s/ D([ACGT])/  $1/;
+            substr( $str, 17, 3 ) = sprintf( "%3s", $rname );
+        }
+        print FO $str;
+    }
+
+    close(FO);
+    close(FH);
+}
+
+sub log_info {
+    my ( $fixed, $num_bp, $bp_ids_ref, $mutnum, $mut2bp, $inppdb, $outpdb ) = @_;
+
+    open( FH, ">$fixed.log" ) or die "can't open <$fixed.log> for writing: $!\n";
+
+    print FH "Original PDB file: $inppdb\n";
+    print FH "\tNumber of bps in this PDB file: $num_bp\n";
+    for ( my $i = 0 ; $i < $num_bp ; $i++ ) {
+        printf FH "%4d %8s %8s %8s\n", $i + 1, $bp_ids_ref->[$i][0],
+            $bp_ids_ref->[$i][1], $bp_ids_ref->[$i][2];
+    }
+
+    print FH "\nMutated PDB file: $outpdb\n";
+
+    my $bp_ref = $bp_ids_ref->[ $mutnum - 1 ];
+
+    print FH "\tMutating bp #$mutnum '$bp_ref->[0]' "
+        . "($bp_ref->[1] and $bp_ref->[2]) to '$mut2bp'\n";
+
+    print FH "\tMaking the base-pair flat\n" if $opt_z;
+
+    close(FH);
+}

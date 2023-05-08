@@ -1,0 +1,30 @@
+rebuild roll_a.dat roll_a_raw.alc
+frame_mol -m -11,12 ref_frames.dat roll_a_raw.alc roll_a_mm.alc
+rotate_mol -r=roty90.dat roll_a_mm.alc roll_a_ok.alc
+alc2img -f -l -s=128 roll_a_ok.alc roll_a.fig
+alc2img -l -s=7 roll_a_ok.alc roll_a.eps
+
+rebuild roll_b.dat roll_b_raw.alc
+frame_mol -m -11,12 ref_frames.dat roll_b_raw.alc roll_b_mm.alc
+rotate_mol -r=roty90.dat roll_b_mm.alc roll_b_ok.alc
+alc2img -f -l -s=128 roll_b_ok.alc roll_b.fig
+alc2img -l -s=7 roll_b_ok.alc roll_b.eps
+
+rebuild roll_c.dat roll_c_raw.alc
+frame_mol -m -11,12 ref_frames.dat roll_c_raw.alc roll_c_mm.alc
+rotate_mol -r=roty90.dat roll_c_mm.alc roll_c_ok.alc
+alc2img -f -l -s=128 roll_c_ok.alc roll_c.fig
+alc2img -l -s=7 roll_c_ok.alc roll_c.eps
+
+rebuild roll_d.dat roll_d_raw.alc
+frame_mol -m -11,12 ref_frames.dat roll_d_raw.alc roll_d_mm.alc
+rotate_mol -r=roty90.dat roll_d_mm.alc roll_d_ok.alc
+alc2img -f -l -s=128 roll_d_ok.alc roll_d.fig
+alc2img -l -s=7 roll_d_ok.alc roll_d.eps
+
+rebuild roll_e.dat roll_e_raw.alc
+frame_mol -m -11,12 ref_frames.dat roll_e_raw.alc roll_e_mm.alc
+rotate_mol -r=roty90.dat roll_e_mm.alc roll_e_ok.alc
+alc2img -f -l -s=128 roll_e_ok.alc roll_e.fig
+alc2img -l -s=7 roll_e_ok.alc roll_e.eps
+

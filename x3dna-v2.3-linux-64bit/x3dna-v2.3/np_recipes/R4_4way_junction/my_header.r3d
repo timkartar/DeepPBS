@@ -1,0 +1,20 @@
+3DNA v2.1 (2012-07-02, by Dr. Xiang-Jun Lu; http://x3dna.org/)
+160  160            tiles in x, y
+16   16             pixels (x, y) per tile
+4                 anti-aliasing
+1.0 1.0 1.0       white background
+F                 no shade
+25                phong power
+1.00              secondary light contribution
+0.90              ambient light contribution
+0.05              specular reflection component
+4.0               eye position
+1.0 1.0 1.0       main light source position
+1.0 0.0 0.0 0.0   input co-ordinate and radius transformation
+0.0 1.0 0.0 0.0   no transformation given herex
+0.0 0.0 1.0 0.0
+0.0 0.0 0.0 1.0   to be replaced by r3d_atom
+3                 mixed object types
+*                 free format for triangle
+*                 free format for sphere
+*                 free format for cylinder

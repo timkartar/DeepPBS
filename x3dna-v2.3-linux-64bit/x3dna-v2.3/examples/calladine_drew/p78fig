@@ -1,0 +1,6 @@
+rebuild $1.dat temp.alc
+frame_mol -m -11,12 ref_frames.dat temp.alc temp2.alc
+rotate_mol -r=roty90 temp2.alc temp.alc	  
+alc2img -l -s=8 temp.alc $1.ps
+alc2img -fl -s=128 temp.alc $1.fig
+alc2img -rl -s=72 temp.alc $1.r3d

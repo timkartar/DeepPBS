@@ -1,0 +1,70 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+use FindBin qw($Bin);
+use lib $Bin;
+use x3dna_utils;
+
+my ( $options, $stackfile, $n1, $n2, $prefix );
+
+if ( @ARGV == 4 ) {
+    $options   = "";         # a null string
+    $stackfile = $ARGV[0];
+    $n1        = $ARGV[1];
+    $n2        = $ARGV[2];
+    $prefix    = $ARGV[3];
+} elsif ( @ARGV == 5 ) {
+    $options   = $ARGV[0];
+    $stackfile = $ARGV[1];
+    $n1        = $ARGV[2];
+    $n2        = $ARGV[3];
+    $prefix    = $ARGV[4];
+} else {
+    print <<MSTACK2IMG_USAGE;
+===========================================================================
+SYNOPSIS
+    mstack2img ['options'] STACKFILE N1 N2 FILE_PREFIX
+DESCRIPTION
+    Generates multiple base-stacking diagrams from step N1 to N2 in file
+    STACKFILE (e.g., stacking.pdb generated with "analyze"). The output
+    files will be named with FILE_PREFIX followed by zero-leading 4-digit
+    number (e.g., 0006) and a proper extension (e.g., .ps). The same
+    result for each step can be achieved with "ex_str" and "stack2img".
+EXAMPLES
+    find_pair -t bdl084.pdb stdout | analyze
+    mstack2img '-tlcdo -s=25' stacking.pdb 1 11 bdl084_
+           ===> you will get bdl084_0001.ps ... bdl084_0011.ps
+AUTHOR
+    $author
+    $url
+===========================================================================
+MSTACK2IMG_USAGE
+    die "\n";
+}
+
+my $X3DNA_BIN = x3dna_bin();
+
+my $step_num_id;
+my $outfile;
+for ( my $i = $n1 ; $i <= $n2 ; $i++ ) {
+    open( FINP, $stackfile ) || die "Can't open $stackfile for reading: $!\n";
+    open( FTMP, ">tmpfile" ) || die "Can't open tmpfile for writing: $!\n";
+
+    $step_num_id = "Section \#" . sprintf( "%4.4d", $i );
+    while (<FINP>) {
+        print FTMP if ( /$step_num_id/ .. /^END/ );
+    }
+
+    close(FINP);
+    close(FTMP);
+
+    if ( -z "tmpfile" ) {
+        print "Structure \#$i does not exist\n";
+    } else {
+        print "\n\n =========== Processing structure \#$i ===========\n";
+        $outfile = $prefix . sprintf( "%4.4d", $i );
+        $outfile .= ( uc($options) =~ /F/ ) ? ".fig" : ".ps";
+        system "$X3DNA_BIN/stack2img $options tmpfile $outfile";
+    }
+}

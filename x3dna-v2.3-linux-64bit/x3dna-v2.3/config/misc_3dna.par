@@ -1,0 +1,60 @@
+# Configuration file of various criteria used in 3DNA. Originally, it
+# was quite cryptic, reflecting the evolving history of each added
+# parameter when need arises. Now that 3DNA is quite stable, with v2.0
+# release, this file has been completely reorganized to make it easy
+# to follow.
+#    -- Xiang-Jun Lu (http://x3dna.org/, 2012-05-01)
+
+# Note: (1) the format follows simple xml tag in lower case
+#       (2) order does not matter
+#       (3) empty lines and lines starting with # are comments
+
+# Section 1: parameters defining H-bonding, in angstrom
+#   primary H-bond
+<hb_dist1>4.0</hb_dist1>
+
+#   bifurcated H-bonds. 0.0 means ignored
+<hb_dist2>0.0</hb_dist2>
+
+#   atoms counted in H-bonding. each atomic symbol must be 2-char,
+#   right justified, with leading space replace by '.'
+<hb_atoms>.O.N</hb_atoms>
+
+# Section 2: alternative location in ATOM or HETATM records
+#   default to A or 1 (A1), and ' ' is always added
+<alt_list>A1</alt_list>
+
+# Section 3: for find_pair program
+#   maximum distance between base origins
+<max_dorg>15.0</max_dorg>
+
+#   maximum vertical base separation, i.e., |stagger|
+<max_dv>2.5</max_dv>
+
+#   maximum angle between base normals (in range 0..90)
+<max_plane_angle>65.0</max_plane_angle>
+
+#   minimum distance between RN9/YN1 base atoms
+<min_dNN>4.5</min_dNN>
+
+#   distance criterion for helix break
+<helix_break>7.8</helix_break>
+
+# Section 4: is this double helix curved?
+#   criterion to decide if a helix is strongly curved. 
+#   if relatively straight, 'analyze' will output a set of
+#   global parameters, the normalized axis vector, and the
+#   two end points the helical axis passes through
+<std_curved>0.6</std_curved>
+
+# Section 5: hydration pattern
+#   H-bond distance for water molecules (i.e., O atom)
+<water_dist>3.2</water_dist>
+
+#   atoms for counting hydration contacts. each atomic symbol
+#   must be 2-char long, with leading space replaced by '.'
+<water_atoms>.O.N</water_atoms>
+
+# Section 6: residue connection in 'rebuild'
+#   maximum O3'--P distance for linkage
+<o3p_dist>4.5</o3p_dist>

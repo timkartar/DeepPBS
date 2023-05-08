@@ -1,0 +1,11 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ P atom positions with regard to the middle frame      +
++ If idx is not specified, B-DNA positioning is used    +
++ idx: 1--A-DNA; 2--B-DNA; 3--N-DNA; 4-TA-DNA; etc      +
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ idx     x1      y1      z1      x2      y2      z2
+   1   -1.74    8.45    2.24   -1.74   -8.45   -2.24   # A-DNA
+   2   -2.99    8.88   -0.36   -2.99   -8.88    0.36   # B-DNA
+   3   -2.37    8.66    0.94   -2.37   -8.66   -0.94   # mean of A-DNA and B-DNA
+   4   -2.35    9.02   -0.64   -2.35   -9.02    0.64   # TA-DNA
+   5   -5.42    4.82    2.60    3.69    9.39    2.34   # Hoogsteen in fiber #31 TAT

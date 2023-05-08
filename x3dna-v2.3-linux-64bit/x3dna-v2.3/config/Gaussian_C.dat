@@ -1,0 +1,21 @@
+# Matched atom-pairs in sequential order (per Gaussian), separated by
+# white space. The left-column are the elemental symbols based on the
+# PDB file created with Gaussian-Babel, and the right-column are the
+# corresponding standard PDB atom names. Each atom symbol/name must be
+# 4-character long with space substituted by underscore (i.e., ' ' to
+# '_'). No hydrogens atoms should be included. Empty lines and those
+# starting with # are ignored.
+
+# The list here contains only base atoms, and backbone atoms can be
+# easily added by keeping the proper *order*. Just remember to use '
+# instead of * for sugar atoms; e.g. the line for C1' atom should be:
+# _C__  _C1'
+
+_N__  _N1_    # 1
+_C__  _C6_    # 2
+_C__  _C5_    # 3
+_C__  _C4_    # 4
+_N__  _N4_    # 5
+_N__  _N3_    # 6
+_C__  _C2_    # 7
+_O__  _O2_    # 8

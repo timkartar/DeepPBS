@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 1 September 2005), see www.w3.org" />
+
+  <title>Supplementary Materials for 3DNA Nature Protocols (Lu and Olson)</title>
+  <link href="x3dna_np08.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="mainContent">
+    <h1>Installation</h1>
+    <p>The latest 3DNA v2.0, with recipes and associated data files
+    for the Nature Protocols manuscript, is distributed in a tarball file named <a href=
+    "X3DNA.tar.gz">X3DNA.tar.gz</a>. The tarball link given here is for the reviewing
+    process of our 3DNA manuscript: the 3DNA C binaries have been compiled on Ubuntu
+    Linux and should run on other flavors of Intel-based Linux distributions. To
+    install, download it to a directory of your choice, presumably your home
+    directory, and then do the following:</p>
+
+    <ol>
+      <li><tt>tar zxvf X3DNA.tar.gz</tt></li>
+
+      <li><tt>cd X3DNA/bin</tt></li>
+
+      <li>
+        <tt>x3dna_setup</tt><br />
+        It will output message like the following (for my computer settings):
+        <pre>
+        To run X3DNA, you need to set up the followings:
+          o the environment variable X3DNA
+          o add $X3DNA/bin to your command line search path
+        for your 'bash' shell, please add the following into ~/.bashrc:
+          --------------------------------------------------------------
+            export X3DNA=/home/xiangjun/X3DNA
+            export PATH=/home/xiangjun/X3DNA/bin:$PATH
+          --------------------------------------------------------------
+</pre>
+      </li>
+
+      <li>type <tt>find_pair -h</tt> for command line help -- this applies to all
+      3DNA binaries. Visit 3DNA homepage at URL <a href="http://3dna.rutgers.edu">http://3dna.rutgers.edu/</a></li>
+    </ol>
+
+    <h1>Play with the Recipes</h1>
+
+    <p>The recipes related to the Nature Protocols manuscript is under directory
+    <tt>$X3DNA/NP_Recipes</tt> where there is a <a href="README">README file</a>.
+    Read it through and check each sub-directory for details.</p>
+
+    <p>In particular, there is a separate directory for each Recipe mentioned in the
+    3DNA manuscript that contains all the script(s), data files and the final
+    <b>generated image(s) directly used</b> in the manuscript. For verification
+    purpose, it would help to firstly make a copy of the directory
+    <tt>NP_Recipes</tt> to a new location, e.g., <tt>NP_Recipes_play</tt> (using "<tt>cp
+    -r</tt>") and play from there.</p>
+
+    <p>With the software tools mentioned in the next section properly installed,
+    re-running the seven Recipe scripts takes less than thirty minutes on my Linux
+    box.</p>
+
+    <h1>Links</h1>
+
+    <p>Here is a list of the software mentioned in the manuscript. They are readily
+    available and are of great value to our own research. Please note that the software
+    listed below are only used in <em>the visualization part of 3DNA</em>, e.g., for
+    creating the figures used in the 3DNA manuscript. <b>The analysis and rebuilding
+    parts of 3DNA have <em>zero dependence</em> on third-part tools</b>.</p>
+
+    <ol>
+      <li><a href="http://www.umass.edu/microbio/rasmol/">RasMol</a> There are many
+      variants available, each with claimed new functionality. However, unless well
+      tested, some also introduced bugs. Specifically, the v2.7.x series do not
+      handle the Alchemy format right. I've been using v2.6.4, the version directly
+      from Roger Sayle, the original author of RasMol. While RasMol is <b>not
+      directly used</b> in generating the images used in the 3DNA manuscript, it is
+      nevertheless a handy <b>light-weighted</b> tool for molecular structure
+      visualization, especially for Alchemy files (which PyMOL seems do not
+      like).</li>
+
+      <li><a href="http://www.avatar.se/molscript/">MolScript</a> It is used to
+      generate Raster3D scenes of protein ribbons and nucleic acid backbone.</li>
+
+      <li><a href="http://skuld.bmsc.washington.edu/raster3d/">Raster3D</a> All 3DNA generated
+      raster-graphics images are in Raster3D ".r3d" format. Only <tt>render</tt> is
+      used in 3DNA.</li>
+
+      <li><a href="http://pymol.sourceforge.net/">PyMOL</a> While PyMOL is most
+      commonly used interactively, we have explored its scripting capability (".pml"
+      script) in 3DNA for integration with other command-line driven tools. Of
+      course, one can easily load the ".r3d" files into PyMOL to interactively play
+      with them, just as with the normal Raster3D/MolSctipt to PyMOL interface.</li>
+
+      <li><a href="http://sourceforge.net/projects/ghostscript/">Ghostscript</a> It
+      is used for converting an EPS file to a PNG image at a specific resolution (300
+      DPI for the figures in the manuscript).</li>
+
+      <li><a href="http://www.imagemagick.org/script/index.php">ImageMagick</a> This
+      is a very useful general-purpose image processing toolset. I have been using
+      its <tt>display</tt> and <tt>convert</tt> on a regular basis.</li>
+
+      <li><a href="http://www.xfig.org/">Xfig</a> I like Xfig for its simplicity,
+      quality, and availability and it fulfills my purposes nicely for line-drawing
+      and composing composite figures. In particular, it allows for direct editing of
+      the Xfig files generated from 3DNA. In retrospect, 3DNA's support for Xfig was
+      added after EPS. Using the utility program <a href=
+      "http://www.pstoedit.net/pstoedit">pstoedit</a>, one can easily convert 3DNA
+      generated EPS file to Xfig format. However, the more I play with Xfig, the more
+      I like it, to the extent that I feel it would benefit 3DNA users by eliminating
+      its dependence on a third-party utility program (pstoedit). Of course, if you
+      have access to Adobe Illustrator, you can manipulate the EPS file
+      directly.</li>
+    </ol>
+    <hr />
+
+    <address>
+      <a href="mailto:3dna.lu@gmail.com">Xiang-Jun Lu &lt;3dna.lu@gmail.com&gt;</a>
+    </address><!-- hhmts start -->
+    Last modified: Tue Sep 4 08:09:37 2007 <!-- hhmts end -->
+  </div>
+</body>
+</html>
