@@ -53,9 +53,3 @@ parameters are unused) and `proc_source.sh` for required environment setup
 
 ./vis_interpret.sh 5x6g
 ```
-
- <iframe width="560" height="315"
-src="https://www.youtube.com/embed/o1jJQ_OJydw" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
