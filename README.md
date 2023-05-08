@@ -21,12 +21,6 @@ Developement Environment:
 * trimesh 3.10.0
 * numpy 1.21.5
 
-# Welcome to Deep DNAshape
-
-The package includes an executable `deepDNAshape` to predict DNA shape features for any sequences.
-
-It also includes all the components of Deep DNAshape. You may incoorporate Deep DNAshape into your pipeline or modify it to fit your needs.
-
 ## Installation
 
 Prerequsite: `tensorflow >= 2.0` `numpy`
