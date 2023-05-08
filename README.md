@@ -1,5 +1,6 @@
 # DeepPBS
 
+![alt text](https://github.com/timkartar/DeepPBS/blob/main/bin/figs/Fig1_white.png?raw=true)
 
 Developement Environment:
 
@@ -49,5 +50,6 @@ parameters are unused)
 // been processed to an npz file in `deeppbs/bin/process/npz`) see `interpret_config.json` 
 ./vis_interpret.sh 5x6g
 // output wil be generated in `deeppbs/bin/plot_scripts/interpret_output/`
+
 
 ```
