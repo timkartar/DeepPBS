@@ -42,14 +42,16 @@ cd deeppbs/bin/process
 
 // process and predict the structures present in `deeppbs/bin/process/pdb` directory
 // see process_config.json and pred_config.json for parameters and path details (note some
-parameters are unused)
-./process_and_predict.sh
+parameters are unused) and `proc_source.sh` for required environment setup
 // outputs will be generated in `deeppbs/bin/process/output` directory
+
+./process_and_predict.sh
 
 // run interpretation on an example pdb file present in `deeppbs/bin/process/pdb` (provided it has 
 // been processed to an npz file in `deeppbs/bin/process/npz`) see `interpret_config.json` 
-./vis_interpret.sh 5x6g
 // output wil be generated in `deeppbs/bin/plot_scripts/interpret_output/`
+
+./vis_interpret.sh 5x6g
 
 
 ```
