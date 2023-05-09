@@ -8,5 +8,5 @@ rm *.r3d
 rm *.dat
 rm *.log
 ls npz > predict_input.txt
-python ../predict.py predict_input.txt /home/raktim/deeppbs/bin/process/output/ -c pred_config.json
+python ../predict.py predict_input.txt ./output/ -c pred_config.json
 
