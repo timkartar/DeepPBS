@@ -5,34 +5,32 @@
 
 
 ## Installation
+### 1. Git clone the repository
+```
+git clone https://github.com/timkartar/DeepPBS
+```
+### 2. Install pythonic dependencies
 
-### Install pythonic dependencies
-Pythonic dependencies for DeepPBS are listed on deeppbs_linux.yml
-We recommend installation via `conda` packagement tool.
-
+Pythonic dependencies for DeepPBS are listed on `deeppbs_linux.yml`. We recommend installation via `conda` packagement tool.
 If you do not have `conda` please conda installation instructions [Here](https://docs.anaconda.com/free/anaconda/install/index.html)
+```
+cd deeppbs
+conda env create -f deeppbs_linux.yml
+conda activate deeppbs
+```
+### 3. Install DeepPBS
 
-Once you have installed conda you can install all the python dependencies by running the following:
-
-`conda env create -f deeppbs_linux.yml`
-
-This will create a conda environment named `deeppbs` and install the dependencies there.
-Note: The installation is tested on linux systems with cuda11.3 and cuda11.6, you may have to adjust Pyorch version number based on your system.
-The project was developed on PyG2.0.1, although future versions of PyG are backwards compatible as of now, but we cannot guarantee stability on all versions.
-For more information refer installation pages for [PyTorch](https://pytorch.org/get-started/locally/) and [PyG](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html)
-
-### Install third party packages
+```
+pip install .
+```
+### 4. Third party packages
 
 The preprocessing scripts depend on 3DNA and Curves, we have provided the packages required in `dependencies/bin` and how to source them in `run/process/proc_source.sh`. 
 However, please refer to `x3dna-v2.3-linux-64bit/x3dna-v2.3/license.txt` for fair usage of this version of 3DNA software.
 
-### Install DeepPBS
-
-```
-git clone https://github.com/timkartar/DeepPBS
-cd deepPBS
-pip install .
-```
+Note: The installation is tested on linux systems with cuda11.3 and cuda11.6, you may have to adjust Pyorch version number based on your system.
+The project was developed on PyG2.0.1, although future versions of PyG are backwards compatible as of now, but we cannot guarantee stability on all versions.
+For more information refer installation pages for [PyTorch](https://pytorch.org/get-started/locally/) and [PyG](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html)
 
 ## Usage pipeline for pre-trained DeepPBS
 
