@@ -34,26 +34,33 @@ cd deepPBS
 pip install .
 ```
 
-## Quickstart
-
-Pre-trained models are provided with the package.
+## Usage pipeline for pre-trained DeepPBS
 
 Example pipeline for processing and predicting is as below:
-```
-cd deeppbs/run/process
 
-// process and predict the structures present in `deeppbs/run/process/pdb` directory
-// see process_config.json and pred_config.json for parameters and path details (note some
-parameters are unused) and `proc_source.sh` for required environment setup
-// outputs will be generated in `deeppbs/run/process/output` directory
+1. `cd run/process/`
+2. Put your PDB files containing biological aseemblies of interest into `pdb` directory
+3. run `ls pdb > input.txt`
+4. `./process_and_predict.sh` (you can parallelize the steps in this script through multiple job submissions)
 
-./process_and_predict.sh
+This will process the list of pdbs and put the processed npz files into `npz` directory.
 
-// run interpretation on an example pdb file present in `deeppbs/run/process/pdb` (provided it has 
-// been processed to an npz file in `deeppbs/run/process/npz`) see `interpret_config.json` 
-// output wil be generated in `deeppbs/run/plot_scripts/interpret_output/`
+Then it will make predictions using the DeepPBS ensemble and put the predictions in `output` directory (in `run/process`)
 
-./vis_interpret.sh 5x6g
-```
+## Compute and Visualize perturbation based heavy atominterpretability
+1. `cd run/process`
+2. `./vis_interpret.sh <pdb_name_without .pdb>`, for example `./vis_interpret.sh 5x6g` 
+
+This will compute and store the perturbation outcomes and other required information in `run/plot_scripts/interpret_output`
+
+3.  You need a [PyMol](https://pymol.org/2/) executable for this step! Once installed, you can run the following
+
+4.  `pymol  ../plot_scripts/vis_interpret.py ../plot_scripts/ 5x6g.pdb` 
+
+This will open a pymol session for the visualization (screenshot below) and save a .psw file in `run/plot_scripts/interpret_output`
+
+![5x6g](https://github.com/timkartar/DeepPBS/assets/16060117/f8a36b07-c1de-489c-9a12-31894118048e)
+
+Simulation trajectories in PDB format snapshots can be processed in similar manner:
 
 ![output](https://github.com/timkartar/DeepPBS/assets/16060117/ff99b40a-432b-43ff-a2c5-b0bde06c2db5)
