@@ -1,5 +1,5 @@
 # DeepPBS
-## Geometry invariant Deep learning of Protein-DNA structures for Binding Specificity prediction
+## Geometry invariant Deep learning on Protein-DNA structures for Binding Specificity prediction
 
 ![alt text](https://github.com/timkartar/DeepPBS/blob/main/run/figs/Fig1_white.png?raw=true)
 
