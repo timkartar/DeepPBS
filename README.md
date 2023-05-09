@@ -52,3 +52,5 @@ parameters are unused) and `proc_source.sh` for required environment setup
 
 ./vis_interpret.sh 5x6g
 ```
+
+![output](https://github.com/timkartar/DeepPBS/assets/16060117/ff99b40a-432b-43ff-a2c5-b0bde06c2db5)
