@@ -1,4 +1,4 @@
 {
-    "PDB_FILES_PATH": "/home/raktim/deeppbs/run/process/pdb",
-    "FEATURE_DATA_PATH": "/home/raktim/deeppbs/run/process/npz"
+    "PDB_FILES_PATH": "./pdb",
+    "FEATURE_DATA_PATH": "./npz"
 }

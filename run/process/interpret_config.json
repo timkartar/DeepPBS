@@ -1,5 +1,5 @@
 {
-  "data_dir": "/home/raktim/deeppbs/run/process/npz/",
+  "data_dir": "./npz/",
   "nc": 4,
   "labels_key": "Y_pwm",
   "cache_dataset": false,
