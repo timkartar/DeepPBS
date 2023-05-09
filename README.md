@@ -1,29 +1,32 @@
 # DeepPBS
+## Geometry invariant Deep learning of Protein-DNA structures for Binding Specificity prediction
 
 ![alt text](https://github.com/timkartar/DeepPBS/blob/main/run/figs/Fig1_white.png?raw=true)
 
-Developement Environment:
-
-* Biopython 1.79
-* datetime 
-* matplotlib 3.5.2
-* scipy 1.7.3
-* scikit-learn 1.1.1
-* pytorch 1.12.1+cu116
-* pytorch_geometric 2.1.0
-* tqdm 4.64.0
-* glob2 0.7
-* igl 2.2.1
-* json
-* logomaker 0.8
-* networkx 2.8.4
-* pandas 1.4.4
-* seaborn 0.11.2
-* trimesh 3.10.0
-* numpy 1.21.5
-* freesasa 2.1.0
 
 ## Installation
+
+### Install pythonic dependencies
+Pythonic dependencies for DeepPBS are listed on deeppbs_linux.yml
+We recommend installation via `conda` packagement tool.
+
+If you do not have `conda` please conda installation instructions [Here](https://docs.anaconda.com/free/anaconda/install/index.html)
+
+Once you have installed conda you can install all the python dependencies by running the following:
+
+`conda env create -f deeppbs_linux.yml`
+
+This will create a conda environment named `deeppbs` and install the dependencies there.
+Note: The installation is tested on linux systems with cuda11.3 and cuda11.6, you may have to adjust Pyorch version number based on your system.
+The project was developed on PyG2.0.1, although future versions of PyG are backwards compatible as of now, but we cannot guarantee stability on all versions.
+For more information refer installation pages for [PyTorch](https://pytorch.org/get-started/locally/) and [PyG](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html)
+
+### Install third party packages
+
+The preprocessing scripts depend on 3DNA and Curves, we have provided the packages required in `dependencies/bin` and how to source them in `run/process/proc_source.sh`. 
+However, please refer to `x3dna-v2.3-linux-64bit/x3dna-v2.3/license.txt` for fair usage of this version of 3DNA software.
+
+### Install DeepPBS
 
 ```
 git clone https://github.com/timkartar/DeepPBS
