@@ -14,7 +14,7 @@ git clone https://github.com/timkartar/DeepPBS
 Pythonic dependencies for DeepPBS are listed on `deeppbs_linux.yml`. We recommend installation via `conda` packagement tool.
 If you do not have `conda` please conda installation instructions [Here](https://docs.anaconda.com/free/anaconda/install/index.html)
 ```
-cd deeppbs
+cd DeepPBS
 conda env create -f deeppbs_linux.yml
 conda activate deeppbs
 ```
