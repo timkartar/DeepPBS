@@ -45,7 +45,7 @@ This will process the list of pdbs and put the processed npz files into `npz` di
 
 Then it will make predictions using the DeepPBS ensemble and put the predictions in `output` directory (in `run/process`)
 
-## Compute and Visualize perturbation based heavy atominterpretability
+## Compute and Visualize perturbation based heavy atom interpretability
 1. `cd run/process`
 2. `./vis_interpret.sh <pdb_name_without .pdb>`, for example `./vis_interpret.sh 5x6g` 
 
