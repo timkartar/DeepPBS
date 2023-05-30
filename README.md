@@ -70,3 +70,6 @@ Simulation trajectories in PDB format snapshots can be processed in similar mann
 3. All analyzed Exd-Scr simulations frames in PDB format: [Here](https://drive.google.com/file/d/1-gcE0ykb-Bg_birUSPLY1vYOi138cgit/view?usp=sharing)
 4. Cross-validation set is listed as `run/fold/valid*.txt` and benchmark set is listed as `run/folds/id.txt`
 5. Simulation parameters: [Here](https://doi.org/10.6084/m9.figshare.22695778.v3)
+
+## Acknowledgement
+Parts of pre-processing code was contributed by Jared Sagendorf from previous projects in the Rohs Lab: DNAProDB (https://github.com/jaredsagendorf/dnaprodb-back) and GEMENAI (https://github.com/jaredsagendorf/gemenai)
