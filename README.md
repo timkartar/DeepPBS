@@ -12,7 +12,7 @@ git clone https://github.com/timkartar/DeepPBS
 ### 2. Install pythonic dependencies
 
 Pythonic dependencies for DeepPBS are listed on `deeppbs_linux.yml`. We recommend installation via `conda` packagement tool.
-If you do not have `conda` please conda installation instructions [Here](https://docs.anaconda.com/free/anaconda/install/index.html)
+If you do not have `conda` please refer conda installation instructions [Here](https://docs.anaconda.com/free/anaconda/install/index.html)
 ```
 cd DeepPBS
 conda env create -f deeppbs_linux.yml
