@@ -1,7 +1,7 @@
 # DeepPBS
 ## Geometric Deep learning on Protein-DNA structures for interpretable prediction of binding specificity across protein families
 
-![alt text](https://github.com/timkartar/DeepPBS/blob/main/run/figs/Fig1_white.png?raw=true)
+![alt text](https://github.com/timkartar/DeepPBS/blob/main/run/figs/Fig1_square_white.png?raw=true)
 
 
 ## Installation
