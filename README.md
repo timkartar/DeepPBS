@@ -5,6 +5,7 @@
 
 
 ## Installation
+(should take 5-10 minutes with proper system setup)
 ### 1. Git clone the repository
 ```
 git clone https://github.com/timkartar/DeepPBS
@@ -44,6 +45,7 @@ Example pipeline for processing and predicting is as below:
 This will process the list of pdbs and put the processed npz files into `npz` directory.
 
 Then it will make predictions using the DeepPBS ensemble and put the predictions in `output` directory (in `run/process`)
+Combined pre-processing and inference time for one biological assembly is in the order of seconds (e.g., for PDB ID 5x6g, about 15-20 seconds)
 
 ## Compute and Visualize perturbation based heavy atom interpretability
 1. `cd run/process`
