@@ -59,11 +59,11 @@ This will compute and store the perturbation outcomes and other required informa
 
 This will open a pymol session for the visualization (screenshot below) and save a .psw file in `run/plot_scripts/interpret_output`
 
-![5x6g](https://github.com/timkartar/DeepPBS/assets/16060117/f8a36b07-c1de-489c-9a12-31894118048e)
+![5x6g](https://github.com/timkartar/DeepPBS/blob/main/run/figs/5x6g.png?raw=true)
 
 Simulation trajectories in PDB format snapshots can be processed in similar manner:
 
-![output](https://github.com/timkartar/DeepPBS/assets/16060117/ff99b40a-432b-43ff-a2c5-b0bde06c2db5)
+![output](https://github.com/timkartar/DeepPBS/blob/main/run/figs/output.gif?raw=true)
 
 ## Data availability
 
