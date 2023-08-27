@@ -44,6 +44,8 @@ Example pipeline for processing and predicting is as below:
 
 This will process the list of pdbs and put the processed npz files into `npz` directory.
 
+Note: As evident, you can parallelize this script, but in that case make sure you create a separate working directory for each job. Otherwise temporary files generated during processing may conflict.
+
 Then it will make predictions using the DeepPBS ensemble and put the predictions in `output` directory (in `run/process`)
 Combined pre-processing and inference time for one biological assembly is in the order of seconds (e.g., for PDB ID 5x6g, about 15-20 seconds)
 
