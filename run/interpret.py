@@ -156,7 +156,8 @@ def get_output(atom_to_mask=None):
             batch = DLs[dl_idx][data_idx]
             batch_data = processBatch(device, batch)
             batch_data['atom_to_mask'] = atom_to_mask
-            outputs.append(torch.softmax(models[dl_idx](batch_data['batch'], atom_to_mask), dim=1).data.cpu().numpy())
+            with torch.no_grad():
+                outputs.append(torch.softmax(models[dl_idx](batch_data['batch'], atom_to_mask), dim=1).data.cpu().numpy())
         
         #output = reduce(lambda x, y:x+y, outputs)
 

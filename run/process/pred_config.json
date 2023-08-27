@@ -1,6 +1,5 @@
 {
   "data_dir": "./npz/",
-  "output_path": "./output",
   "nc": 4,
   "labels_key": "Y_pwm",
   "cache_dataset": false,

@@ -38,7 +38,6 @@ arg_parser.add_argument("-p","--plot_each", dest="plot_each", required=False,
 defaults = {
     "no_random": False,
     "debug": False,
-    "output_path": ".",
     "tensorboard": True,
     "write": True,
     "write_test_predictions": True,
@@ -168,7 +167,8 @@ for data_idx in tqdm(range(len(DLs[0]))):
     for dl_idx in range(len(DLs)):
         batch = DLs[dl_idx][data_idx]
         batch_data = processBatch(device, batch)
-        outputs.append(torch.softmax(models[dl_idx](batch_data['batch']), dim=1).data.cpu().numpy())
+        with torch.no_grad():
+            outputs.append(torch.softmax(models[dl_idx](batch_data['batch']), dim=1).data.cpu().numpy())
     
     #output = reduce(lambda x, y:x+y, outputs)
 
