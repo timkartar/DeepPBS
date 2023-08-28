@@ -77,6 +77,7 @@ Simulation trajectories in PDB format snapshots can be processed in similar mann
 6. List of protein sequence IDs used for application on predicted structures: [Here](https://github.com/timkartar/DeepPBS/tree/main/data/ids_for_predicted_structures)
 7. Custom scripts and intermediate files used for data gathering from JASPAR, HOCOMOCO and PDB: [Here](https://drive.google.com/file/d/17kb7RgDFoD3nVBgjd1LELHCXTWX1bHnN/view?usp=drive_link)
 8. Custom scripts and processed outputs for comparison with mutagenesis data is available [Here](https://drive.google.com/file/d/18iVbdnmV5XoLSYPD4kaGQMFmnoSoexsN/view?usp=drive_link)
+9. Custom scripts and generated data for application on predicted structures are available [Here](https://drive.google.com/file/d/1yWZGivVP5_pugrWHqs7f8YLCybeLJt4A/view?usp=drive_link)
    
 ## Acknowledgement
 Parts of pre-processing code was contributed by Jared Sagendorf from previous projects in the Rohs Lab: DNAProDB (https://github.com/jaredsagendorf/dnaprodb-back) and GEMENAI (https://github.com/jaredsagendorf/gemenai)
