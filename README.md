@@ -1,4 +1,5 @@
 # DeepPBS
+[![DOI](https://zenodo.org/badge/630624818.svg)](https://zenodo.org/badge/latestdoi/630624818)
 ## Geometric Deep learning on Protein-DNA structures for interpretable prediction of binding specificity across protein families
 
 ![alt text](https://github.com/timkartar/DeepPBS/blob/main/run/figs/Fig1_square_white.png?raw=true)
