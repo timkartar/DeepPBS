@@ -6,8 +6,8 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="deeppbs",
     version="0.0.1",
-    author="Raktim Mitra, Jared Sagendorf, Jinsen Li, Yibei Jiang and Remo Rohs",
-    author_email="jsagendorf@gmail.com",
+    author="Raktim Mitra, Jared Sagendorf, Jinsen Li, Yibei Jiang,Tsu-pei Chiu, Cameron J. Glasscock and Remo Rohs",
+    author_email="raktimmi@usc.edu",
     description="Geometry-invariant deep learning on protein-DNA structures for interpretable prediction of binding specificity across protein families",
     long_description=long_description,
     long_description_content_type="text/markdown",
