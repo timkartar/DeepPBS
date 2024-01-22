@@ -79,6 +79,16 @@ Simulation trajectories in PDB format snapshots can be processed in similar mann
 7. Custom scripts and intermediate files used for data gathering from JASPAR, HOCOMOCO and PDB: [Here](https://drive.google.com/file/d/1r68zvvqb5NkPATVfAdsLn3dFAdpkaAsU/view?usp=drive_link)
 8. Custom scripts and processed outputs for comparison with mutagenesis data is available [Here](https://drive.google.com/file/d/18iVbdnmV5XoLSYPD4kaGQMFmnoSoexsN/view?usp=drive_link)
 9. Custom scripts and generated data for application on predicted structures are available [Here](https://drive.google.com/file/d/1yWZGivVP5_pugrWHqs7f8YLCybeLJt4A/view?usp=drive_link)
-   
+
+## Run training
+
+Download and place the data avilability number 2 somewhere on your system and configure the path in
+`/run/config.json` (`"data_dir"`). Also configure the `"output_path"` as you wish.
+
+run `./submit_cross.sh` . This will submit 5 cross-validation models to train simultaneaously.
+Modify this script according to your need.
+
+
 ## Acknowledgement
 Parts of pre-processing code was contributed by Jared Sagendorf from previous projects in the Rohs Lab: DNAProDB (https://github.com/jaredsagendorf/dnaprodb-back) and GEMENAI (https://github.com/jaredsagendorf/gemenai)
+

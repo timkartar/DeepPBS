@@ -167,7 +167,7 @@ def _processData(data_files, nc, labels_key,
         X_dna_point = (X_dna_point.T[mask]).T
         
         try:
-            V_dna = np.array(V_dna).astype(np.float)
+            V_dna = np.array(V_dna).astype(float)
         except:
             print("Missing Major/Minor position:", f)
             continue

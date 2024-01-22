@@ -20,8 +20,8 @@ from sklearn import linear_model
 
 # geobind_dna modules
 from .data import data as D
-
-np.warnings.filterwarnings('ignore')
+import warnings
+warnings.filterwarnings('ignore')
 
 # Used to determine if a DNA helical axis is linear, curved in plane or
 # curved out-of-plane
