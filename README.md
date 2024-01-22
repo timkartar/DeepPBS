@@ -4,6 +4,9 @@
 
 ![alt text](https://github.com/timkartar/DeepPBS/blob/main/run/figs/Fig1_square_white.png?raw=true)
 
+## Code ocean capsule (to be active)
+
+[![DOI](https://codeocean.com/wp-content/uploads/2020/11/codeocean-logo.svg)](https://doi.org/10.24433/CO.0545023.v1)
 
 ## Installation
 (should take 5-10 minutes with proper system setup)
