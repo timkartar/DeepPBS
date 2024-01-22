@@ -947,7 +947,7 @@ def helixSegments(sG, pG, dssr, nucExplicitNumberMap, file_name, pDict, nucleoti
             
             # Compute helical axis
             summary["helical_axis"] = {}
-            getHelicalAxis(helix["pairs"], pDict, summary["helical_axis"])
+            #getHelicalAxis(helix["pairs"], pDict, summary["helical_axis"])
             
             # Compute A-tracts
             atractRe = re.compile('(A|T(?!A)){4,}')
