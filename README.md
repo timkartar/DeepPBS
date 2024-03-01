@@ -35,6 +35,8 @@ The preprocessing scripts depend on 3DNA and Curves, we have provided the packag
 However, please refer to `x3dna-v2.3-linux-64bit/x3dna-v2.3/license.txt` for fair usage of this version of 3DNA software.
 
 Note: The installation is tested on linux systems with cuda11.3 and cuda11.6, you may have to adjust Pyorch version number based on your system.
+#### UPDATE (Feb 29, 2024): The latest version on github is tested on CUDA 12.2, PyTorch 2.3 and PyG 2.5. The `.yml` file has been updated accordingly.
+
 The project was developed on PyG2.0.1, although future versions of PyG are backwards compatible as of now, but we cannot guarantee stability on all versions.
 For more information refer installation pages for [PyTorch](https://pytorch.org/get-started/locally/) and [PyG](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html)
 
