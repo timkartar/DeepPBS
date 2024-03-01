@@ -152,6 +152,7 @@ if ARGS.run_name:
     run_name = ARGS.run_name
 else:
     run_name = "{}_{}_{}".format(C.get("run_name", config), datetime.now().strftime("%m.%d.%Y.%H.%M"), np.random.randint(1000))
+print("Run name :", run_name)
 
 if ARGS.output_path:
     run_path = ospj(ARGS.output_path, run_name)

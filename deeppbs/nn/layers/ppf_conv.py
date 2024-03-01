@@ -2,7 +2,7 @@ from typing import Callable, Optional, Union
 
 import torch
 from torch import Tensor
-from torch_sparse import SparseTensor, set_diag
+#from torch_sparse import SparseTensor, set_diag
 
 from torch_geometric.nn.conv import MessagePassing
 from torch_geometric.typing import Adj, OptTensor, PairOptTensor, PairTensor
@@ -115,8 +115,8 @@ class PPFConv(MessagePassing):
                 edge_index, _ = remove_self_loops(edge_index)
                 edge_index, _ = add_self_loops(edge_index,
                                                num_nodes=pos[1].size(0))
-            elif isinstance(edge_index, SparseTensor):
-                edge_index = set_diag(edge_index)
+            #elif isinstance(edge_index, SparseTensor):
+            #    edge_index = set_diag(edge_index)
         
         
         #x_copy  = (x[0],torch.clone(x[1]).detach()) # use for accumulating original target features

@@ -1,6 +1,6 @@
 {
   "data_dir": "/project/rohs_102/raktimmi/dataset/assembly",
-  "output_path": "/project/rohs_102/raktimmi/geobind_dna/bin/output",
+  "output_path": "/project/rohs_102/raktimmi/DeepPBS/run/output",
   "nc": 4,
   "labels_key": "Y_pwm",
   "cache_dataset": false,
