@@ -145,4 +145,3 @@ dependencies:
       - tzdata==2024.1
       - werkzeug==3.0.1
       - yarl==1.9.4
-prefix: /home/raktim/anaconda3/envs/new
