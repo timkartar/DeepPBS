@@ -5,7 +5,7 @@
 ![alt text](https://github.com/timkartar/DeepPBS/blob/main/run/figs/Fig1_square_white.png?raw=true)
 
 ## Code ocean capsule for one click running 
-(same code structure as github, if you wish to modify/change input)
+(same code structure as github. If you wish to modify code/change input just copy the capsule into a new capsule that you own on Code Ocean!)
 
 [![DOI](https://codeocean.com/wp-content/uploads/2020/11/codeocean-logo.svg)](https://doi.org/10.24433/CO.0545023.v1)
 
@@ -64,7 +64,10 @@ This will compute and store the perturbation outcomes and other required informa
 
 3.  You need a [PyMol](https://pymol.org/2/) executable for this step! Once installed, you can run the following
 
-4.  `pymol  ../plot_scripts/vis_interpret.py ../plot_scripts/ 5x6g.pdb` 
+-   `pymol` (opens pymol GUI)
+-   `pip install matplotlib` (in the pymol GUI command prompt)
+-    close the pymol GUI 
+-   `pymol  ../plot_scripts/vis_interpret.py ../plot_scripts/ 5x6g.pdb` (run from terminal)
 
 This will open a pymol session for the visualization (screenshot below) and save a .psw file in `run/plot_scripts/interpret_output`
 
