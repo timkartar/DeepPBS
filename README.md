@@ -29,7 +29,7 @@ Use the `deeppbs_linux_cpu_only.yml` file for cpu only installation.
 ### 3. Install DeepPBS
 
 ```
-pip install .
+pip install -e .
 ```
 ### 4. Third party packages
 
