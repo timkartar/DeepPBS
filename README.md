@@ -24,6 +24,8 @@ cd DeepPBS
 conda env create -f deeppbs_linux.yml
 conda activate deeppbs
 ```
+Use the `deeppbs_linux_cpu_only.yml` file for cpu only installation.
+
 ### 3. Install DeepPBS
 
 ```
