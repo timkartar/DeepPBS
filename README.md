@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/630624818.svg)](https://zenodo.org/badge/latestdoi/630624818)
+[![DOI](https://img.shields.io/badge/DOI-BioRxiv-B31B1B.svg)](https://www.biorxiv.org/content/10.1101/2023.12.15.571942v1)
 ## Geometric deep learning of protein-DNA binding specificity
 
  <div>
