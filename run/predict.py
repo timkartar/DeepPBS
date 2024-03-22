@@ -107,7 +107,7 @@ models = []
 
 for item in checkpoints:
     model = Model(nF_prot, nF_dna, condition=C['condition'])
-    model.load_state_dict(torch.load(item)["model_state_dict"]) 
+    model.load_state_dict(torch.load(item, map_location=device)["model_state_dict"]) 
     model.to(device)
     models.append(model)
 outpath = ARGS.outpath
