@@ -2,7 +2,7 @@
 [![DOI](https://zenodo.org/badge/630624818.svg)](https://zenodo.org/badge/latestdoi/630624818)
 ## Geometric Deep learning of Protein-DNA binding specificity
 
-![alt text](https://github.com/timkartar/DeepPBS/blob/main/run/figs/Fig1_square_white.png?raw=true)
+![alt text](https://github.com/timkartar/DeepPBS/blob/main/run/figs/deeppbs.webp?raw=true)
 
 ## Code ocean capsule for one click running 
 (same code structure as github. If you wish to modify code/change input just copy the capsule into a new capsule that you own on Code Ocean!)
