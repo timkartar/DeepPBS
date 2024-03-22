@@ -1,5 +1,5 @@
 [![DOI](https://zenodo.org/badge/630624818.svg)](https://zenodo.org/badge/latestdoi/630624818)
-## Geometric Deep learning of Protein-DNA binding specificity
+## Geometric deep learning of protein-DNA binding specificity
 
  <div>
   <a href="https://github.com/timkartar/DeepPBS">
