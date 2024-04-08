@@ -6,9 +6,16 @@
          <img height="450" src="https://github.com/timkartar/DeepPBS/blob/main/run/figs/deeppbs.webp?raw=true" />
   </a>
  </div>
+
+## Try it out on our web server (CPU only) 
+ <div>
+  <a href="https://rohslab.usc.edu/deeppbs/">
+         <img height="50" src="https://static.vecteezy.com/system/resources/previews/021/351/649/original/web-server-icon-for-your-website-mobile-presentation-and-logo-design-free-vector.jpg" />
+  </a>
+ </div>
  
-## Code ocean capsule for one click running 
-(same code structure as github. If you wish to modify code/change input just copy the capsule into a new capsule that you own on Code Ocean!)
+## Code ocean capsule
+(same code structure as github. If you wish to modify code/change input just copy the capsule into a new capsule that you own on Code Ocean!) 
 
 [![DOI](https://codeocean.com/wp-content/uploads/2020/11/codeocean-logo.svg)](https://doi.org/10.24433/CO.0545023.v1)
 
