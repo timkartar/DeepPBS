@@ -186,6 +186,20 @@ class StructureData(object):
                 else:
                     atom.bfactor = 0.0
         
+        ###this tries to handle longer chain names###
+        i = 0
+        try:
+            ids = [item.id for item in self.structure[0].child_list]
+            for chain in self.structure[0]:
+                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                if len(chain.id) > 1:
+                    while chars[i] in ids:
+                        i+=1
+                    chain.id = chars[i]
+                    i += 1
+        except:
+            pass
+
         logging.debug("Saving pdb file: %s", outfile)
         __io.set_structure(self.structure)
         __io.save(outfile)
