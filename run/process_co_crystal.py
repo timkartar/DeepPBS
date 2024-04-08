@@ -17,7 +17,7 @@ import json
 import os
 import numpy as np
 import random
-random.seed(1)
+
 ## should be returned by processDNA
 intra_bp_parameters = ["buckle", "shear", "stretch", "stagger", "propeller", "opening"]
 inter_bp_parameters = ["shift", "slide", "rise", "tilt", "roll", "twist"]
@@ -36,7 +36,6 @@ outdir = C.get("FEATURE_DATA_PATH", "./output")
 for line in [l.strip() for l in open(ARGS.data_file,"r").readlines()]:
     try:
         if line[0] == "#":
-            #print("there")
             continue
         pdb_file = line.split(",")[0] # this should include file extension. Could be .ent, .pdb, .cif etc...
 
@@ -47,7 +46,6 @@ for line in [l.strip() for l in open(ARGS.data_file,"r").readlines()]:
         try:
             structure = StructureData(os.path.join(C["PDB_FILES_PATH"], pdb_file), name="co_crystal")
         except:
-            #    print("here")
             continue
 
 
@@ -65,11 +63,6 @@ for line in [l.strip() for l in open(ARGS.data_file,"r").readlines()]:
         dna = cleanDNA(dna,  fix_modified_nucleotide_hetflags=True)
         
         ### DNA-specific features
-        # 1. DNA shape features (from Curves and 3DNA)
-        # 2. geometric features of DNA mesh
-        # 3. moiety features (phosphate, sugar, major groove, minor groove) as one-hot encoding
-        # 4. electrostatic potential (due to protein, ignoring DNA)
-
         # generate DNA CG-bead point cloud representing atom groups
         #try:
         dna_data = processDNA(dna, quiet=False)
@@ -167,14 +160,9 @@ for line in [l.strip() for l in open(ARGS.data_file,"r").readlines()]:
                 X_dna_point[i*V_dna.shape[1] + j, V_dna.shape[1]+fn.shape[2]:] = X_dna[i,:]
         
         ### Protein-specific features
-        # 1. atom partial charge
-        # 2. atom depth
-        # 3. atom solvent accessibility
-        # 4. atchley factors
-        # 5. circular variance
+
 
         pro_features = ["charge","radius"] # list of feature names
-        #pro_features.append(getAtomDepth(protein))
         pro_features.append(getAtomSASA(protein, classifier=None))
         pro_features += getAchtleyFactors(protein)
         pro_features.append(getCV(protein, 7.5, feature_name="cv", impute_hydrogens=True))
