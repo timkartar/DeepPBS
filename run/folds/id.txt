@@ -108,7 +108,6 @@
 6od3_B_ITF2_HUMAN.H11MO.0.C.npz
 6od3_F_MA0830.2.jaspar.npz
 6od3_A_MA0830.2.jaspar.npz
-6t7b_K_SOX2_HUMAN.H11MO.0.A.npz
 7cli_B_MA0778.1.jaspar.npz
 7vuq_B_NFKB2_HUMAN.H11MO.0.B.npz
 7cli_A_NFKB2_HUMAN.H11MO.0.B.npz

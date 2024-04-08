@@ -9,9 +9,12 @@ def plotPWM(Z, ax, use_mask=False, mask=None, fontsize=10, cmaps=None, xaxis=Fal
     C = []
 
     def yellow_map(x):
-        return([1, 1, 1-x, 1])
+        target = np.array([0.984313725490196, 0.6627450980392157, 0.13333333333333333, 1])#'#FBA922'
+        white = np.array([1,1,1,1])
+        return white + x*(target - white)
+        #return([1, 1, 1-x, 1])
 
-    #cmaps = [cm.get_cmap('Greens'),cm.get_cmap('Blues'),yellow_map,cm.get_cmap('Reds')]
+    cmaps = [cm.get_cmap('Greens'),cm.get_cmap('Blues'),yellow_map,cm.get_cmap('Reds')]
     if cmaps is None:
         cmaps = [cm.get_cmap('Greens'),cm.get_cmap('Blues'),cm.get_cmap('Greys'),cm.get_cmap('Reds')]
     

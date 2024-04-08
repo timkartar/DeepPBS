@@ -193,7 +193,7 @@ def get_output(atom_to_mask=None):
         i+=1
         return output, batch.v_prot.data.cpu().numpy(), batch.x_prot[:,:4].data.cpu().numpy()
 
-outpath = fpath + "/plot_scripts/interpret_output/"
+outpath = fpath + "/process/" + C["out_dir"] + "/"
 output_full, v_prot, x_prot = get_output(outpath+pdb)
 edge_index = np.load(outpath+pdb + "_edge_index.npy")
 

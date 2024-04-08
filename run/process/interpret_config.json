@@ -1,5 +1,6 @@
 {
-  "data_dir": "./npz/",
+  "data_dir": "/home/raktim/deeppbsmar24/run/process/npz/",
+  "out_dir": "../plot_scripts/interpret_output/",
   "nc": 4,
   "labels_key": "Y_pwm",
   "cache_dataset": false,

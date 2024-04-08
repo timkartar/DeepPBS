@@ -163,11 +163,14 @@ class Model(nn.Module):
             1]).to(self.device)
 
         x_dna_rc = torch.flip(data.x_dna, [0])*shape_transform[None, :]
-        
+        tmp = x_dna_rc[0,6:12].clone().detach()
+        x_dna_rc[:-1,6:12] = x_dna_rc[1:,6:12]
+        x_dna_rc[-1,6:12] = tmp
+
         out2, _  = self.strandForward(data.e_prot, v_dna_rc, x_dna_rc, x_dna_point_rc, data.x_prot,
                 data.v_prot, data.prot_vecs, dna_vecs_rc, atom_to_mask)
 
-        out = (out1 + out2.flip([0,1]))/2
+        #out = (out1 + out2.flip([0,1]))/2
         
         return torch.cat((out1, out2),
                 dim=0)/torch.sigmoid(self.global_temp)

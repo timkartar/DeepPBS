@@ -73,6 +73,9 @@ class StructureData(object):
                 models[mid] = set() # store chain ids
             models[mid].add(cid)
         
+        for m in models:
+            models[m] = sorted(models[m])
+
         # Create model/chains to store slice
         for mid in models:
             ent.add(Model(mid))
