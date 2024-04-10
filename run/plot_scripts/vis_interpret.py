@@ -70,6 +70,6 @@ except:
     cmd.do("@vis.pml")
 '''
 cmd.do("@"+fpath+"/vis_sticks.pml")
-cmd.save(fpath + "/interpret_output/"+pdb+"_pymol_session.psw")
+cmd.save(fpath + "/interpret_output/"+pdb+"_pymol_session.pse")
 #cmd.do("@"+pdb.split("_")[0]+".pml")
 #cmd.do("dssr_block block_color=N red | minor 0.9 | major yellow")
