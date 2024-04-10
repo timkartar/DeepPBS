@@ -1,0 +1,34 @@
+{
+  "data_dir": "./npz/",
+  "nc": 4,
+  "labels_key": "Y_pwm",
+  "cache_dataset": false,
+  "epochs": 50,
+  "batch_size": 1,
+  "loss": "soft_ce",
+  "condition": "prot_shape",
+  "readout": "shape",
+  "ic_loss_weight": 0,
+  "mse_loss_weight":1,
+  "remove_zero_class": false,
+  "best_state_metric": "mae",
+  "best_state_metric_goal": "min",
+  "best_state_metric_threshold": 1.0,
+  "best_state_metric_dataset":"validation",
+  "model": {
+    "transform_args": [
+    ]
+  },
+  "optimizer": {
+    "name": "adam",
+    "kwargs": {
+      "lr": 0.001,
+      "weight_decay": 0.0001
+    }
+  },
+  "scheduler": {
+    "name": "",
+    "kwargs": {}
+  }
+}
+

@@ -7,6 +7,6 @@ rm *.pqr
 rm *.r3d
 rm *.dat
 rm *.log
-ls npz > predict_input.txt
-python ../predict.py predict_input.txt ./output/ -c pred_config.json
+cat input.txt | sed 's/pdb/npz/g' | sed 's/cif/npz/g' > predict_input.txt
+python ../predict.py predict_input.txt ./output/ -c ./pred_configs/pred_config_deeppbs.json
 

@@ -8,6 +8,7 @@
   "batch_size": 1,
   "loss": "soft_ce",
   "condition": "prot_shape",
+  "readout": "shape",
   "ic_loss_weight": 0,
   "mse_loss_weight":1,
   "remove_zero_class": false,

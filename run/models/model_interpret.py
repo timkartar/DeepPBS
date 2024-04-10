@@ -29,7 +29,7 @@ class CNN(nn.Module):
 
 class Model(nn.Module):
 
-    def __init__(self, prot_channels, dna_channels, out_channels=4, condition="full", **kwargs):
+    def __init__(self, prot_channels, dna_channels, out_channels=4, condition="full", readout="all", **kwargs):
         super(Model, self).__init__()
         
         self.condition = condition
@@ -55,7 +55,7 @@ class Model(nn.Module):
         self.prot_encoder = ProtEncoder(prot_channels, self.prot_embed_dim, condition=self.condition)
 
         self.binet = BiNet(self.prot_embed_dim, self.dna_embed_dim, condition=self.condition,
-        conv="PPFConv", readout="all") # +dna_channels
+        conv="PPFConv", readout=readout) # +dna_channels
         
         self.reduce_nn = MLP([11*self.dna_embed_dim, 2*self.binet_reduce_channels,
             self.binet_reduce_channels], dropout=self.dropout)

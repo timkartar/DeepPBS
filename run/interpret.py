@@ -68,7 +68,17 @@ datafiles = [ARGS.data_file]
 
 fpath = os.path.dirname(os.path.abspath(__file__))
 #checkpoints = [l.strip() for l in open("./plot_scripts/txts/ppfconv_prot_s_edgef_8.txt","r").readlines()]
-checkpoints = [l.strip() for l in open(fpath + "/plot_scripts/txts/DeepPBS.txt","r").readlines()]
+if C['readout'] == "all" and C['condition'] == "prot_shape":
+    modelname = "DeepPBS"
+elif C['readout'] == "all" and C['condition'] == "prot_shape_ag":
+    modelname = "DeepPBSwithDNAseqInfo"
+elif C['readout'] == "base" and C['condition'] == "prot":
+    modelname = "BaseReadout"
+elif C['readout'] == "shape" and C['condition'] == "prot_shape":
+    modelname = "ShapeReadout"
+
+
+checkpoints = [l.strip() for l in open(fpath + "/plot_scripts/txts/{}.txt".format(modelname),"r").readlines()]
 #checkpoints = [l.strip() for l in open("./plot_scripts/txts/1hlo.txt","r").readlines()]
 #print(checkpoints)
 
@@ -102,7 +112,7 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 models = []
 
 for item in checkpoints:
-    model = Model(nF_prot, nF_dna, condition=C['condition'])
+    model = Model(nF_prot, nF_dna, condition=C['condition'], readout=C['readout'])
     model.load_state_dict(torch.load(item, map_location=device)["model_state_dict"]) 
     model.to(device)
     model.eval()
