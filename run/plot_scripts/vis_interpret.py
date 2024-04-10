@@ -12,7 +12,13 @@ import sys
 fpath = sys.argv[2]
 pdbpath = fpath + "/../process/pdb/"
 pdb = sys.argv[3]
-npz = pdb.replace("pdb","npz")
+if pdb.endswith("pdb"):
+    npz = pdb.replace("pdb","npz")
+elif pdb.endswith("cif"):
+    npz = pdb.replace("cif","npz")
+else:
+    print("Neither .pdb or .cif file extension, please check")
+
 #cmap = cm.get_cmap('RdYlBu')
 cmap = cm.get_cmap('hot')
 

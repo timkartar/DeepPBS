@@ -173,8 +173,8 @@ for line in [l.strip() for l in open(ARGS.data_file,"r").readlines()]:
         print("CONTACT COUNT", contacts[0], pdb_file)
 
         if not ARGS.no_pwm:
-            np.savez_compressed(os.path.join(outdir,"{}_{}.npz".format(pdb_file.split("/")[-1].replace(".pdb",""), pwm_id)), V_dna=V_dna, X_dna=X_dna, X_dna_point=X_dna_point, dna_feature_names=dna_feature_names, V_prot=V_prot, X_prot=X_prot, E_prot=E_prot, prot_feature_names=pro_features, Y_hard=dna_seq,Y_pwm=Y_pwm, pwm_mask=pwm_mask, dna_mask=dna_mask, aln_score=np.array([aln_score]), dna_vectors=dna_vectors, prot_vectors=prot_vectors, contacts=contacts)
+            np.savez_compressed(os.path.join(outdir,"{}_{}.npz".format(pdb_file.split("/")[-1].replace(".pdb","").replace(".cif",""), pwm_id)), V_dna=V_dna, X_dna=X_dna, X_dna_point=X_dna_point, dna_feature_names=dna_feature_names, V_prot=V_prot, X_prot=X_prot, E_prot=E_prot, prot_feature_names=pro_features, Y_hard=dna_seq,Y_pwm=Y_pwm, pwm_mask=pwm_mask, dna_mask=dna_mask, aln_score=np.array([aln_score]), dna_vectors=dna_vectors, prot_vectors=prot_vectors, contacts=contacts)
         else:
-            np.savez_compressed(os.path.join(outdir,"{}.npz".format(pdb_file.split("/")[-1].replace(".pdb",""))), V_dna=V_dna, X_dna=X_dna, X_dna_point=X_dna_point, dna_feature_names=dna_feature_names, V_prot=V_prot, X_prot=X_prot, E_prot=E_prot, prot_feature_names=pro_features, Y_hard=dna_seq,Y_pwm=Y_pwm, pwm_mask=pwm_mask, dna_mask=dna_mask, aln_score=np.array([aln_score]), dna_vectors=dna_vectors, prot_vectors=prot_vectors, contacts=contacts)
+            np.savez_compressed(os.path.join(outdir,"{}.npz".format(pdb_file.split("/")[-1].replace(".pdb","").replace(".cif",""))), V_dna=V_dna, X_dna=X_dna, X_dna_point=X_dna_point, dna_feature_names=dna_feature_names, V_prot=V_prot, X_prot=X_prot, E_prot=E_prot, prot_feature_names=pro_features, Y_hard=dna_seq,Y_pwm=Y_pwm, pwm_mask=pwm_mask, dna_mask=dna_mask, aln_score=np.array([aln_score]), dna_vectors=dna_vectors, prot_vectors=prot_vectors, contacts=contacts)
     except:
         continue
