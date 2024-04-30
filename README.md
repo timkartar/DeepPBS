@@ -17,7 +17,7 @@
 ## Code ocean capsule
 (same code structure as github. If you wish to modify code/change input just copy the capsule into a new capsule that you own on Code Ocean!) 
 
-[![DOI](https://codeocean.com/wp-content/uploads/2020/11/codeocean-logo.svg)](https://doi.org/10.24433/CO.0545023.v1)
+[![DOI](https://8277274.fs1.hubspotusercontent-na1.net/hubfs/8277274/Code%20Ocean%20U4%20Theme%20Assets/code-ocean-footer-logo.svg)](https://doi.org/10.24433/CO.0545023.v2)
 
 ## Installation
 (should take 5-10 minutes with proper system setup)
