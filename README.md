@@ -100,8 +100,3 @@ Download and place the data avilability number 2 somewhere on your system and co
 
 run `./submit_cross.sh` . This will submit 5 cross-validation models to train simultaneaously.
 Modify this script according to your need.
-
-
-## Acknowledgement
-Parts of pre-processing code was contributed by Jared Sagendorf from previous projects in the Rohs Lab: DNAProDB (https://github.com/jaredsagendorf/dnaprodb-back) and GEMENAI (https://github.com/jaredsagendorf/gemenai)
-
