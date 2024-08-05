@@ -1,6 +1,5 @@
+[![DOI](https://img.shields.io/badge/DOI-NMETH-FFA500.svg)](https://doi.org/10.1038/s41592-024-02372-w)  
 
-
-[![DOI](https://img.shields.io/badge/DOI-NMETH-FFA500.svg)](https://doi.org/10.1038/s41592-024-02372-w)  [![DOI](https://img.shields.io/badge/DOI-BioRxiv-B31B1B.svg)](https://www.biorxiv.org/content/10.1101/2023.12.15.571942v1) 
 ## Geometric deep learning of protein-DNA binding specificity
 
  <div>
