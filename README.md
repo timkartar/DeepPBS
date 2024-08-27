@@ -28,18 +28,34 @@ git clone https://github.com/timkartar/DeepPBS
 ```
 ### 2. Install pythonic dependencies
 
-Pythonic dependencies for DeepPBS are listed on `deeppbs_linux.yml`. We recommend installation via `conda` packagement tool.
+We recommend installation via `conda` packagement tool.
 If you do not have `conda` please refer conda installation instructions [Here](https://docs.anaconda.com/free/anaconda/install/index.html)
+
 ```
-cd DeepPBS
-conda env create -f deeppbs_linux.yml
-conda activate deeppbs
+// gcc and cuda configs: gcc/12.3.0 cuda/12.2.1 (works with 12.2 and 12.1, just FYI)
+
+conda create -n deeppbs_install python=3.10
+
+conda init bash
+
+conda activate deeppbs_install
+
+// look here for other versions: https://pytorch.org/get-started/previous-versions/
+conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=12.1 -c pytorch -c nvidia
+
+pip install torch_geomtric
+
+// look here for other versions: https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
+pip install torch_scatter torch_sparse torch_cluster -f https://data.pyg.org/whl/torch-2.3.0+cu121.html
+
+pip install -U --no-cache-dir     biopython==1.83     logomaker     matplotlib==3.5.2     networkx     pandas==1.4.4     pdb2pqr     scipy==1.14.1     seaborn==0.13.2     freesasa==2.2.1 
+
 ```
-Use the `deeppbs_linux_cpu_only.yml` file for cpu only installation.
 
 ### 3. Install DeepPBS
 
 ```
+cd DeepPBS
 pip install -e .
 ```
 ### 4. Third party packages
