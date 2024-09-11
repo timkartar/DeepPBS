@@ -186,8 +186,8 @@ def get_output(atom_to_mask=None):
 
         output = reduce(lambda x, y:x+y, outputs)
         idx = output.shape[0]//2
-        output = (output/len(models))[:idx, :]
-        #output = (output/len(models))[idx:, :][::-1,:]
+        #output = (output/len(models))[:idx, :]
+        output = (output/len(models))[idx:, :][::-1,:]
         plot(output, seq, datafiles, i, atom_to_mask)
         '''
         if r_idx == 1:
