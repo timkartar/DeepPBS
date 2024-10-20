@@ -168,7 +168,13 @@ def get_groove_symmetric(res1, res2):
             if "N1" in atom.get_name():
                 N1 = atom.coord
 
-    point_on_plane = (N1 + N9)/2
+    try: #DEBUG
+        point_on_plane = (N1 + N9)/2
+    except:
+        if N1 == None:
+            point_on_plane = N9
+        elif N2 == None:
+            point_on_plane = N1
     
     v = point_on_plane - C11
     u = C12 - C11
