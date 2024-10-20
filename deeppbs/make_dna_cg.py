@@ -173,7 +173,7 @@ def get_groove_symmetric(res1, res2):
     except:
         if N1 == None:
             point_on_plane = N9
-        elif N2 == None:
+        elif N9 == None:
             point_on_plane = N1
     
     v = point_on_plane - C11
