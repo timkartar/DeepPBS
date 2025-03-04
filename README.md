@@ -43,7 +43,7 @@ conda activate deeppbs_install
 // look here for other versions: https://pytorch.org/get-started/previous-versions/
 conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=12.1 -c pytorch -c nvidia
 
-pip install torch_geomtric
+pip install torch_geometric
 
 // look here for other versions: https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
 pip install torch_scatter torch_sparse torch_cluster -f https://data.pyg.org/whl/torch-2.3.0+cu121.html
