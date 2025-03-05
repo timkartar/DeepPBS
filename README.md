@@ -23,7 +23,8 @@
 ## Docker container
 (almost exact same code structure as GitHub, requires a Linux machine with Docker installed. If you wish to use a GPU, please install the NVIDIA container toolkit as well)
 
-docker pull aricohen/deeppbs:latest
+first, run: docker pull aricohen/deeppbs:latest
+
 wherever your terminal is, have a valid cif or pdb file available (in the below example, replace with test.cif). Then, run:
 docker run --gpus all -it -v $(pwd)/test.cif:/app/input/test.cif   -v $(pwd)/results:/output   deeppbs /app/input/test.cif
 (to only run prediction, and not generate heavy atom importance scores, add -m to the end of the above command)
