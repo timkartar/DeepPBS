@@ -21,7 +21,13 @@
 [![DOI](https://8277274.fs1.hubspotusercontent-na1.net/hubfs/8277274/Code%20Ocean%20U4%20Theme%20Assets/code-ocean-footer-logo.svg)](https://doi.org/10.24433/CO.0545023.v2)
 
 ## Docker container
-(requires a Linux machine with Docker installed. To use a GPU, please install the NVIDIA container toolkit as well)
+(requires a Linux machine with Docker installed. To use a GPU, please install the NVIDIA container toolkit as well!)
+
+ <div>
+  <a href="https://hub.docker.com/repository/docker/aricohen/deeppbs/general">
+         <img height="50" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Docker_logo.png" />
+  </a>
+ </div>
 
 `docker pull aricohen/deeppbs:latest`
 
