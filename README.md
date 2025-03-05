@@ -21,9 +21,9 @@
 [![DOI](https://8277274.fs1.hubspotusercontent-na1.net/hubfs/8277274/Code%20Ocean%20U4%20Theme%20Assets/code-ocean-footer-logo.svg)](https://doi.org/10.24433/CO.0545023.v2)
 
 ## Docker container
-(requires a Linux machine with Docker installed. If you wish to use a GPU, please install the NVIDIA container toolkit as well)
+(requires a Linux machine with Docker installed. To use a GPU, please install the NVIDIA container toolkit as well)
 
-run: `docker pull aricohen/deeppbs:latest`
+`docker pull aricohen/deeppbs:latest`
 
 wherever your terminal is, have a valid .cif or .pdb file available. Then, run the below command, replacing test.cif with your filename:
 `docker run --gpus all -it -v $(pwd)/test.cif:/app/input/test.cif   -v $(pwd)/results:/output   deeppbs /app/input/test.cif`
