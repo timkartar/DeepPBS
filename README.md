@@ -33,7 +33,9 @@
 `docker pull aricohen/deeppbs:latest`
 
 then, run the below command, replacing test.cif with your valid .pdb or .cif file:
+
 `docker run --gpus all -it -v $(pwd)/test.cif:/app/input/test.cif   -v $(pwd)/results:/output   deeppbs /app/input/test.cif`
+
 (to only run prediction, and not calculate heavy atom relative importance scores, append `-m` to the end of the above command)
 
 This will create a folder named `results`, and place the important DeepPBS results inside. The `predict` folder contains results related to the prediction, including the position weight matrix. If you do not run -m, it will also generate an `interpretation` folder and put related results (Pymol session, residue wise scores) there.
