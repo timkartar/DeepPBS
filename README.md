@@ -21,24 +21,25 @@
 [![DOI](https://8277274.fs1.hubspotusercontent-na1.net/hubfs/8277274/Code%20Ocean%20U4%20Theme%20Assets/code-ocean-footer-logo.svg)](https://doi.org/10.24433/CO.0545023.v2)
 
 ## Docker container
-(almost exact same code structure as GitHub, requires a Linux machine with Docker installed. If you wish to use a GPU, please install the NVIDIA container toolkit as well)
+(requires a Linux machine with Docker installed. If you wish to use a GPU, please install the NVIDIA container toolkit as well)
 
-first, run: docker pull aricohen/deeppbs:latest
+first, run: `docker pull aricohen/deeppbs:latest`
 
 wherever your terminal is, have a valid cif or pdb file available (in the below example, replace with test.cif). Then, run:
-docker run --gpus all -it -v $(pwd)/test.cif:/app/input/test.cif   -v $(pwd)/results:/output   deeppbs /app/input/test.cif
-(to only run prediction, and not generate heavy atom importance scores, add -m to the end of the above command)
+`docker run --gpus all -it -v $(pwd)/test.cif:/app/input/test.cif   -v $(pwd)/results:/output   deeppbs /app/input/test.cif`
+(to only run prediction, and not generate heavy atom importance scores, add `-m` to the end of the above command)
 
 This will create a folder where your terminal is named results, and place the important DeepPBS results inside. The predict folder contains results related to the prediction, including the position weight matrix. If you do not run -m, it will also generate an interpretation folder and put related results (Pymol session, residue wise scores) there.
 
-To explore the Docker container interactively, you can also run: docker run --gpus all -it deeppbs. From here, you can run the following manually on a test.pdb file located inside the pdb folder (see GitHub for more info):
+To explore the Docker container interactively, you can also run: `docker run --gpus all -it deeppbs`. From here, you can run the following manually on a test.pdb file located inside the pdb folder (see GitHub for more info):
+```
 ls pdb > input.txt
 ./vis_interpret.sh test
 cd ../plot_scripts
 pymol vis_interpret.py ./ test.pdb -cq
 cd interpret_output
 python create_ri.py
-
+```
 ## Installation
 (should take 5-10 minutes with proper system setup)
 ### 1. Git clone the repository
