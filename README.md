@@ -38,7 +38,7 @@ then, run the below command, replacing test.cif with your valid .pdb or .cif fil
 
 (to only run prediction, and not calculate heavy atom relative importance scores, append `-m` to the end of the above command)
 
-This will create a folder named `results`, and place the important DeepPBS results inside. The `predict` folder contains results related to the prediction, including the position weight matrix. If you do not run -m, it will also generate an `interpretation` folder and put related results (Pymol session, residue wise scores) there.
+This will create a folder named `results`, and place the important DeepPBS results inside. The `predict` folder contains results related to the prediction, including the position weight matrix. If you do not run `-m`, it will also generate an `interpretation` folder and put related results (Pymol session, residue wise scores) there.
 
 ## Installation
 (should take 5-10 minutes with proper system setup)
