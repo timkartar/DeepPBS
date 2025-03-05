@@ -28,7 +28,7 @@
          <img height="50" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Docker_logo.png" />
   </a>
  </div>
-
+<br/>
 `docker pull aricohen/deeppbs:latest`
 
 then, run the below command, replacing test.cif with your valid .pdb or .cif file:
