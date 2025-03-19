@@ -34,7 +34,7 @@
 
 then, run the below command, replacing test.cif with your valid .pdb or .cif file:
 
-`docker run --gpus all -it -v $(pwd)/test.cif:/app/input/test.cif   -v $(pwd)/results:/output   deeppbs /app/input/test.cif`
+`docker run --gpus all -it -v $(pwd)/test.cif:/app/input/test.cif   -v $(pwd)/results:/output   aricohen/deeppbs /app/input/test.cif`
 
 (to only run prediction, and not calculate heavy atom relative importance scores, append `-m` to the end of the above command)
 
